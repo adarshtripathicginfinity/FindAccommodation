@@ -147,7 +147,7 @@ const MapAvailableAccommodations = (props) => {
                         >
                           Accommodation Type:
                         </p>
-                        <p>
+                        <p style={{fontWeight:'500' , fontSize:'0.81rem'}}>
                           {data.acctypename} | {data.flatType}{" "}
                           {data.furnishedType ? `| ${data.furnishedType}` : ""}
                         </p>
