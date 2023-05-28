@@ -2,56 +2,56 @@ import {React,useState} from "react";
 
 const SmallScreenFilterAcco = (props) => {
 
-    // const [filteroption, setFilteroption] = useState([]);
-    // const [houseHabit1, setHouseHabit1] = useState([]);
-    // const [houseHabit2, setHouseHabit2] = useState([]);
-    // const [houseHabit3, setHouseHabit3] = useState([]);
+    const [filteroption, setFilteroption] = useState([]);
+    const [houseHabit1, setHouseHabit1] = useState([]);
+    const [houseHabit2, setHouseHabit2] = useState([]);
+    const [houseHabit3, setHouseHabit3] = useState([]);
     // const [selectedDistances1, setSelectedDistances1] = useState("");
     // const [selectedDistances2, setSelectedDistances2] = useState("");
     // const [selectedDistances3, setSelectedDistances3] = useState("");
     // const [selectedDistances4, setSelectedDistances4] = useState("");
   
-    // const handleFilter = (event) => {
-    //   const val = event.target.value;
-    //   if (filteroption.includes(val)) {
-    //     setFilteroption(filteroption.filter((item) => item !== val));
-    //     props.sendData(filteroption.filter((item) => item !== val));
-    //   } else {
-    //     setFilteroption([...filteroption, val]);
-    //     props.sendData([...filteroption, val]);
-    //   }
-    // };
+    const handleFilter = (event) => {
+      const val = event.target.value;
+      if (filteroption.includes(val)) {
+        setFilteroption(filteroption.filter((item) => item !== val));
+        // props.sendData(filteroption.filter((item) => item !== val));
+      } else {
+        setFilteroption([...filteroption, val]);
+        // props.sendData([...filteroption, val]);
+      }
+    };
   
-    // const handleHouseHabit1Filter1 = (event) => {
-    //   const val = event.target.value;
-    //   if (houseHabit1.includes(val)) {
-    //     setHouseHabit1(houseHabit1.filter((item) => item !== val));
-    //     props.sendHHData1(houseHabit1.filter((item) => item !== val));
-    //   } else {
-    //     setHouseHabit1([...houseHabit1, val]);
-    //     props.sendHHData1([...houseHabit1, val]);
-    //   }
-    // };
-    // const handleHouseHabit1Filter2 = (event) => {
-    //   const val = event.target.value;
-    //   if (houseHabit2.includes(val)) {
-    //     setHouseHabit2(houseHabit2.filter((item) => item !== val));
-    //     props.sendHHData2(houseHabit2.filter((item) => item !== val));
-    //   } else {
-    //     setHouseHabit2([...houseHabit2, val]);
-    //     props.sendHHData2([...houseHabit2, val]);
-    //   }
-    // };
-    // const handleHouseHabit1Filter3 = (event) => {
-    //   const val = event.target.value;
-    //   if (houseHabit3.includes(val)) {
-    //     setHouseHabit3(houseHabit3.filter((item) => item !== val));
-    //     props.sendHHData3(houseHabit3.filter((item) => item !== val));
-    //   } else {
-    //     setHouseHabit3([...houseHabit3, val]);
-    //     props.sendHHData3([...houseHabit3, val]);
-    //   }
-    // };
+    const handleHouseHabit1Filter1 = (event) => {
+      const val = event.target.value;
+      if (houseHabit1.includes(val)) {
+        setHouseHabit1(houseHabit1.filter((item) => item !== val));
+        // props.sendHHData1(houseHabit1.filter((item) => item !== val));
+      } else {
+        setHouseHabit1([...houseHabit1, val]);
+        // props.sendHHData1([...houseHabit1, val]);
+      }
+    };
+    const handleHouseHabit1Filter2 = (event) => {
+      const val = event.target.value;
+      if (houseHabit2.includes(val)) {
+        setHouseHabit2(houseHabit2.filter((item) => item !== val));
+        // props.sendHHData2(houseHabit2.filter((item) => item !== val));
+      } else {
+        setHouseHabit2([...houseHabit2, val]);
+        // props.sendHHData2([...houseHabit2, val]);
+      }
+    };
+    const handleHouseHabit1Filter3 = (event) => {
+      const val = event.target.value;
+      if (houseHabit3.includes(val)) {
+        setHouseHabit3(houseHabit3.filter((item) => item !== val));
+        // props.sendHHData3(houseHabit3.filter((item) => item !== val));
+      } else {
+        setHouseHabit3([...houseHabit3, val]);
+        // props.sendHHData3([...houseHabit3, val]);
+      }
+    };
   
     // const handleDistanceChange1 = (e) => {
     //   const value = e.target.value;
@@ -105,12 +105,26 @@ const SmallScreenFilterAcco = (props) => {
     //   }
     // };
 
-    // const applySubmit = () => {
-    //     props.sendData(filteroption);
-    //     props.sendHHData1(houseHabit1);
-    //     props.sendHHData2(houseHabit2);
-    //     props.sendHHData3(houseHabit3);
-    // }
+    const applySubmit = () => {
+        props.sendData(filteroption);
+        props.sendHHData1(houseHabit1);
+        props.sendHHData2(houseHabit2);
+        props.sendHHData3(houseHabit3);
+    }
+
+    const resetSubmit = () => {
+      setFilteroption([]);
+      setHouseHabit1([]);
+      setHouseHabit2([]);``
+      setHouseHabit3([]);
+      props.sendData(filteroption);
+      props.sendHHData1(houseHabit1);
+      props.sendHHData2(houseHabit2);
+      props.sendHHData3(houseHabit3);
+  }
+
+
+    
 
 
   return (
@@ -144,7 +158,7 @@ const SmallScreenFilterAcco = (props) => {
               </p>
               <div class="form-check">
                 <input class="form-check-input border border-primary" type="checkbox" 
-                // checked={filteroption.includes("Pg")} value="Pg" onChange={handleFilter}
+                checked={filteroption.includes("Pg")} value="Pg" onChange={handleFilter}
                 />
                 <label class="form-check-label" for="flexCheckDefault">
                   PG
@@ -152,7 +166,7 @@ const SmallScreenFilterAcco = (props) => {
               </div>
               <div class="form-check">
                 <input class="form-check-input border border-primary" type="checkbox" 
-                // checked={filteroption.includes("Flat")} value="Flat" onChange={handleFilter}
+                checked={filteroption.includes("Flat")} value="Flat" onChange={handleFilter}
                 />
                 <label class="form-check-label" for="flexCheckChecked">
                   FLAT
@@ -195,8 +209,8 @@ const SmallScreenFilterAcco = (props) => {
                   class="form-check-input border border-primary"
                   type="checkbox"
                   value="Non-smoker"
-                //   checked={houseHabit1.includes("Non-smoker")}
-                //   onChange={handleHouseHabit1Filter1}
+                  checked={houseHabit1.includes("Non-smoker")}
+                  onChange={handleHouseHabit1Filter1}
                 />
                 <label class="form-check-label" for="flexCheckDefault">
                 Smoking
@@ -204,8 +218,8 @@ const SmallScreenFilterAcco = (props) => {
               </div>
               <div class="form-check">
                 <input class="form-check-input  border border-primary" type="checkbox"  value="Non-drinker"
-                            //   checked={houseHabit1.includes("Non-drinker")}
-                            //   onChange={handleHouseHabit1Filter2}
+                              checked={houseHabit1.includes("Non-drinker")}
+                              onChange={handleHouseHabit1Filter2}
                               />
                 <label class="form-check-label" for="flexCheckChecked">
                   Drinker
@@ -213,8 +227,8 @@ const SmallScreenFilterAcco = (props) => {
               </div>
               <div class="form-check">
                 <input class="form-check-input  border border-primary" type="checkbox"  value="Veg"
-                            //   checked={houseHabit1.includes("Veg")}
-                            //   onChange={handleHouseHabit1Filter3}
+                              checked={houseHabit1.includes("Veg")}
+                              onChange={handleHouseHabit1Filter3}
                               />
                 <label class="form-check-label" for="flexCheckChecked">
                   Vegetarian
@@ -230,7 +244,7 @@ const SmallScreenFilterAcco = (props) => {
                     className="reqStep2__btn-pre"
                     type="button"
                     style={{ width: "100%" }}
-                    // onClick={resetSubmit}
+                    onClick={resetSubmit}
                   >
                     <p className="reqStep__btn-p " style={{ margin: "5% 0" }}>
                       Reset
@@ -242,7 +256,7 @@ const SmallScreenFilterAcco = (props) => {
                     type="button"
                     className="reqStep2__btn-next"
                     style={{ width: "100%" }}
-                    // onClick={applySubmit}
+                    onClick={applySubmit}
                   >
                     <p className="reqStep__btn-p " style={{ margin: "5% 0" }}>
                       Apply

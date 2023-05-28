@@ -89,7 +89,7 @@ const OffcanvusAvailableAccommodation = () => {
                       <p style={{fontWeight:'700',marginBottom:'0.5rem'}}>Accommodation Type</p>
                       <p style={{marginBottom:'0'}}>
                         {/* {data.accommodationType}  */}|{" "}
-                        {/* {data.flatType}  */}| {/* {data.furnishedType} */}
+                        {/* {data.flatType}  */}|{/* {data.furnishedType} */}
                       </p>
                     </div>
                   </div>
@@ -99,25 +99,25 @@ const OffcanvusAvailableAccommodation = () => {
                     </div>
                     <div className="d-flex" style={{marginBottom:"0.25rem"}}>
                       <div className="d-flex justify-content-center amenities" style={{padding:'0.5rem', marginRight:'1rem'}}>
-                        <img src={allowed} alt="" style={{marginLeft:'0.5rem'}}/>
+                        <img src={allowed} alt="" style={{marginRight:'0.25rem'}}/>
                         <p style={{marginBottom:'0'}}>WiFi</p>
                       </div>
                       <div className="d-flex justify-content-center amenities" style={{padding:'0.5rem', marginRight:'1rem'}}>
-                        <img src={allowed} alt="" style={{marginLeft:'0.5rem'}}/>
+                        <img src={allowed} alt="" style={{marginRight:'0.25rem'}}/>
                         <p style={{marginBottom:'0'}}>Food</p>
                       </div>
                       <div className="d-flex justify-content-center amenities" style={{padding:'0.5rem', marginRight:'1rem'}}>
-                        <img src={allowed} alt="" style={{marginLeft:'0.5rem'}}/>
+                        <img src={allowed} alt="" style={{marginRight:'0.25rem'}}/>
                         <p style={{marginBottom:'0'}}>Kitchen</p>
                       </div>
                     </div>
                     <div className="d-flex" style={{marginTop:"0.5rem"}}>
                       <div className="d-flex justify-content-center amenities " style={{padding:'0.5rem', marginRight:'1rem'}}>
-                        <img src={allowed} alt="" style={{marginLeft:'0.5rem'}}/>
+                        <img src={allowed} alt="" style={{marginRight:'0.25rem'}}/>
                         <p style={{marginBottom:'0'}}>Washing Machine</p>
                       </div>
                       <div className="d-flex justify-content-center amenities " style={{padding:'0.5rem', marginRight:'1rem'}}>
-                        <img src={allowed} alt="" style={{marginLeft:'0.5rem'}}/>
+                        <img src={allowed} alt="" style={{marginRight:'0.25rem'}}/>
                         <p style={{marginBottom:'0'}}>Induction</p>
                       </div>
                     </div>
@@ -130,12 +130,12 @@ const OffcanvusAvailableAccommodation = () => {
                     <div className="d-flex">
 
                       <div className="d-flex col-4 habits " style={{padding:'0.5rem', marginRight:'0.5rem'}}>
-                        <img src={not_allowed} alt="" style={{marginLeft:'0.5rem'}} />
+                        <img src={not_allowed} alt="" style={{marginRight:'0.25rem'}} />
                         <p style={{marginBottom:'0'}}>Non veg</p>
                       </div>
 
                       <div className="d-flex col-4 habits" style={{padding:'0.5rem', marginRight:'0.5rem'}}>
-                        <img src={not_allowed} alt="" style={{marginLeft:'0.5rem'}}/>
+                        <img src={not_allowed} alt="" style={{marginRight:'0.25rem'}}/>
                         <p
                           style={{
                             marginBottom: "0.0rem",
@@ -147,7 +147,7 @@ const OffcanvusAvailableAccommodation = () => {
                       </div>
 
                       <div className="d-flex col-4 habits" style={{padding:'0.5rem', marginRight:'0.5rem'}}>
-                          <img src={allowed} alt="" style={{marginLeft:'0.5rem'}}/>                        
+                          <img src={allowed} alt="" style={{marginRight:'0.25rem'}}/>                        
                         <p style={{marginBottom:'0'}}>Drinking</p>
                       </div>
                     </div>
@@ -159,11 +159,11 @@ const OffcanvusAvailableAccommodation = () => {
                     </div>
                     <div className="d-flex">
                       <div className="d-flex justify-content-center amenities " style={{padding:'0.5rem', marginRight:'1rem'}}>
-                        <img src={allowed} alt="" style={{marginLeft:'0.25rem'}}/>
+                        <img src={allowed} alt="" style={{marginRight:'0.25rem'}}/>
                         <p style={{marginBottom:'0'}}>Weekend</p>
                       </div>
                       <div className="d-flex justify-content-center amenities " style={{padding:'0.5rem', marginRight:'1rem'}}>
-                        <img src={clock} alt="" style={{marginLeft:'0.25rem'}} />
+                        <img src={clock} alt="" style={{marginRight:'0.25rem'}} />
                         <p style={{marginBottom:'0'}}>11:00 AM - 04:00 PM</p>
                       </div>
                     </div>
@@ -174,11 +174,11 @@ const OffcanvusAvailableAccommodation = () => {
                     </div>
                     <div style={{marginTop:"0.25rem"}}>
                       <div className="d-flex" style={{marginBottom:"1rem"}}>
-                        <img src={owner_name} alt="" style={{marginLeft:'0.5rem'}} />
+                        <img src={owner_name} alt="" style={{marginLeft:'0.25rem'}} />
                         <p style={{marginLeft:"0.5rem",marginBottom:'0'}}>John Doe</p>
                       </div>
                       <div className="d-flex">
-                        <img src={call} alt="" style={{marginLeft:'0.5rem'}} />
+                        <img src={call} alt="" style={{marginLeft:'0.25rem'}} />
                         <p style={{marginLeft:"0.5rem",marginBottom:'0'}}>9876543210</p>
                       </div>
                     </div>

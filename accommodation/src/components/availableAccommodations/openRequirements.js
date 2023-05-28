@@ -52,7 +52,7 @@ const OpenRequirements = (props) => {
           className=" scrollbar col-12"
           style={{ backgroundColor: "#F5F5F5" }}
         >
-          <div className=" row row-cols-md-4 ">
+          <div className=" row row-cols-md-3 ">
             {props.sendingData.map((data, index) => (
               <div key={data.requirementid}>
                 <div
