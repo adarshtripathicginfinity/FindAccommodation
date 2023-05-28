@@ -27,23 +27,51 @@ import OffcanvusAvailableAccommodation from "./offcanvusAvailableAccommodation";
 import ModalAvailableAccommodation from "./modalAvailableAccommodation";
 
 const MapAvailableAccommodations = (props) => {
-  const furnishType = '';
-  function isFurnished (value){
-    if (value.fullyfurnished ==  true) {
-      furnishType = "Fully Furnished"
-    }
-    else if (value.semifurnished ==  true) {
-      furnishType = "Semi Furnished"
-    }
-    else if (value.unfurnished ==  true) {
-      furnishType = "Un-Furnished"
-    }
-    return furnishType
+  
 
+  function checkAccType(info) {
+    if (info["1rk"] == true) {
+      return "1 RK";
+    }
+    if (info["1bhk"] == true) {
+      return "1 BHK";
+    }
+
+    if (info["2bhk"] == true) {
+      return "2 BHK";
+    }
+    if (info["3bhk"] == true) {
+      return "3 BHK";
+    }
+    if (info["4bhk"] == true) {
+      return "4 BHK";
+    }
+
+    if (info["singlesharing"] == true) {
+      return "Single Sharing";
+    }
+    if (info["doublesharing"] == true) {
+      return "Double Sharing";
+    }
+    if (info["triplesharing"] == true) {
+      return "Triple Sharing";
+    }
   }
+
+  function checkFurnished(info) {
+    if (info["fullyfurnished"]) {
+      return "Fully Furnished";
+    }
+    if (info["semifurnished"]) {
+      return "Semi Furnished";
+    }
+    if (info["unfurnished"]) {
+      return "Un Furnished";
+    }
+  }
+
   return (
     <>
-      
       <div className="row ">
         <div className="col-4 col-sm-0 d-none d-md-flex">
           <iframe
@@ -119,23 +147,29 @@ const MapAvailableAccommodations = (props) => {
                         </p>
                       </div>
                       <div className="d-flex mb-3">
-                        <div className="me-3 nearby-location" style={{padding:'1.5rem'}}>
+                        <div
+                          className="me-3 nearby-location"
+                          style={{ padding: "1.5rem" }}
+                        >
                           <div className="d-flex justify-content-center">
                             <img src={office} alt="" />
                           </div>
                           <div className="d-flex justify-content-center">
                             <p className="mb-0 text-center px-2">
-                              {/* {data.distance} */}2 km from Sec-3 Office 
+                              {/* {data.distance} */}2 km from Sec-3 Office
                             </p>
                           </div>
                         </div>
-                        <div className="nearby-location" style={{padding:'1.5rem'}}>
+                        <div
+                          className="nearby-location"
+                          style={{ padding: "1.5rem" }}
+                        >
                           <div className="d-flex justify-content-center">
                             <img src={metro} alt="" />
                           </div>
                           <div className="d-flex justify-content-center">
                             <p className="mb-0 text-center">
-                              Nearest Metro  {data.nearestmetrostation} 
+                              Nearest Metro {data.nearestmetrostation}
                             </p>
                           </div>
                         </div>
@@ -148,13 +182,16 @@ const MapAvailableAccommodations = (props) => {
                           Accommodation Type:
                         </p>
                         <p>
-                          {data.acctypename} | {data.flatType}{" "}
-                          {data.furnishedType ? `| ${data.furnishedType}` : ""}
+                          {/* {data.acctypename} | {data.flatType}{" "}
+                          {data.furnishedType ? `| ${data.furnishedType}` : ""} */}
+                          {/* {data.acctypename == "flat" ?  data["1rk"] == true ?  "1 RK" : data["1bhk"] == true ?  "2 BHK"  : data["2bhk"] == true ?  "3 BHK" :
+                          data["4bhk"] == true ? "4 BHK"  } */}
+                          {data.acctypename} | {checkAccType(data)}  {data.acctypename == "flat" ? `| ${checkFurnished(data)}` : checkFurnished(data) } 
                         </p>
                         <div className="d-flex">
                           <img src={greencheck} alt="" />
                           <p className="availableAcco__card-p-green" style={{}}>
-                            I am looking for a room-mate
+                            I am looking for a {data.isroommate ? "room mate": "flat mate"}
                           </p>
                         </div>
                       </div>
@@ -169,7 +206,7 @@ const MapAvailableAccommodations = (props) => {
                       </div>
                     </div>
                   </div>
-                  <ModalAvailableAccommodation modalData/>
+                  <ModalAvailableAccommodation modalData />
                   <OffcanvusAvailableAccommodation />
                 </div>
               ))}

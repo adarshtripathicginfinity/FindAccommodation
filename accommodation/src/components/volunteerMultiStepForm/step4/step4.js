@@ -56,9 +56,9 @@ const Step4 = () => {
                 <div className="" style={{ marginTop: "1.25rem" }}>
                   <input
                     type="checkbox"
-                    id="coding"
-                    name="interest"
-                    value="coding"
+                    id="wifi"
+                    name="Wifi"
+                    // value="wifi"
                     className=""
                     checked = {userData["amenities.wifi"]}
                     onChange={(e)=>{setUserData({...userData, amenities :{wifi:e.target.value}})}}
@@ -74,9 +74,9 @@ const Step4 = () => {
                 <div className="" style={{ marginTop: "1.25rem" }}>
                   <input
                     type="checkbox"
-                    id="music"
-                    name="interest"
-                    value="music"
+                    id="food"
+                    name="Food"
+                    // value="food"
                     checked = {userData["amenities.food"]}
                     onChange={(e)=>{setUserData({...userData, amenities :{food:e.target.value}})}}
                   />
@@ -90,9 +90,9 @@ const Step4 = () => {
                 <div className="" style={{ marginTop: "1.25rem" }}>
                   <input
                     type="checkbox"
-                    id="music"
-                    name="interest"
-                    value="music"
+                    id="induction"
+                    name="Induction"
+                    // value="induction"
                     checked = {userData["amenities.induction"]}
                     onChange={(e)=>{setUserData({...userData, amenities :{induction:e.target.value}})}}
                   />
@@ -106,9 +106,9 @@ const Step4 = () => {
                 <div className="" style={{ marginTop: "1.25rem" }}>
                   <input
                     type="checkbox"
-                    id="music"
-                    name="interest"
-                    value="music"
+                    id="ac"
+                    name="AC"
+                    // value="ac"
                     checked = {userData["amenities.ac"]}
                     onChange={(e)=>{setUserData({...userData, amenities :{ac:e.target.value}})}}
                   />
@@ -122,9 +122,9 @@ const Step4 = () => {
                 <div className="" style={{ marginTop: "1.25rem" }}>
                   <input
                     type="checkbox"
-                    id="music"
-                    name="interest"
-                    value="music"
+                    id="geyser"
+                    name="Geyser"
+                    // value="geyser"
                     checked = {userData["amenities.geyser"]}
                     onChange={(e)=>{setUserData({...userData, amenities :{geyser:e.target.value}})}}
                   />
@@ -138,9 +138,9 @@ const Step4 = () => {
                 <div className="" style={{ marginTop: "1.25rem" }}>
                   <input
                     type="checkbox"
-                    id="music"
-                    name="interest"
-                    value="music"
+                    id="cleanliness"
+                    name="Cleanliness"
+                    // value="cleanliness"
                     checked = {userData["amenities.cleanliness"]}
                     onChange={(e)=>{setUserData({...userData, amenities :{cleanliness:e.target.value}})}}
                   />
@@ -154,9 +154,9 @@ const Step4 = () => {
                 <div className="" style={{ marginTop: "1.25rem" }}>
                   <input
                     type="checkbox"
-                    id="music"
-                    name="interest"
-                    value="music"
+                    id="washing machine"
+                    name="Washing Machine"
+                    // value="washing machine"
                     checked = {userData["amenities.washingMachine"]}
                     onChange={(e)=>{setUserData({...userData, amenities :{washingMachine:e.target.value}})}}
                   />
@@ -170,9 +170,9 @@ const Step4 = () => {
                 <div className="" style={{ marginTop: "1.25rem" }}>
                   <input
                     type="checkbox"
-                    id="music"
-                    name="interest"
-                    value="music"
+                    id="parking-2"
+                    name="Parking-2"
+                    // value="2-wheeler"
                     checked = {userData["amenities.parking_2w"]}
                     onChange={(e)=>{setUserData({...userData, amenities :{parking_2w:e.target.value}})}}
                   />
@@ -186,29 +186,34 @@ const Step4 = () => {
                 <div className="" style={{ marginTop: "1.25rem" }}>
                   <input
                     type="checkbox"
-                    id="music"
-                    name="interest"
-                    value="music"
+                    id="parking-4"
+                    name="Parking-4"
+                    // value="4-wheeler"
                     checked = {userData["amenities.parking_4w"]}
                     onChange={(e)=>{setUserData({...userData, amenities :{parking_4w:e.target.value}})}}
                   />
                   <label
                     className="Step4__label-text"
-                    style={{ marginLeft: "0.43rem" }}
+                    style={{ marginLeft: "0.43rem", marginBottom: "5%" }}
                   >
                     Parking (4-wheeler)
                   </label>
                 </div>
+                <div style={{fontSize:"13px"}}>
+                  Other Available Amenities
+                </div>
               </fieldset>
             </div>
 
-            <div className="row" style={{ marginTop: "11.2rem" }}>
+            <div className="row" style={{ marginTop: "8%" }}>
               <div className="col-6">
                 <button
                   className="prev-btn"
                   type="button"
                   class="prev-btn"
-                  onClick={()=>{previous();}}
+                  onClick={()=>{
+                    previous();
+                  }}
                   style={{ width: "100%" }}
                 >
                   <p style={{ margin: "5% 0" }}>Previous</p>
@@ -229,6 +234,7 @@ const Step4 = () => {
               </div>
             </div>
           </form>
+          {console.log(userData["amenities"])}
           </div>
         </Body>
       </FormContainer>

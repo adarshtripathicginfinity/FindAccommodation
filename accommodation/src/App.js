@@ -37,12 +37,12 @@ function App() {
       <Route path="/" element={<Layout />}>
         {/* public routes */}
 
-        <Route path="login" element={<Login />} />
+        <Route path="" element={<Login />} />
         <Route path="internsignup" element={<InternSignUp />} />
         <Route path="employeesignup" element={<EmployeeSignUp />} />
         <Route path="forgotpassword" element={<ForgotPassword />} />
-        <Route path="/forgotpassotp" element={<ForgotPassOtp />} />
-        <Route path="/internOtp" element={<InternOtp />} />
+        <Route path="forgotpassotp" element={<ForgotPassOtp />} />
+        <Route path="internOtp" element={<InternOtp />} />
 
         {/* otp access */}
 
@@ -50,52 +50,52 @@ function App() {
 
         {/* after otp verification */}
 
-        <Route path="/internverified" element={<InternVerified />} />
+        <Route path="internverified" element={<InternVerified />} />
 
-        <Route path="/forgotpassword" element={<ForgotPassword />} />
-        <Route path="/createnewpassword" element={<CreateNewPassword />} />
+        <Route path="forgotpassword" element={<ForgotPassword />} />
+        <Route path="createnewpassword" element={<CreateNewPassword />} />
         <Route
-          path="/registrationsuccessful"
+          path="registrationsuccessful"
           element={<Registrationsuccessful />}
         />
-        <Route path="/changedpassword" element={<Changedpassword />} />
+        <Route path="changedpassword" element={<Changedpassword />} />
 
         {/* we want to protect these routes */}
 
         <Route element={<RequireAuth />}>
-          <Route path="/landingpage" element={<LandingPage />} />
-          <Route path="/step1" element={<Step1 />} />
-          <Route path="/form" element={<VolunteerMultiForm />} />
+          <Route path="landingpage" element={<LandingPage />} />
+          <Route path="step1" element={<Step1 />} />
+          <Route path="form" element={<VolunteerMultiForm />} />
 
-          <Route path="/postrequirement" element={<Postrequirement />} />
+          <Route path="postrequirement" element={<Postrequirement />} />
           <Route
-            path="/availableaccommodationsonly"
+            path="availableaccommodationsonly"
             element={<AvailableAccommodations activebtn={true} />}
           />
           <Route
-            path="/availableaccommodationsreq"
+            path="availableaccommodationsreq"
             element={<AvailableAccommodations activebtn={false} />}
           />
 
-          <Route path="/Nodatapage" element={<Nodatapage />} />
+          <Route path="Nodatapage" element={<Nodatapage />} />
 
           <Route
-            path="/requirementform"
+            path="requirementform"
             element={<RequirementMultiStepForm />}
           />
-          <Route path="/openaccommodation" element={<OpenAccommodation />} />
+          <Route path="openaccommodation" element={<OpenAccommodation />} />
           <Route
-            path="/mapaccommodation"
+            path="mapaccommodation"
             element={<MapAvailableAccommodations />}
           />
 
-          <Route path="/postSuccess" element={<PostSuccessful />} />
+          <Route path="postSuccess" element={<PostSuccessful />} />
 
-          <Route path="/step1" element={<Step1 />} />
-          <Route path="/step2" element={<Step2 />} />
-          <Route path="/step3" element={<Step3 />} />
-          <Route path="/step4" element={<Step4 />} />
-          <Route path="/step5" element={<Step5 />} />
+          <Route path="step1" element={<Step1 />} />
+          <Route path="step2" element={<Step2 />} />
+          <Route path="step3" element={<Step3 />} />
+          <Route path="step4" element={<Step4 />} />
+          <Route path="step5" element={<Step5 />} />
         </Route>
         {/* catch all */}
         <Route path="*" element={<Missing />} />

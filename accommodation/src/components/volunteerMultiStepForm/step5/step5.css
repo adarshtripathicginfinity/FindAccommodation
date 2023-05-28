@@ -3,8 +3,8 @@
   font-family: "Lato";
   font-style: italic;
   font-weight: 400;
-  font-size: 14px;
-  line-height: 17px;
+  font-size: 0.8rem;
+  line-height: 1.06rem;
   color: #343435;
 }
 
@@ -13,9 +13,9 @@
   font-family: "Lato";
   font-style: normal;
   font-weight: 400;
-  font-size: 14px;
-  line-height: 16px;
-  margin: 12px 12px;
+  font-size: 0.87rem;
+  line-height: 1rem;
+  margin: 0.75rem 0.75rem;
 }
 
 .p_input {
@@ -26,34 +26,36 @@
   font-family: "Lato";
   font-style: normal;
   font-weight: 500;
-  font-size: 16px;
-  line-height: 19px;
+  font-size: 1rem;
+  line-height: 1.18rem;
 }
 
 .Step5__btn-p {
   font-family: "Lato";
   font-style: normal;
   font-weight: 400;
-  font-size: 14px;
-  line-height: 16px;
+  font-size: 0.87rem;
+  line-height: 1rem;
 }
 .Step5__btn-style {
-  background: #ffffff;
-  border: 1px solid #cacaca;
-  border-radius: 4px;
+  background: #FFFFFF;
+border: 1px solid #CACACA;
+border-radius: 4px;
 }
 
 .Step5__btn-active {
   background: #28519e;
+  border: 1px solid #cacaca;
   border-radius: 4px;
+  color: white;
 }
 
 .Step5__btn-p-active {
   font-family: "Lato";
   font-style: normal;
   font-weight: 500;
-  font-size: 14px;
-  line-height: 16px;
+  font-size: 0.87rem;
+  line-height: 1rem;
   color: white;
 }
 
@@ -61,6 +63,12 @@
   font-family: "Lato";
   font-style: italic;
   font-weight: 500;
-  font-size: 14px;
-  line-height: 17px;
+  font-size: 0.87rem;
+  line-height: 1rem;
+}
+#timepicker:before {
+  content: 'from '
+}
+#timepicker2:before {
+  content: 'to '
 }

@@ -1,4 +1,4 @@
-import React, { useContext, useState } from "react";
+import React, { useContext, useState, useEffect } from "react";
 import alert from "../../../images/alert.svg";
 import { FormContainer, Header, Body } from "../../utilityStyles/utilityStyles";
 import "./step2.css";
@@ -8,12 +8,25 @@ import styled from "styled-components";
 import { useNavigate } from "react-router-dom";
 
 const Step2 = () => {
+  useEffect(()=>{ 
+    setIsLocalityValid(userData["locality"])
+   },[] )
   const { next, previous, userData, setUserData ,currentIndex,setCurrentIndex} = useContext(MultiStepContext);
  
+  const [locality, setLocality] = useState();
+  const [isLocalityValid, setIsLocalityValid] = useState();
 
   const navigate = useNavigate();
 
- 
+  const handleLocalityInput = (event) => {
+    let {value} = event.target;
+    setLocality(value);
+    setIsLocalityValid(value.length > 3 
+      ? true
+      : false
+    );
+    setUserData({...userData, locality: value});
+  }
 
   return (
     <>
@@ -104,7 +117,7 @@ const Step2 = () => {
                 </div>
               </div>
 
-              <form>
+              <form className="row g-3 needs-validation" novalidate>
                 <div className="row" style={{ marginTop: "1.5rem" }}>
                   <div className="col">
                     <p
@@ -117,21 +130,36 @@ const Step2 = () => {
                 </div>
 
                 <div style={{ marginTop: "1.5rem" }}>
-                  <p
-                    className=".Step2__label-style"
+                  <label 
+                    className="form-label .Step2__label-style"
                     style={{ marginBottom: "0.375rem", color: "#343435" }}
                   >
                     Locality
-                  </p>
+                  </label>
                   <input
                     type="text"
+                    id="validationCustomUsername"
                     placeholder="Enter you locality"
-                    className="form-control"
+                    className={ !isLocalityValid && locality  
+                      ? "form-control input-error"
+                      : "form-control"
+                    }
                     value={userData["locality"] }
-                    onChange={(e) => {
-                      setUserData({...userData, locality:e.target.value});
+                    onInput={(e) => { 
+                      handleLocalityInput(e);
+                      // setUserData({...userData, locality:e.target.value});
                     }}
                   />
+                  {/* <div class="invalid-feedback">
+                    Please Enter Locality
+                  </div> */}
+                  {
+                    !isLocalityValid && locality && (
+                      <span style={{ color: "red", fontSize: "12px" }}>
+                            Please Enter Locality
+                      </span>
+                    )
+                  }
                 </div>
 
                 <div style={{ marginTop: "1.5rem" }}>
@@ -182,13 +210,15 @@ const Step2 = () => {
             </div>
 
             
-              <div className="row" style={{marginTop:"6.5rem"}}>
+              <div className="row" style={{marginTop:"8%"}}>
                 <div className="col-6">
                   <button
                   className="prev-btn"
                     type="button"
                     class="prev-btn"
-                    onClick={()=>{previous()}}
+                    onClick={()=>{
+                      previous();
+                    }}
                     style={{width:"100%"}}
                   >
                     <p style={{margin:"5% 0"}}>Previous</p>
@@ -198,10 +228,12 @@ const Step2 = () => {
                <div className="col-6">
                 <button
                   onClick={(event) => {
+                    // handleLocalityInput(event);
                     event.preventDefault();
-                 next();
-                    
-             
+                    if(isLocalityValid) {
+                      next();
+                    }             
+                    // next();
                   }}
                   style={{width:"100%"}}
                   className="border-0 save-btn "

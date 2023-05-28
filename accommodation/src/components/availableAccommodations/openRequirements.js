@@ -45,6 +45,52 @@ const OpenRequirements = (props) => {
   //   console.log(data);
   // }
 
+ 
+
+  function checkAccType(info) {
+    if (info["1rk"] == true) {
+      return "1 RK";
+    }
+    if (info["2rk"] == true) {
+      return "2 RK";
+    }
+    if (info["1bhk"] == true) {
+      return "1 BHK";
+    }
+
+    if (info["2bhk"] == true) {
+      return "2 BHK";
+    }
+    if (info["3bhk"] == true) {
+      return "3 BHK";
+    }
+    if (info["4bhk"] == true) {
+      return "4 BHK";
+    }
+
+    if (info["singlesharing"] == true) {
+      return "Single Sharing";
+    }
+    if (info["doublesharing"] == true) {
+      return "Double Sharing";
+    }
+    if (info["triplesharing"] == true) {
+      return "Triple Sharing";
+    }
+  }
+
+  function checkFurnished(info) {
+    if (info["fullyfurnished"]) {
+      return "Fully Furnished";
+    }
+    if (info["semifurnished"]) {
+      return "Semi Furnished";
+    }
+    if (info["unfurnished"]) {
+      return "Un Furnished";
+    }
+  }
+
   return (
     <>
       <div className="container-fluid" style={{ margin: "0", padding: "0" }}>
@@ -131,8 +177,8 @@ const OpenRequirements = (props) => {
                         Accommodation Type:
                       </p>
                       <p>
-                        {data.accommodationType} | {data.flatType}{" "}
-                        {data.furnishedType ? `| ${data.furnishedType}` : ""}
+                      {data.acctypename} | {checkAccType(data)}  {data.acctypename == "flat" ? `| ${checkFurnished(data)}` : checkFurnished(data) } 
+                      
                       </p>
                     </div>
 

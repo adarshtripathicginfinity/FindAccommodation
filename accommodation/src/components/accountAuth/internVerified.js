@@ -34,7 +34,7 @@ const InternVerified = () => {
           </div>
 
           <div className="row">
-            <div className="d-flex" style={{ justifyContent: "center" }}>
+            <div className="d-flex" style={{ justifyContent: "center", marginBottom: "3%"}}>
               <img src={Tick} alt="" />
             </div>
           </div>

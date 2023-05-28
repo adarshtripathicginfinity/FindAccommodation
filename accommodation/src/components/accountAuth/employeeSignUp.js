@@ -115,6 +115,7 @@ const EmployeeSignUp = () => {
                         </label>
                         <input
                           type="email"
+                          placeholder="Enter Your Email ID"
                           className="form-control"
                           value={email}
                           onChange={handleEmailChange}
@@ -136,6 +137,7 @@ const EmployeeSignUp = () => {
                         </label>
                         <input
                           type="password"
+                          placeholder="Enter Password"
                           className="form-control"
                           value={password}
                           onChange={handlePasswordChange}

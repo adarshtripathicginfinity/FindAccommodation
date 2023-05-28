@@ -167,7 +167,7 @@ const InternSignUp = () => {
               <input
                 type="text"
                 className={!isAdhaarNumberValid && aadharCard ? "form-control input-error" : "form-control"}
-                placeholder="--- ---- ----"
+                placeholder="---- ---- ----"
                 value={aadharCard}
                 onChange={handleAdhaarNumberChange}
               />

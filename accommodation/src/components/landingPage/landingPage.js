@@ -53,9 +53,7 @@ const LandingPage = () => {
     event.preventDefault();
     axios.get('https://cg-accommodation.azurewebsites.net/getAllAcc')
     .then(response => {
-      // Handle Success
-      // console.log(response.data);
-      // setAvailableAccommodations({...availableAccommodations,accommodations:response.data})
+  
       navigate('/availableaccommodationsonly')
 
     })
@@ -102,7 +100,7 @@ const LandingPage = () => {
                     marginTop: "3.3rem",
                   }}
                 >
-                  Welcome, {data.firstName} {data.lastName}
+                  Welcome, {data?.firstName} {data?.lastName}
                 </p>
                 <p className="landingPage__mainheading">
                   Let's find your <b>Accommodation</b>
@@ -118,7 +116,7 @@ const LandingPage = () => {
                     padding: "0",
                     margin:"0"
                   }}
-                  onClick={handleAvailableAccommodation}
+                  onClick={(e)=>{handleAvailableAccommodation(e)}}
                 >
                   <p
                     className="landingPage__btn-p"
@@ -159,7 +157,7 @@ const LandingPage = () => {
                           marginBottom: "2.31rem",
                           marginTop: "1.56rem",
                         }}
-                        onClick={handleVolunteer}
+                        onClick={(e)=>{handleVolunteer(e)}}
                         className="btn"
                       >
                         <p
@@ -175,7 +173,7 @@ const LandingPage = () => {
                         <p
                           className="landingPage__btn-p "
                           style={{ margin: "1rem 1.5rem 0.8rem" }}
-                          onClick={handleOpenrequirements}
+                          onClick={(e)=>{handleOpenrequirements(e)}}
                         >
                           See Open Requests
                         </p>
@@ -200,7 +198,7 @@ const LandingPage = () => {
                     marginBottom: "2.5rem",
                     marginTop: "1.5rem",
                   }}
-                  onClick={handlePostReq}
+                  onClick={(e)=>handlePostReq(e)}
                 >
                   <p
                     style={{ margin: "1rem 2rem" }}

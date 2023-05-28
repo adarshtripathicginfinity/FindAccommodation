@@ -15,25 +15,37 @@ const ReqStep1 = () => {
   const [date, setDate] = useState("");
   const [issetDateValid, setIsDateValid] = useState(false);
 
+  const handleLocalityChange = (event) => {
+    let {value} = event.target;
+    setLocality(value);
+    setIsLocalityValid(value.length > 3 
+      ? true
+      : false
+    );
+    setRequirementData({...requirementData, locality: value});
+  }
+
   const handlePhoneNumberChange = (event) => {
     const phoneNumber = event.target.value;
     if (phoneNumber.trim().length <= 10) {
       setContact(phoneNumber.trim());
     }
     setIsPhoneNumberValid(
-      phoneNumber.length === 0 || phoneNumber.trim().length < 10 ? false : true
+      phoneNumber.length === 0 || (phoneNumber.trim().length <= 10 && /\d{10}/.test(phoneNumber)) ? true : false
     );
+    // setRequirementData({...requirementData, contact: phoneNumber})
   };
 
 
   const handleDateChange = (event) => {
-    const phoneNumber = event.target.value;
-    if (phoneNumber.trim().length <= 10) {
-      setContact(phoneNumber.trim());
-    }
-    setIsPhoneNumberValid(
-      phoneNumber.length === 0 || phoneNumber.trim().length < 10 ? false : true
-    );
+    // const phoneNumber = event.target.value;
+    // if (phoneNumber.trim().length <= 10) {
+    //   setContact(phoneNumber.trim());
+    // }
+    // setIsPhoneNumberValid(
+    //   phoneNumber.length === 0 || phoneNumber.trim().length < 10 ? false : true
+    // );
+    
   };
 
 
@@ -88,7 +100,12 @@ const ReqStep1 = () => {
               Locality
             </label>
             <input id="locality" className="form-control" type="text" placeholder="Locality"
-            value={requirementData["locality"]} onChange={(e)=>setRequirementData({...requirementData, locality : e.target.value})}/>
+            value={requirementData["locality"]} onInput={(e)=>handleLocalityChange(e)}/>
+            {!isLocalityValid && locality && (
+                <span style={{ color: "red", fontSize: "12px" }}>
+                  Locality is not valid
+                </span>
+              )}
           </div>
           <div className="form-group" style={{ marginTop: "2rem" }}>
             <label
@@ -99,11 +116,11 @@ const ReqStep1 = () => {
               Contact No.
             </label>
             <input id="contactInfo" className="form-control" type="tel" placeholder="Contact No."
-              value={contact} onChange={()=>{handlePhoneNumberChange()}}
+              value={contact} onChange={(e)=>{handlePhoneNumberChange(e)}}
             />
             {!isPhoneNumberValid && contact && (
                 <span style={{ color: "red", fontSize: "12px" }}>
-                  Phone no. cannot be empty
+                  Contact number is not valid
                 </span>
               )}
           </div>
@@ -119,10 +136,14 @@ const ReqStep1 = () => {
               value={date} onChange={handleDateChange}
             />
           </div>
-          <div className="row justify-content-end"  style={{marginTop: "17.75rem"}}>
+          <div className="row justify-content-end"  style={{marginTop: "8%"}}>
             <div className="col-6">
-            <button style={{width:"100%"}} className="reqStep1__btn" type="button" onClick={()=>{reqNext();
-            console.log(requirementData)}}>
+            <button style={{width:"100%"}} className="reqStep1__btn" type="button" 
+            onClick={(e)=>
+            {
+              if(isPhoneNumberValid)
+                reqNext(e);
+            }}>
               <p className="reqStep__btn-p" style={{ margin: "5% 0" }}> Save & Next</p>
             </button>
 

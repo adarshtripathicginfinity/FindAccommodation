@@ -1,4 +1,4 @@
-import React, { useContext, useEffect, useState } from "react";
+import React, { useContext, useDebugValue, useEffect, useState } from "react";
 import {
   Container,
   Wrapper,
@@ -15,11 +15,51 @@ import styled from "styled-components";
 import { useNavigate } from "react-router";
 
 const Step1 = () => {
+  useEffect(()=>{ 
+    
+    setIsIdValid(userData["CGI"]);
+    setIsContactNumberValid(userData["contact"])
+   },[] )
   const {currentIndex, setCurrentIndex,next, userData, setUserData } = useContext(MultiStepContext);
 
   function handleCheckboxChange(event) {
     console.log(event.target.checked);
   }
+
+  const [id, setId] = useState();
+  const [isIdValid, setIsIdValid] = useState(false);
+
+  const [contactNumber, setContactNumber] = useState();
+  const [isContactNumberValid, setIsContactNumberValid] = useState(false);
+
+  const handleIdChange = (event) => {
+      let {value} = event.target;
+      value = value.toUpperCase();
+      setId(value);
+      setIsIdValid(/^(CGI|INT)([1-9]\d{0,3})$/.test(value)
+        ? true 
+        : false
+      );
+      setUserData({...userData, CGI : value})
+      // console.log(isIdValid);     
+      // console.log(id);
+  }
+
+  const handleContactChange = (event) => {
+    let phoneNumber = event.target.value;
+    if (phoneNumber.trim().length <= 10) {
+      setContactNumber(phoneNumber.trim());
+    }
+    setIsContactNumberValid(
+      phoneNumber.length === 0 || (phoneNumber.trim().length <= 10 && /\d{10}/.test(phoneNumber)) ? true : false
+    );
+    setUserData({...userData, contact: phoneNumber.trim()})
+    // console.log(isContactNumberValid);     
+    //   console.log(contactNumber);
+    //   console.log(userData);
+  };
+
+ 
 
   return (
     <>
@@ -57,20 +97,24 @@ const Step1 = () => {
         </Header>
         <Body>
           <div className="container-fluid" style={{ padding: "0 0.75rem" }}>
-            <form>
-              <div className="row ">
-                <div className=" col-md-3">
+            <form onSubmit={e => { e.preventDefault(); }}>
+                <div className="row ">
+                  <div className=" col-md-3">
                   <img src={dummyProfile} />
                 </div>
 
                 <div className=" col-md-5" style={{}}>
+                  {/* <div>
+                    <div><strong>{userData.CGI}</strong></div>
+                    <div style={{marginBottom:"2%"}}>{userData.contact}</div>
+                  </div>    */}
                   <p className="p_color" style={{ marginBottom: "0" }}>
                     {/* <strong>{currentUser.response[0].firstname} {currentUser.response[0].lastname} </strong> */}
                   </p>
                   {/* <p className="p_color">{currentUser.response[0].email}</p> */}
                   {/* <input type="file" /> */}
                   <button className="d-flex imgButn">
-                    <div className="me-2 d-flex align-items-baseline">
+                    <div className="me-2 d-flex align-items-baseline" style={{marginTop:"3%"}}>
                       <img src={camera} />
                     </div>
                     <p className="">Upload Image</p>
@@ -86,12 +130,21 @@ const Step1 = () => {
                   <input
                     type="text"
                     placeholder="Enter your CGI ID"
-                    className="form-control"
-                    value={userData["CGI"]}
-                    onChange={(e) =>
-                      setUserData({ ...userData, CGI: e.target.value })
+                    className= { !isIdValid && id
+                      ? "form-control input-error"
+                      : "form-control"
                     }
+                    value={userData["CGI"]}
+                    onChange={(e) =>handleIdChange(e)}
                   />
+
+                  {
+                    !isIdValid && id && (
+                      <span style={{ color: "red", fontSize: "12px" }}>
+                            CGI ID is not valid
+                      </span>
+                    )
+                  }
                 </div>
               </div>
 
@@ -101,20 +154,25 @@ const Step1 = () => {
                     Contact No.
                   </p>
                   <input
-                    type="number"
+                    type="tel"
                     placeholder="****"
-                    className="form-control"
-                    value={userData["contact"]}
-                    onChange={(e) =>
-                      setUserData({
-                        ...userData,
-                        contact: e.target.value,
-                      })
+                    className={ !isContactNumberValid && contactNumber
+                      ? "form-control input-error"
+                      : "form-control"
                     }
+                    value={userData["contact"]}
+                    onChange={(e) => handleContactChange(e)}
                   />
+                  {
+                    !isContactNumberValid && contactNumber && (
+                      <span style={{ color: "red", fontSize: "12px" }}>
+                        Contact Number is not valid
+                      </span>
+                    )
+                  }
                 </div>
               </div>
-
+              {console.log(userData)}
               <div className="row " style={{ marginTop: "1.5rem" }}>
                 <div className="d-flex justify-content-between">
                   <div>
@@ -223,13 +281,21 @@ const Step1 = () => {
 
               <div
                 className="row d-flex justify-content-end"
-                style={{ marginTop: "3rem" }}
+                style={{ marginTop: "8%" }}
               >
                 <div className="col-6" style={{ padding: "0" }}>
                   <button
                     type="button"
-                    onClick={(event) => {event.preventDefault();
-                      next();
+                    // disabled={
+                    //   ()
+                    // }
+                    onClick={(event) => {
+                      event.preventDefault();
+                      if(((isContactNumberValid) && (isIdValid))) {
+                        // setUserData({...userData, CGI : id, contact : contactNumber})
+                        // setSaveButton(true);
+                        next();
+                      }
                     }}
                     className="border-0 save-btn"
                     style={{ width: "100%" }}

@@ -13,7 +13,8 @@ const Step5 = () => {
   const { previous, submitForm ,userData,setUserData} = useContext(MultiStepContext);
   const navigate = useNavigate();
   const { activeBtn, setActiveBtn } = useState(true);
-  axios.post("https://cg-accommodation.azurewebsites.net/createAccommodation", { userData})
+  function handleSubmit(){
+    axios.post("https://cg-accommodation.azurewebsites.net/createAccommodation", { userData})
   .then((response) => {
     console.log(response.data);
     navigate("/postSuccess");
@@ -22,7 +23,31 @@ const Step5 = () => {
     console.log(error.response.data);
     
   });
+  navigate("/landingPage")
 
+
+  }
+
+  const [name, setName] = useState();
+  const [contactNumber, setContactNumber] = useState();
+  const [isContactNumberValid, setIsContactNumberValid] = useState(false);
+
+  const handleContactChange = (event) => {
+    let phoneNumber = event.target.value;
+    if (phoneNumber.trim().length <= 10) {
+      setContactNumber(phoneNumber.trim());
+    }
+    setIsContactNumberValid(
+      phoneNumber.length === 0 || (phoneNumber.trim().length <= 10 && /\d{10}/.test(phoneNumber)) ? true : false
+    );
+    setUserData({...userData, houseOwnerContact: phoneNumber.trim()})
+  }
+
+  const handleLandlordName = (event) => {
+    let {value} = event.target;
+    setName(value);
+    setUserData({...userData, houseOwnerName: value});
+  }
 
   function btnHandler() {
     setActiveBtn(!activeBtn);
@@ -75,33 +100,44 @@ const Step5 = () => {
               </div>
               <div className="" style={{ marginTop: "1rem" }}>
                 <div className="d-flex justify-content-between">
-                  <button
+                  <button 
+                  type="button"
+                    // className={
+                    //   activeBtn ? "Step5__btn-style" : "Step5__btn-active"
+                    // }
                     className={
-                      activeBtn ? "Step5__btn-style" : "Step5__btn-active"
-                    }
-                    onClick={()=>btnHandler}
+                userData["preferredDays"] === 1 ? "Step5__btn-active": "Step5__btn-style"
+                }
+                    onClick={()=>{setUserData({...userData,preferredDays:1})}}
                   >
                     <p
-                      className={
-                        activeBtn ? "Step5__btn-p" : "Step5__btn-p-active"
-                      }
-                      style={{ margin: "0.75rem 2.2rem" }}
+                     style={{ margin: "0.75rem 2rem" }}
+                      
+                      
                     >
                       Mon-Fri
                     </p>
                   </button>
-                  <button className="Step5__btn-style ">
+                  <button type="button" 
+                     className={
+                userData["preferredDays"] === 2 ? "Step5__btn-active mx-3": "Step5__btn-style mx-3"
+                }
+                    onClick={()=>{setUserData({...userData,preferredDays:2})}}  >
                     <p
-                      className="Step5__btn-p"
-                      style={{ margin: "0.75rem 2.2rem" }}
+                     style={{ margin: "0.75rem 2rem" }}
+                     
                     >
                       Weekends
                     </p>
                   </button>
-                  <button className="Step5__btn-style">
+                  <button type="button" 
+                   className={
+                userData["preferredDays"] === 3 ? "Step5__btn-active": "Step5__btn-style"
+                }
+                    onClick={()=>{setUserData({...userData,preferredDays:3})}}>
                     <p
-                      className="Step5__btn-p"
-                      style={{ margin: "0.75rem 2.2rem" }}
+                      
+                      style={{ margin: "0.75rem 2rem" }}
                     >
                       All Days
                     </p>
@@ -112,16 +148,16 @@ const Step5 = () => {
                   <input
                     type="time"
                     name=""
-                    id=""
+                    id="timepicker"
                     className="form-control"
-                    placeholder="From"
+                    
                   />
                   <input
                     type="time"
                     name=""
-                    id=""
+                    id="timepicker2"
                     className="form-control "
-                    placeholder="To"
+                    
                   />
                 </div>
               </div>
@@ -137,7 +173,7 @@ const Step5 = () => {
                     Landlord/House owner details
                   </p>
                 </div>
-                <div className=" ">
+                <div>
                   <p className="Step5__form-italic">(Optional)</p>
                 </div>
               </div>
@@ -175,7 +211,9 @@ const Step5 = () => {
                 <input
                   type="text"
                   placeholder="John Doe"
+                  onInput={(e) => handleLandlordName(e)}
                   className="form-control"
+                  value={userData["houseOwnerName"]}
                 />
               </div>
             </div>
@@ -184,14 +222,26 @@ const Step5 = () => {
               <div className="col">
                 <p className="p_input ">Contact Number</p>
                 <input
+                  onInput={(e) => handleContactChange(e)}
                   type="text"
                   placeholder="0987654321"
-                  className="form-control"
+                  className={ !isContactNumberValid && userData["houseOwnerContact"]
+                    ? "form-control input-error"
+                    : "form-control"
+                  }
+                  value={userData["houseOwnerContact"]}
                 />
+                {
+                    !isContactNumberValid && contactNumber && (
+                      <span style={{ color: "red", fontSize: "12px" }}>
+                        Contact Number is not valid
+                      </span>
+                    )
+                  }
               </div>
             </div>
 
-            <div className="row" style={{ marginTop: "9.2rem" }}>
+            <div className="row" style={{ marginTop: "8%" }}>
               <div className="col-6">
                 <button
                   className="prev-btn"
@@ -208,8 +258,12 @@ const Step5 = () => {
                 <button
                   type="button"
                   onClick={() => {
-                    submitForm();
+
+                    // submitForm();
                     //   setData();
+                    if(userData["preferredDays"] != null) {
+                      handleSubmit();    
+                    }
                   }}
                   style={{ width: "100%" }}
                   className="border-0 save-btn "

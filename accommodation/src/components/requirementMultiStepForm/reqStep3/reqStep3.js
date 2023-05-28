@@ -101,7 +101,7 @@ const ReqStep3 = () => {
           </p>
         </div>
 
-        <div className="row " style={{ marginTop: "25.4rem", padding: "0" }}>
+        <div className="row " style={{ marginTop: "8%", padding: "0" }}>
           <div className="col-6">
             <button
               className="reqStep2__btn-pre"

@@ -17,12 +17,14 @@ import AuthContext from "../context/authProvider";
 import axios from "../api/axios"
 import useAuth from "../hooks/useAuth";
 import {  useLocation } from 'react-router-dom';
+import useLogin from "../hooks/useLogin";
 
 const LOGIN_URL = '/login';
 
 
 const Login = () => {
   const userRef = useRef();
+  // const {isLoggedIn,setIsLoggedIn} = useLogin();
   const { setAuth } = useAuth();
   const navigate = useNavigate();
   const location = useLocation();
@@ -32,6 +34,7 @@ const Login = () => {
     console.log("inside useEffect")
 
   },[])
+
   const [email, setEmail] = useState("gurnoor.toor@cginfinity.com");
   const [isEmailValid, setIsEmailValid] = useState(false);
 
@@ -89,6 +92,8 @@ const Login = () => {
         localStorage.setItem('userData', JSON.stringify(res));
         setAuth({ email, password, token });
         navigate(from, { replace: true });
+        // setIsLoggedIn(true)
+
       })
       .catch((error) => {
         console.log(error.response?.data);
@@ -169,9 +174,9 @@ const Login = () => {
                               : "form-control"
                           }
                           value={email}
-                          onChange={handleEmailChange}
+                          onChange={(e)=>{handleEmailChange(e)}}
                           ref={userRef}
-                          placeholder="Enter your Email ID"
+                          placeholder="Enter Your Email ID"
                           required
                         />
                         {!isEmailValid && email && (
