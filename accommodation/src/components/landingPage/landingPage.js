@@ -243,7 +243,7 @@ const LandingPage = () => {
                     to="/interestsent"
                     style={{float: "right", fontSize:"16px"}}
                   >
-                    See All &gt;
+                  See All &gt;
                   </Link> 
                 </p>
                 <div style={{ boxShadow:"0px 4px 10px rgba(66,76,97,0.15)", borderRadius:"8px" ,paddingBottom:"0.0rem"}}>

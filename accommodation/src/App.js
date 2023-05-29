@@ -30,6 +30,7 @@ import Missing from "./components/missing/Missing";
 import RequireAuth from "./components/requirementAuth/requireAuth";
 
 import { Routes, Route } from "react-router-dom";
+import InterestSent from "./components/interestSent/interestSent";
 
 function App() {
   return (
@@ -96,6 +97,8 @@ function App() {
           <Route path="step3" element={<Step3 />} />
           <Route path="step4" element={<Step4 />} />
           <Route path="step5" element={<Step5 />} />
+
+          <Route path="interestsent" element={<InterestSent />} />
         </Route>
         {/* catch all */}
         <Route path="*" element={<Missing />} />
