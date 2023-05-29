@@ -31,6 +31,7 @@ import RequireAuth from "./components/requirementAuth/requireAuth";
 
 import { Routes, Route } from "react-router-dom";
 import InterestSent from "./components/interestSent/interestSent";
+import NotificationSent from "./components/notificationSent/notificationSent";
 
 function App() {
   return (
@@ -99,6 +100,7 @@ function App() {
           <Route path="step5" element={<Step5 />} />
 
           <Route path="interestsent" element={<InterestSent />} />
+          <Route path="notificationsent" element={<NotificationSent />} />
         </Route>
         {/* catch all */}
         <Route path="*" element={<Missing />} />

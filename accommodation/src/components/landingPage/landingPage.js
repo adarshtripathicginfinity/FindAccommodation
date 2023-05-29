@@ -240,7 +240,7 @@ const LandingPage = () => {
                 <p className="landingPage__head" style={{ color: "black" }}>
                   Notifications
                   <Link
-                    to="/interestsent"
+                    to="/notificationsent"
                     style={{float: "right", fontSize:"16px"}}
                   >
                   See All &gt;
