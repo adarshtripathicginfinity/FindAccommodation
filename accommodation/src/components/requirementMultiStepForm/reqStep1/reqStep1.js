@@ -1,10 +1,10 @@
 import React, { useContext , useState } from "react";
 import { FormContainer, Header, Body } from "../../utilityStyles/utilityStyles";
-import styled from "styled-components";
 import { MultiStepContext } from "../../stepContext/stepContext";
 import "./reqStep1.css";
 
 const ReqStep1 = () => {
+  const { reqNext , requirementData,setRequirementData } = useContext(MultiStepContext);
 
   const [locality, setLocality] = useState("");
   const [isLocalityValid, setIsLocalityValid] = useState(false);
@@ -50,8 +50,8 @@ const ReqStep1 = () => {
 
 
 
-  const { reqCurrentIndex, reqNext , requirementData,setRequirementData } = useContext(MultiStepContext);
-  console.log(reqCurrentIndex);
+
+
 
   return (
     <FormContainer>
@@ -115,14 +115,15 @@ const ReqStep1 = () => {
             >
               Contact No.
             </label>
-            <input id="contactInfo" className="form-control" type="tel" placeholder="Contact No."
-              value={contact} onChange={(e)=>{handlePhoneNumberChange(e)}}
+            <input id="contactInfo" className="form-control" type="tel" placeholder="Contact No." 
+              value={requirementData["contactInfo"]} onChange={(e)=>setRequirementData({...requirementData, contactInfo : e.target.value})}
             />
             {!isPhoneNumberValid && contact && (
                 <span style={{ color: "red", fontSize: "12px" }}>
                   Contact number is not valid
                 </span>
               )}
+          
           </div>
           <div className="form-group" style={{ marginTop: "2rem" }}>
             <label
@@ -133,7 +134,7 @@ const ReqStep1 = () => {
               Preferred Relocation Date
             </label>
             <input id="relocationDate" className="form-control" type="date" 
-              value={date} onChange={handleDateChange}
+              value={requirementData["relocationDate"]} onChange={(e)=>setRequirementData({...requirementData, relocationDate : e.target.value})}
             />
           </div>
           <div className="row justify-content-end"  style={{marginTop: "8%"}}>

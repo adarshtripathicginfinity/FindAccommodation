@@ -23,6 +23,7 @@ const Navbar = () => {
   function handleLogIn(){
     localStorage.clear();
     setIsLogin(false);
+   
     console.log("inside handleLogin")
 
   }
@@ -65,7 +66,7 @@ const Navbar = () => {
             <strong style={{ color: "#565555" }}>Account Settings</strong>
           </Link>
           {/* {console.log("inside navbar")} */}
-          <Link to={isLogin ?"/landingpage":"/"} class="dropdown-item" onClick={()=>{handleLogIn();}}>
+          <Link to={isLogin ?"/":"/landingpage"} class="dropdown-item" onClick={()=>{handleLogIn();}}>
             <strong style={{ color: "red" }}>Logout</strong>
           </Link>
         </div>

@@ -110,7 +110,7 @@ const MapAvailableAccommodations = (props) => {
                           <div
                             className="d-flex"
                             data-bs-toggle="offcanvas"
-                            data-bs-target="#offcanvasRight"
+                            data-bs-target={`#exampleOffCanvas_${data.id}`}
                             aria-controls="offcanvasRight"
                           >
                             <p className="mb-1 availableAcco__card-p-name">
@@ -182,10 +182,7 @@ const MapAvailableAccommodations = (props) => {
                           Accommodation Type:
                         </p>
                         <p>
-                          {/* {data.acctypename} | {data.flatType}{" "}
-                          {data.furnishedType ? `| ${data.furnishedType}` : ""} */}
-                          {/* {data.acctypename == "flat" ?  data["1rk"] == true ?  "1 RK" : data["1bhk"] == true ?  "2 BHK"  : data["2bhk"] == true ?  "3 BHK" :
-                          data["4bhk"] == true ? "4 BHK"  } */}
+                         
                           {data.acctypename} | {checkAccType(data)}  {data.acctypename == "flat" ? `| ${checkFurnished(data)}` : checkFurnished(data) } 
                         </p>
                         <div className="d-flex">
@@ -199,15 +196,16 @@ const MapAvailableAccommodations = (props) => {
                         <button
                           className="border-0 py-2 px-3 w-100 interested"
                           data-bs-toggle="modal"
-                          data-bs-target="#exampleModal"
+                          data-bs-target= {`#exampleModal_${data.id}`}
                         >
                           I'm interested
                         </button>
+                        {/* {console.log("Hello",props.AccData[index].id)} */}
                       </div>
                     </div>
                   </div>
-                  <ModalAvailableAccommodation modalData />
-                  <OffcanvusAvailableAccommodation />
+                  <ModalAvailableAccommodation modalData= {props.AccData[index]}   />
+                  <OffcanvusAvailableAccommodation canvasData = {props.AccData[index]} />
                 </div>
               ))}
             </div>

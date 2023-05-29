@@ -1,37 +1,19 @@
 import React, { useState } from "react";
-import { Wrapper, Container } from "../utilityStyles/utilityStyles";
 import "./availableAccommodations.css";
-import Data from "./dummyData";
-import Navbar from "../navbar/navbar";
-import Blueright_arrow from "../../images/Blueright-arrow.svg";
-import gps from "../../images/GPS.svg";
-import office from "../../images/office.svg";
-import metro from "../../images/Metrotransit.svg";
-import greencheck from "../../images/Check-outlinegreen check.svg";
-import userphoto from "../../images/userphoto.svg";
-import search from "../../images/search.svg";
-import location from "../../images/location.svg";
-import allowed from "../../images/allowed.svg";
-import not_allowed from "../../images/Not Allowed.svg";
-import clock from "../../images/clock.svg";
-import owner_name from "../../images/owner name.svg";
-import call from "../../images/call.svg";
 import greentick from "../../images/greentickfinal.svg";
 import femaleIcon from "../../images/femaleIcon.svg";
-import OpenRequirements from "./openRequirements";
-import CheckboxFilterAcco from "./checkboxFilterAcco";
-import CheckboxFilterReq from "./checkboxFilterReq";
-import NoDataaPage from "./noDataaPage";
 import { Link, useNavigate } from "react-router-dom";
 import axios from "axios";
 
 const ModalAvailableAccommodation = (props) => {
   const navigate = useNavigate();
 
-  const userData = localStorage.getItem("userData")
-  const [data,setData] = useState(JSON.parse(userData));
+  const userData = localStorage.getItem("userData");
+  const [data, setData] = useState(JSON.parse(userData));
 
+  const [contact,setContact] = useState("");
   const [message, setMessage] = useState("");
+  const [incentive,setIncentive] = useState("");
 
   const handlemessageText = (event) => {
     const { value } = event.target;
@@ -42,33 +24,32 @@ const ModalAvailableAccommodation = (props) => {
     console.log(data);
   };
 
-  const handleModalbtn = () => {
-    
-    setTimeout(() => {
-      axios
-        .post("https://cg-accommodation.azurewebsites.net/", {})
-        .then((response) => {
-          console.log(response.data);
+  const handleModalbtn = (event) => {
+    event.preventDefault();
 
-          
+    axios
+      .post("https://cg-accommodation.azurewebsites.net/interest", {accommodationId:props.modalData.id,
+      userId:data.id,incentive:incentive , message:message})
+      .then((response) => {
+        console.log(response.data);
 
-          navigate("/landingpage");
-        })
-        .catch((error) => {
-          console.log(error.response.data);
-        });
-    }, 60000);
+        navigate("/landingpage");
+      })
+      .catch((error) => {
+        console.log(error.response.data);
+      });
   };
 
   return (
     <>
       <div
         class="modal fade"
-        id="exampleModal"
+        id={`exampleModal_${props.modalData.id}`}
         tabindex="-1"
         aria-labelledby="exampleModalLabel"
         aria-hidden="true"
       >
+        {/* {console.log("Hello w",props.modalData)} */}
         <div class="modal-dialog  modal-dialog-centered">
           <div class="modal-content">
             <div class="modal-header">
@@ -90,7 +71,11 @@ const ModalAvailableAccommodation = (props) => {
             </div>
 
             <div class="modal-body">
-              <form onSubmit={handleSubmit}>
+              <form
+                onSubmit={() => {
+                  handleSubmit();
+                }}
+              >
                 <div className="row mb-3">
                   <div className="d-flex">
                     <div className="me-1">
@@ -105,7 +90,8 @@ const ModalAvailableAccommodation = (props) => {
                             fontWeight: "700",
                           }}
                         >
-                           {data.firstName} {data.lastName} 
+                        {/* {console.log("ANuttar",props.modalData.firstname)} */}
+                          {props.modalData.firstname} {props.modalData.lastname}
                         </p>
                       </div>
                       <div className="d-flex">
@@ -142,21 +128,10 @@ const ModalAvailableAccommodation = (props) => {
                           fontWeight: "700",
                         }}
                       >
-                        Email id:
+                        Email id: {data.email}
                       </p>
                     </div>
-                    <div>
-                      <p
-                        className="ms-2"
-                        style={{
-                          color: "#343435",
-                          fontWeight: "500",
-                        }}
-                      >
-                        {" "}
-                        harshitakhurana@expample.com
-                      </p>
-                    </div>
+                   
                   </div>
                 </div>
 
@@ -169,8 +144,21 @@ const ModalAvailableAccommodation = (props) => {
                           fontWeight: "700",
                         }}
                       >
-                        Contact No:
+                        Contact Number
                       </p>
+                    </div>
+                    <div className="d-flex">
+                      
+                      <input
+                        type="text"
+                        class="form-control"
+                        id="exampleInputEmail1"
+                        aria-describedby="emailHelp"
+                        placeholder="Contact Number"
+                        value={contact}
+                        onChange={(e)=>{setContact(e.target.value)}}
+                      />
+                     
                     </div>
                     <div>
                       <p
@@ -181,12 +169,11 @@ const ModalAvailableAccommodation = (props) => {
                         }}
                       >
                         {" "}
-                        9876543210
                       </p>
                     </div>
                   </div>
                 </div>
-                <div className="row">
+                {/* <div className="row">
                   <div className="d-flex">
                     <div>
                       <p
@@ -210,7 +197,7 @@ const ModalAvailableAccommodation = (props) => {
                       </p>
                     </div>
                   </div>
-                </div>
+                </div> */}
 
                 <div className="row">
                   <div className="d-flex">
@@ -230,7 +217,7 @@ const ModalAvailableAccommodation = (props) => {
                         width: "10%",
                       }}
                     >
-                      <input />
+                      <input type="text" value={incentive} onChange={(e)=>{setIncentive(e.target.value)}} />
                     </div>
                   </div>
                 </div>
@@ -251,10 +238,11 @@ const ModalAvailableAccommodation = (props) => {
                     <div className="mb-3">
                       <textarea
                         value={message}
-                        onChange={handlemessageText}
+                        onChange={(e)=>{setMessage(e.target.value)}}
                         class="form-control"
                         id="exampleFormControlTextarea1"
                         rows="3"
+                      
                       ></textarea>
                     </div>
                     <div>
@@ -262,7 +250,7 @@ const ModalAvailableAccommodation = (props) => {
                         className="border-0 py-2 px-3 w-100 interested"
                         data-bs-toggle="modal"
                         data-bs-target="#exampleModal"
-                        onClick={handleModalbtn}
+                        onClick={(e)=>handleModalbtn(e)}
                       >
                         Send Request
                       </button>

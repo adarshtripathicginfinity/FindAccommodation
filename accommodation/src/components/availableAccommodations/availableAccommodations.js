@@ -41,8 +41,6 @@ const AvailableAccommodations = (props) => {
     await axios
       .get("https://cg-accommodation.azurewebsites.net/getAllAcc")
       .then((response) => {
-        console.log(response.data.response);
-        console.log("inside handleRefresh");
         setData(response.data.response);
       })
       .catch((error) => {
@@ -55,8 +53,7 @@ const AvailableAccommodations = (props) => {
       .get("https://cg-accommodation.azurewebsites.net/allRequirement")
       .then((response) => {
         // Handle Success
-        console.log(response.data.response);
-        console.log("inside handleOpenReq");
+       
         setOpenReqData(response.data.response);
       })
       .catch((error) => {
@@ -73,14 +70,11 @@ const AvailableAccommodations = (props) => {
   }
   
   useEffect( () => {
-    console.log("inside useEffect");
-    console.log(availableAccommodations);
     handleLoad();
 
   }, []);
 
   const [activeBtn, setActiveBtn] = useState(props.activebtn);
-  console.log(props.activebtn);
   const [singleCard, setSingleCard] = useState("");
   const [mapaddress, setMapAddress] = useState("Pinnacle Business Park");
   const [filterData, setFilterData] = useState([]);
@@ -109,7 +103,7 @@ const AvailableAccommodations = (props) => {
     setDistancefilter2([]);
     setDistancefilter3([]);
     setDistancefilter4([]);
-    console.log(activeBtn);
+  
   }
   function handleToggleRequire() {
     setActiveBtn(false);
@@ -121,7 +115,7 @@ const AvailableAccommodations = (props) => {
     setDistancefilter2([]);
     setDistancefilter3([]);
     setDistancefilter4([]);
-    console.log(activeBtn);
+  
   }
   function sendAccomoData(data) {
     setFilterData(data);

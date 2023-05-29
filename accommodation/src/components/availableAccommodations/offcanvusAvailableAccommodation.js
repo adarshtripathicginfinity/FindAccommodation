@@ -12,15 +12,58 @@ import owner_name from "../../images/owner name.svg";
 import call from "../../images/call.svg";
 
 
-const OffcanvusAvailableAccommodation = () => {
+const OffcanvusAvailableAccommodation = (props) => {
+  const data = props.canvasData;
+  function checkAccType(info) {
+    if (info["1rk"] == true) {
+      return "1 RK";
+    }
+    if (info["1bhk"] == true) {
+      return "1 BHK";
+    }
+
+    if (info["2bhk"] == true) {
+      return "2 BHK";
+    }
+    if (info["3bhk"] == true) {
+      return "3 BHK";
+    }
+    if (info["4bhk"] == true) {
+      return "4 BHK";
+    }
+
+    if (info["singlesharing"] == true) {
+      return "Single Sharing";
+    }
+    if (info["doublesharing"] == true) {
+      return "Double Sharing";
+    }
+    if (info["triplesharing"] == true) {
+      return "Triple Sharing";
+    }
+  }
+
+  function checkFurnished(info) {
+    if (info["fullyfurnished"]) {
+      return "Fully Furnished";
+    }
+    if (info["semifurnished"]) {
+      return "Semi Furnished";
+    }
+    if (info["unfurnished"]) {
+      return "Un Furnished";
+    }
+  }
   return (
     <>
       <div
         className="offcanvas offcanvas-end"
         tabindex="-1"
-        id="offcanvasRight"
+        id={`#exampleOffCanvas_${data.id}`}
         aria-labelledby="offcanvasRightLabel"
       >
+      {/* {console.log(props.canvasData.id)} */}
+      {console.log(data)}
         <div class="offcanvas-header d-flex justify-content-end mb-0">
           <button
             type="button"
@@ -36,14 +79,14 @@ const OffcanvusAvailableAccommodation = () => {
                 <div>
                   <div className="row justify-content-center" style={{marginBottom:"1rem"}}>
                         <img src={userphoto} style={{width:'9.37rem' , height:'9.37rem'}}/>
-                        <p style={{marginBottom:'0'}}>{/* {data.fullName} */}</p>
-                        <p style={{marginBottom:'0'}}>{/* {data.CGIID} */}</p>
+                        <p style={{marginBottom:'0'}}>{data.firstname} {data.lastname}</p>
+                        <p style={{marginBottom:'0'}}>{data.cgiid}</p>
                   </div>
                   <div className="row" style={{marginBottom:'0.5rem'}}>
                     <div>
                       <p style={{fontWeight:'700',marginBottom:'0'}}>
                         Landmark:
-                        {/* {data.sector} */}
+                        {data.locality}
                       </p>
                     </div>
                   </div>
@@ -72,7 +115,7 @@ const OffcanvusAvailableAccommodation = () => {
                         </div>
                         <div className="d-flex justify-content-center">
                           <p className="text" style={{marginBottom:'0'}}>
-                            Nearest metro {/* {data.nearestMetro} */}
+                            Nearest metro {data.nearestmetrostation}
                           </p>
                         </div>
                       </div>
@@ -81,15 +124,16 @@ const OffcanvusAvailableAccommodation = () => {
                   <div className="row" style={{marginBottom:'1.5rem'}}>
                     <div className="d-flex">
                       <img src={greencheck} alt=""  style={{marginRight:'0.5rem'}}/>
-                      <p  style={{marginBottom:'0', color:'#14A450', fontWeight:'500'}}>I'm looking for a room-mate</p>
+                      <p  style={{marginBottom:'0', color:'#14A450', fontWeight:'500'}}>
+                      I am looking for a {data.isroommate ? "room mate": "flat mate"}
+                      </p>
                     </div>
                   </div>
                   <div className="row " style={{marginBottom:'1.5rem'}}>
                     <div>
                       <p style={{fontWeight:'700',marginBottom:'0.5rem'}}>Accommodation Type</p>
                       <p style={{marginBottom:'0'}}>
-                        {/* {data.accommodationType}  */}|{" "}
-                        {/* {data.flatType}  */}|{/* {data.furnishedType} */}
+                      {data.acctypename} | {checkAccType(data)}  {data.acctypename == "flat" ? `| ${checkFurnished(data)}` : checkFurnished(data) } 
                       </p>
                     </div>
                   </div>
