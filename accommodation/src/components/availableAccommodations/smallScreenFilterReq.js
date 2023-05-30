@@ -1,6 +1,65 @@
-import React from 'react'
+import {React,useState} from "react";
 
-const SmallScreenFilterReq = () => {
+const SmallScreenFilterReq = (props) => {
+  const [filteroption, setFilteroption] = useState([]);
+  const [houseHabit1, setHouseHabit1] = useState([]);
+  const [houseHabit2, setHouseHabit2] = useState([]);
+  const [houseHabit3, setHouseHabit3] = useState([]);
+
+  const handleFilter = (event) => {
+    const val = event.target.value;
+    if (filteroption.includes(val)) {
+      setFilteroption(filteroption.filter((item) => item !== val));
+    } else {
+      setFilteroption([...filteroption, val]);
+    }
+  };
+
+  const handleHouseHabit1Filter1 = (event) => {
+    const val = event.target;
+    if (houseHabit1.includes(val)) {
+      setHouseHabit1(houseHabit1.filter((item) => item !== val));
+    } else {
+      setHouseHabit1([...houseHabit1, val]);
+    }
+  };
+
+  const handleHouseHabit1Filter2 = (event) => {
+    const val = event.target.value;
+    if (houseHabit2.includes(val)) {
+      setHouseHabit2(houseHabit2.filter((item) => item !== val));
+    } else {
+      setHouseHabit2([...houseHabit2, val]);
+    }
+  };
+
+  const handleHouseHabit1Filter3 = (event) => {
+    const val = event.target.value;
+    if (houseHabit3.includes(val)) {
+      setHouseHabit3(houseHabit3.filter((item) => item !== val));
+    } else {
+      setHouseHabit3([...houseHabit3, val]);
+    }
+  };
+
+  const applySubmit = () => {
+    props.smsendData(filteroption);
+    // props.smsendHHData1(houseHabit1);
+    // props.smsendHHData2(houseHabit2);
+    // props.smsendHHData3(houseHabit3);
+  };
+
+  const resetSubmit = () => {
+    setFilteroption([]);
+    // setHouseHabit1([]);
+    // setHouseHabit2([]);
+    // setHouseHabit3([]);
+    props.smsendData(filteroption);
+    // props.smsendHHData1(houseHabit1);
+    // props.smsendHHData2(houseHabit2);
+    // props.smsendHHData3(houseHabit3);
+  };
+
   return (
     <>
       <div
@@ -31,18 +90,33 @@ const SmallScreenFilterReq = () => {
                 Select Accommodation Type
               </p>
               <div class="form-check">
-                <input class="form-check-input border border-primary" type="checkbox" value="" />
+                <input
+                  class="form-check-input border border-primary"
+                  type="checkbox"
+                  value="pg"
+                  id="flexCheckChecked"
+                  checked={filteroption.includes("pg")}
+                  onChange={handleFilter}
+                />
                 <label class="form-check-label" for="flexCheckDefault">
                   PG
                 </label>
               </div>
+
+
               <div class="form-check">
-                <input class="form-check-input border border-primary" type="checkbox" value="" />
+                <input
+                  class="form-check-input border border-primary" 
+                        type="checkbox" 
+                        id="flexCheckChecked" 
+                        value="flat"
+                        checked={filteroption.includes("flat")}  
+                        onChange={handleFilter}
+                />
                 <label class="form-check-label" for="flexCheckChecked">
                   FLAT
                 </label>
               </div>
-
 
               <p
                 style={{
@@ -64,13 +138,21 @@ const SmallScreenFilterReq = () => {
                 </label>
               </div>
               <div class="form-check">
-                <input class="form-check-input  border border-primary" type="checkbox" value="" />
+                <input
+                  class="form-check-input  border border-primary"
+                  type="checkbox"
+                  value=""
+                />
                 <label class="form-check-label" for="flexCheckChecked">
                   Smoking
                 </label>
               </div>
               <div class="form-check">
-                <input class="form-check-input  border border-primary" type="checkbox" value="" />
+                <input
+                  class="form-check-input  border border-primary"
+                  type="checkbox"
+                  value=""
+                />
                 <label class="form-check-label" for="flexCheckChecked">
                   Drinking
                 </label>
@@ -85,6 +167,7 @@ const SmallScreenFilterReq = () => {
                     className="reqStep2__btn-pre"
                     type="button"
                     style={{ width: "100%" }}
+                    onClick={resetSubmit}
                   >
                     <p className="reqStep__btn-p " style={{ margin: "5% 0" }}>
                       Reset
@@ -96,6 +179,7 @@ const SmallScreenFilterReq = () => {
                     type="button"
                     className="reqStep2__btn-next"
                     style={{ width: "100%" }}
+                    onClick={applySubmit}
                   >
                     <p className="reqStep__btn-p " style={{ margin: "5% 0" }}>
                       Apply
@@ -108,7 +192,7 @@ const SmallScreenFilterReq = () => {
         </div>
       </div>
     </>
-  )
-}
+  );
+};
 
-export default SmallScreenFilterReq
+export default SmallScreenFilterReq;

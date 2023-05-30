@@ -1,31 +1,14 @@
 import React, { useContext, useState, useEffect } from "react";
 import { Wrapper, Container } from "../utilityStyles/utilityStyles";
 import "./availableAccommodations.css";
-import Data from "./dummyData";
 import Navbar from "../navbar/navbar";
-import Blueright_arrow from "../../images/Blueright-arrow.svg";
-import gps from "../../images/GPS.svg";
-import office from "../../images/office.svg";
-import metro from "../../images/Metrotransit.svg";
-import greencheck from "../../images/Check-outlinegreen check.svg";
-import userphoto from "../../images/userphoto.svg";
 import search from "../../images/search.svg";
 import location from "../../images/location.svg";
-import allowed from "../../images/allowed.svg";
-import not_allowed from "../../images/Not Allowed.svg";
-import clock from "../../images/clock.svg";
-import owner_name from "../../images/owner name.svg";
-import call from "../../images/call.svg";
-import greentick from "../../images/greentickfinal.svg";
-import femaleIcon from "../../images/femaleIcon.svg";
 import OpenRequirements from "./openRequirements";
 import CheckboxFilterAcco from "./checkboxFilterAcco";
 import CheckboxFilterReq from "./checkboxFilterReq";
-import NoDataaPage from "./noDataaPage";
 import { Link } from "react-router-dom";
 import MapAvailableAccommodations from "./mapAvailableAccommodations";
-import ModalAvailableAccommodation from "./modalAvailableAccommodation";
-import filterLogo from "../../images/filter-logo.svg";
 import { MultiStepContext } from "../stepContext/stepContext";
 import Arraow from '../../images/arrow_forward.svg'
 import axios from "axios";
@@ -63,15 +46,12 @@ const AvailableAccommodations = (props) => {
   }
 
   const handleLoad =() =>{
-    
     handleRefresh();
     handleOpenReq();
-
   }
   
   useEffect( () => {
     handleLoad();
-
   }, []);
 
   const [activeBtn, setActiveBtn] = useState(props.activebtn);
@@ -79,7 +59,7 @@ const AvailableAccommodations = (props) => {
   const [mapaddress, setMapAddress] = useState("Pinnacle Business Park");
   const [filterData, setFilterData] = useState([]);
   const [houseHabit1, setHouseHabit1] = useState([]);
-  const [houseHabit2, setHouseHabit2] = useState([]);
+  const [houseHabit2, setHouseHabit2] = useState();
   const [houseHabit3, setHouseHabit3] = useState([]);
   const [distancefilter1, setDistancefilter1] = useState([]);
   const [distancefilter2, setDistancefilter2] = useState([]);
@@ -146,7 +126,7 @@ const AvailableAccommodations = (props) => {
     (Data) =>
       (!filterData.length || filterData.includes(Data.acctypename)) &&
       (!houseHabit1.length || houseHabit1.includes(Data.issmoking)) &&
-      (!houseHabit2.length || houseHabit2.includes(Data.isdrinking)) &&
+      (!houseHabit2.length || houseHabit2 === Data.isdrinking) &&
       (!houseHabit3.length || houseHabit3.includes(Data.isnonveg)) &&
       (!distancefilter1.length ||
         (distancefilter1.length != 0 &&
@@ -165,6 +145,11 @@ const AvailableAccommodations = (props) => {
           Data.distance > 8 &&
           Data.distance <= 10))
   );
+
+  console.log(data[0].isdrinking);
+  console.log(houseHabit2);
+  
+
 
   const reqFilteredCards = openReqData.filter(
     (Data) =>
