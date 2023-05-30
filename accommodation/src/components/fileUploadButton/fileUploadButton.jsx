@@ -5,14 +5,14 @@ import { storage } from "../../config/firebase";
 import {ref,uploadBytes,getDownloadURL} from "firebase/storage";
 import { MultiStepContext } from "../stepContext/stepContext";
 
-function FileUploadButton() {
+function FileUploadButton(props) {
 
     const fileInputRef = useRef(null);
-    const [profilePicUrl, setProfilePicUrl] = useState();
+    // const [profilePicUrl, setProfilePicUrl] = useState();
 
 
     const {userData,setUserData}=useContext(MultiStepContext);
-
+    const {requirementData, setRequirementData} = useContext(MultiStepContext);
 
   const handleButtonClick = () => {
     fileInputRef.current.click();
@@ -36,10 +36,10 @@ function FileUploadButton() {
     console.log("Trying to upload it");
     uploadBytes(imageRef, data.target.files[0]).then((snapshot) => {
       getDownloadURL(snapshot.ref).then((url) => {
-        setProfilePicUrl(url);
+
         console.log("I am here with url",url);
         console.log(url);
-        setUserData({...userData, profileUrl:url})
+        props.file === "Volunteer" ? setUserData({...userData, profileUrl:url}) : setRequirementData({...requirementData, profileUrl:url});
       });
     });
   };

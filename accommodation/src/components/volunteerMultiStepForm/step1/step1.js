@@ -26,8 +26,7 @@ const Step1 = () => {
   const { currentIndex, setCurrentIndex, next, userData, setUserData } =
     useContext(MultiStepContext);
 
-  // const [userInfo, setUserInfo] = useState([]);
-  // setUserInfo(JSON.parse( localStorage.getItem("userData")))
+  const [userInfo, setUserInfo] = useState(JSON.parse( localStorage.getItem("userData")));
 
   function handleCheckboxChange(event) {
     console.log(event.target.checked);
@@ -136,9 +135,10 @@ const Step1 = () => {
                     <div><strong>{userData.CGI}</strong></div>
                     <div style={{marginBottom:"2%"}}>{userData.contact}</div>
                   </div>    */}
-                  {/* <p className="p_color" style={{ marginBottom: "0" }}>
-                    <strong>{userInfo.firstname} {userInfo.lastname} </strong>
-                  </p> */}
+                  <p className="p_color" style={{ marginBottom: "0" }}>
+                    <strong>{userInfo.firstName} {userInfo.lastName}  </strong>
+                    <p> {userInfo.email}</p>
+                  </p>
                   {/* <p className="p_color">{currentUser.response[0].email}</p> */}
                   {/* <input type="file" /> */}
                     {/* <button type="file" className="d-flex imgButn" onChange={(e)=>handleImageUpload(e)}>
@@ -147,7 +147,7 @@ const Step1 = () => {
                       </div>
                       <p className="">Upload Image</p>
                     </button> */}
-                    <FileUploadButton />              
+                    <FileUploadButton file="Volunteer" />              
                 </div>
               </div>
 
