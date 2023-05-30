@@ -187,7 +187,7 @@ const AvailableAccommodations = (props) => {
     <>
       <Navbar />
       <Wrapper>
-        <Container>
+        <Container >
           <div
             className={
               filteredCards.length === 1

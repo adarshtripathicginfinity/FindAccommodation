@@ -13,8 +13,6 @@ import {
 } from "./landingPageStyle";
 import { Wrapper, Container } from "../utilityStyles/utilityStyles";
 import Navbar from "../navbar/navbar";
-import Cupboard from "../../images/cupboard.svg";
-import Mail from "../../images/mail.svg";
 import "./landingPage.css";
 import Interest from "../interest/interest";
 import Notification from "../notification/notification";

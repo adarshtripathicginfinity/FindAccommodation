@@ -28,4 +28,18 @@
     font-size: 0.87rem;
     line-height: 1.06rem;
   }
+
+  @media (max-width:1240px) and (min-width:0) {
+    .demo-div{
+      width: 100%;
+      background-color: blue;
+    }
+
+  }
+   @media (min-width:1241px){
+    .demo-div{
+      width: calc(100vw - 100px);
+    }
+   }
+
   
