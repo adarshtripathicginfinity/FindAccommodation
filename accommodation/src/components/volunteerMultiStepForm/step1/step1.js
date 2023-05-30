@@ -13,6 +13,10 @@ import { MultiStepContext } from "../../stepContext/stepContext";
 import dummyProfile from "../../../images/dummyProfile.svg";
 import styled from "styled-components";
 import { useNavigate } from "react-router";
+import { storage } from "../../../config/firebase";
+import {ref,uploadBytes,getDownloadURL} from "firebase/storage";
+import FileUploadButton from "../../fileUploadButton/fileUploadButton";
+
 
 const Step1 = () => {
   useEffect(()=>{ 
@@ -21,6 +25,9 @@ const Step1 = () => {
     setIsContactNumberValid(userData["contact"])
    },[] )
   const {currentIndex, setCurrentIndex,next, userData, setUserData } = useContext(MultiStepContext);
+
+  // const [userInfo, setUserInfo] = useState([]);
+  // setUserInfo(JSON.parse( localStorage.getItem("userData")))
 
   function handleCheckboxChange(event) {
     console.log(event.target.checked);
@@ -59,7 +66,28 @@ const Step1 = () => {
     //   console.log(userData);
   };
 
- 
+
+
+
+  // const handleImageUpload = (data) => {
+  //   console.log("Uploading Image......");
+  //   console.log(data);
+  //   if (data == null) {
+  //     console.log("not able to upload it");
+  //     return;
+  //   }
+
+  //   const imageRef = ref(storage, `userProfilePicture/${data.target.files[0].name}`);
+  //   console.log("Trying to upload it");
+  //   uploadBytes(imageRef, data.target.files[0]).then((snapshot) => {
+  //     getDownloadURL(snapshot.ref).then((url) => {
+  //       console.log("I am here with url",url);
+       
+
+  //       console.log(url);
+  //     });
+  //   });
+  // };
 
   return (
     <>
@@ -100,25 +128,26 @@ const Step1 = () => {
             <form onSubmit={e => { e.preventDefault(); }}>
                 <div className="row ">
                   <div className=" col-md-3">
-                  <img src={dummyProfile} />
-                </div>
+                    <img src={userData.profileUrl || dummyProfile} alt="profile" id="profilePic" />
+                  </div>
 
                 <div className=" col-md-5" style={{}}>
                   {/* <div>
                     <div><strong>{userData.CGI}</strong></div>
                     <div style={{marginBottom:"2%"}}>{userData.contact}</div>
                   </div>    */}
-                  <p className="p_color" style={{ marginBottom: "0" }}>
-                    {/* <strong>{currentUser.response[0].firstname} {currentUser.response[0].lastname} </strong> */}
-                  </p>
+                  {/* <p className="p_color" style={{ marginBottom: "0" }}>
+                    <strong>{userInfo.firstname} {userInfo.lastname} </strong>
+                  </p> */}
                   {/* <p className="p_color">{currentUser.response[0].email}</p> */}
                   {/* <input type="file" /> */}
-                  <button className="d-flex imgButn">
-                    <div className="me-2 d-flex align-items-baseline" style={{marginTop:"3%"}}>
-                      <img src={camera} />
-                    </div>
-                    <p className="">Upload Image</p>
-                  </button>
+                    {/* <button type="file" className="d-flex imgButn" onChange={(e)=>handleImageUpload(e)}>
+                      <div className="me-2 d-flex align-items-baseline" style={{marginTop:"3%"}}>
+                        <img src={camera} alt="userProfile" />
+                      </div>
+                      <p className="">Upload Image</p>
+                    </button> */}
+                    <FileUploadButton />              
                 </div>
               </div>
 

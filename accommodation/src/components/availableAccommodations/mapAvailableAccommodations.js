@@ -104,7 +104,7 @@ const MapAvailableAccommodations = (props) => {
                     <div className="p-3">
                       <div className="d-flex mb-3">
                         <div className="me-2">
-                          <img src={userphoto} alt="" />
+                          <img src={data.profileimage} alt="" style={{float: "left", height: "40px", width: "40px", borderRadius: "50%"}}/>
                         </div>
                         <div className="ms-1">
                           <div

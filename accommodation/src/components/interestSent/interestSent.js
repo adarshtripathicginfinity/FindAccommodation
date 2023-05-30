@@ -18,11 +18,10 @@ const InterestSent = (props) => {
 
   async function handleInterest() {
     await axios
-      .get(INTEREST_URL, { params: { userId: userData.id } })
+      .get(INTEREST_URL, { params: { userId: userData.id } } )
       .then((response) => {
-         setInterestData( response.data);
-        
-      });
+            setInterestData(response.data);
+    });
   }
 
   return (
@@ -31,7 +30,7 @@ const InterestSent = (props) => {
       <Wrapper>
         <Container>
           <div className="container-fluid">
-            <div className="row">
+            <div className="row" style={{marginTop: "1%"}}>
               <nav aria-label="breadcrumb">
                 <ol class="breadcrumb">
                   <li class="breadcrumb-item">
@@ -44,19 +43,17 @@ const InterestSent = (props) => {
               </nav>
             </div>
             <div className="row">
-              <p>Interest Sent</p>
+              <h4>Interest Sent</h4>
             </div>
             <div className="row">
               <form class="d-flex">
-                <input
-                  class="form-control me-2"
-                  type="search"
-                  placeholder="Search"
-                  aria-label="Search"
-                />
-                <button class="btn btn-outline-success" type="submit">
-                  Search
-                </button>
+                <input 
+                    class="form-control mr-sm-2" 
+                    type="search" 
+                    placeholder="Search by location" 
+                    aria-label="Search" 
+                    style={{}}
+                />   
                 <div class="dropdown">
                   <button
                     class="btn btn-secondary dropdown-toggle"
@@ -73,17 +70,12 @@ const InterestSent = (props) => {
                   >
                     <li>
                       <a class="dropdown-item" href="#">
-                        Action
+                        Newest First
                       </a>
                     </li>
                     <li>
                       <a class="dropdown-item" href="#">
-                        Another action
-                      </a>
-                    </li>
-                    <li>
-                      <a class="dropdown-item" href="#">
-                        Something else here
+                        Oldest First
                       </a>
                     </li>
                   </ul>
@@ -93,15 +85,15 @@ const InterestSent = (props) => {
             <div className="row-cols-2 row">
               {interestData.map( (data) =>(
                 <div
-                 key={data.id}
-                className="col interest__container"
-                style={{ marginBottom: "1rem" }}
-              >
+                    key={data.id}
+                    className="col interest__container"
+                    style={{ marginBottom: "1rem" }}
+                >
                 <div className="row">
-                  <div
+                <div
                     className="col interest__name"
                     style={{ marginTop: "1rem" }}
-                  >
+                >
                     <div style={{ display: "flex" }}>
                       <div style={{ marginRight: "1rem" }}>
                         <img className="img-fluid" src={interest} />

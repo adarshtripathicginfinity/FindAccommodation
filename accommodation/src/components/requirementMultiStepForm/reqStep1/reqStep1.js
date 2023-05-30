@@ -2,6 +2,8 @@ import React, { useContext , useState } from "react";
 import { FormContainer, Header, Body } from "../../utilityStyles/utilityStyles";
 import { MultiStepContext } from "../../stepContext/stepContext";
 import "./reqStep1.css";
+import FileUploadButton from "../../fileUploadButton/fileUploadButton";
+import dummyProfile from "../../../images/dummyProfile.svg";
 
 const ReqStep1 = () => {
   const { reqNext , requirementData,setRequirementData } = useContext(MultiStepContext);
@@ -87,7 +89,16 @@ const ReqStep1 = () => {
         <hr style={{ margin: "0" }} />
       </Header>
       <Body>
-        <p className="reqStep1__form-heading" style={{ marginBottom: "0" }}>
+        <div className="row">
+          <div className=" col-md-3">
+            <img src={requirementData.profileUrl || dummyProfile} alt="profile" id="profilePic" />
+          </div>
+
+          <div className=" col-md-5" style={{}}>
+            <FileUploadButton />              
+          </div>
+        </div>
+        <p className="reqStep1__form-heading" style={{ marginTop: "3%" }}>
           Add your preferred location
         </p>
         <form style={{ marginTop: "1.5rem" }}>

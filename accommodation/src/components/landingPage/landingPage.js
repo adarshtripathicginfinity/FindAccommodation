@@ -22,10 +22,9 @@ import axios from "axios";
 
 
 const LandingPage = () => {
+
   const [interestData,setInterestData] = useState([]);
   
-
-
   const navigate = useNavigate();
 
   const {currentUser,availableAccommodations,setAvailableAccommodations}=useContext(MultiStepContext);

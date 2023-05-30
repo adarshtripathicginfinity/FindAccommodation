@@ -35,4 +35,9 @@
   color: #343435;
 }
 
-
+#profilePic {
+  float: left;
+  height: 72px;
+  width: 72px;
+  border-radius: 50%;
+}
