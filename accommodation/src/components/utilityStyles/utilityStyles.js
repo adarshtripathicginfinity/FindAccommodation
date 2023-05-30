@@ -7,15 +7,23 @@ export const Wrapper = styled.div`
   justify-content: center;
   align-items: center;
 
-  @media (max-width: 1240px) {
-    width: 100%;
-    padding: 0;
-    margin: 0;
-  }
+ 
 `;
 export const Container = styled.div`
   display:flex;
-  max-width: 1240px;
+  @media (max-width: 1240px) {
+       
+        width: 100%;
+      
+    }
+
+    @media (min-width: 1240px) {
+      
+        width: calc(100vw - 20px);
+        max-width: 1240px;
+        margin: 0 auto;
+      
+    }
 `;
 export const LeftContainer = styled.div.attrs({ className: "left-container" })`
   background-color: #002c3f;

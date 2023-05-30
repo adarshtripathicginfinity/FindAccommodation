@@ -1,0 +1,45 @@
+.interest__container {
+    background: #ffffff;
+    box-shadow: 0px 4px 10px rgba(46, 72, 87, 0.18);
+    border-radius: 8px;
+  }
+  
+  .interest__name {
+    font-family: "Lato";
+    font-style: normal;
+    font-weight: 700;
+    font-size: 1rem;
+    line-height: 1.25rem;
+    color: #28519e;
+  }
+  
+  .interest__para {
+    font-family: "Lato";
+    font-style: normal;
+    font-weight: 500;
+    font-size: 1rem;
+    line-height: 1.25rem;
+    color: #343435;
+  }
+  .interest__a-p {
+    font-family: "Lato";
+    font-style: normal;
+    font-weight: 700;
+    font-size: 0.87rem;
+    line-height: 1.06rem;
+  }
+
+  @media (max-width:1240px) and (min-width:0) {
+    .demo-div{
+      width: 100%;
+      background-color: blue;
+    }
+
+  }
+   @media (min-width:1241px){
+    .demo-div{
+      width: calc(100vw - 100px);
+    }
+   }
+
+  

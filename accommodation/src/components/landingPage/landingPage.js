@@ -13,13 +13,11 @@ import {
 } from "./landingPageStyle";
 import { Wrapper, Container } from "../utilityStyles/utilityStyles";
 import Navbar from "../navbar/navbar";
-import Cupboard from "../../images/cupboard.svg";
-import Mail from "../../images/mail.svg";
 import "./landingPage.css";
 import Interest from "../interest/interest";
 import Notification from "../notification/notification";
 import { MultiStepContext } from "../stepContext/stepContext";
-import { useNavigate } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import axios from "axios";
 
 
@@ -209,12 +207,18 @@ const LandingPage = () => {
                 </Button>
               </RequirementContainer>
             </MidContainer>
-            <DynamicContainer className="row gap-4">
-              <ShortlistContainer className="col-md-7">
+            <DynamicContainer className="row">
+              <ShortlistContainer className="col-md-6">
                 <p className="landingPage__head" style={{ color: "black" }}>
                   Interest Sent
+                  <Link
+                    to="/interestsent"
+                    style={{float: "right", fontSize:"16px"}}
+                  >
+                    See All &gt;
+                  </Link> 
                 </p>
-
+                
                 {/* <div className="row row-cols-sm-2 ">
                   <div className="col-sm">
                     <Interest />
@@ -230,9 +234,15 @@ const LandingPage = () => {
                   <Interest />
                 </div>
               </ShortlistContainer>
-              <NotificationContainer className=" col-md">
+              <NotificationContainer className=" col-md-6">
                 <p className="landingPage__head" style={{ color: "black" }}>
                   Notifications
+                  <Link
+                    to="/notificationsent"
+                    style={{float: "right", fontSize:"16px"}}
+                  >
+                  See All &gt;
+                  </Link> 
                 </p>
                 <div style={{ boxShadow:"0px 4px 10px rgba(66,76,97,0.15)", borderRadius:"8px" ,paddingBottom:"0.0rem"}}>
                 <div className="col-12" style={{ marginBottom: "1rem" }}>
