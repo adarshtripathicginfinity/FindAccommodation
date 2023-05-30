@@ -15,12 +15,12 @@ import styled from "styled-components";
 import { useNavigate } from "react-router";
 
 const Step1 = () => {
-  useEffect(()=>{ 
-    
+  useEffect(() => {
     setIsIdValid(userData["CGI"]);
-    setIsContactNumberValid(userData["contact"])
-   },[] )
-  const {currentIndex, setCurrentIndex,next, userData, setUserData } = useContext(MultiStepContext);
+    setIsContactNumberValid(userData["contact"]);
+  }, []);
+  const { currentIndex, setCurrentIndex, next, userData, setUserData } =
+    useContext(MultiStepContext);
 
   function handleCheckboxChange(event) {
     console.log(event.target.checked);
@@ -33,17 +33,14 @@ const Step1 = () => {
   const [isContactNumberValid, setIsContactNumberValid] = useState(false);
 
   const handleIdChange = (event) => {
-      let {value} = event.target;
-      value = value.toUpperCase();
-      setId(value);
-      setIsIdValid(/^(CGI|INT)([1-9]\d{0,3})$/.test(value)
-        ? true 
-        : false
-      );
-      setUserData({...userData, CGI : value})
-      // console.log(isIdValid);     
-      // console.log(id);
-  }
+    let { value } = event.target;
+    value = value.toUpperCase();
+    setId(value);
+    setIsIdValid(/^(CGI|INT)([1-9]\d{0,3})$/.test(value) ? true : false);
+    setUserData({ ...userData, CGI: value });
+    // console.log(isIdValid);
+    // console.log(id);
+  };
 
   const handleContactChange = (event) => {
     let phoneNumber = event.target.value;
@@ -51,15 +48,16 @@ const Step1 = () => {
       setContactNumber(phoneNumber.trim());
     }
     setIsContactNumberValid(
-      phoneNumber.length === 0 || (phoneNumber.trim().length <= 10 && /\d{10}/.test(phoneNumber)) ? true : false
+      phoneNumber.length === 0 ||
+        (phoneNumber.trim().length <= 10 && /\d{10}/.test(phoneNumber))
+        ? true
+        : false
     );
-    setUserData({...userData, contact: phoneNumber.trim()})
-    // console.log(isContactNumberValid);     
+    setUserData({ ...userData, contact: phoneNumber.trim() });
+    // console.log(isContactNumberValid);
     //   console.log(contactNumber);
     //   console.log(userData);
   };
-
- 
 
   return (
     <>
@@ -97,9 +95,13 @@ const Step1 = () => {
         </Header>
         <Body>
           <div className="container-fluid" style={{ padding: "0 0.75rem" }}>
-            <form onSubmit={e => { e.preventDefault(); }}>
-                <div className="row ">
-                  <div className=" col-md-3">
+            <form
+              onSubmit={(e) => {
+                e.preventDefault();
+              }}
+            >
+              <div className="row ">
+                <div className=" col-md-3">
                   <img src={dummyProfile} />
                 </div>
 
@@ -114,7 +116,10 @@ const Step1 = () => {
                   {/* <p className="p_color">{currentUser.response[0].email}</p> */}
                   {/* <input type="file" /> */}
                   <button className="d-flex imgButn">
-                    <div className="me-2 d-flex align-items-baseline" style={{marginTop:"3%"}}>
+                    <div
+                      className="me-2 d-flex align-items-baseline"
+                      style={{ marginTop: "3%" }}
+                    >
                       <img src={camera} />
                     </div>
                     <p className="">Upload Image</p>
@@ -130,21 +135,20 @@ const Step1 = () => {
                   <input
                     type="text"
                     placeholder="Enter your CGI ID"
-                    className= { !isIdValid && id
-                      ? "form-control input-error"
-                      : "form-control"
+                    className={
+                      !isIdValid && id
+                        ? "form-control input-error"
+                        : "form-control"
                     }
                     value={userData["CGI"]}
-                    onChange={(e) =>handleIdChange(e)}
+                    onChange={(e) => handleIdChange(e)}
                   />
 
-                  {
-                    !isIdValid && id && (
-                      <span style={{ color: "red", fontSize: "12px" }}>
-                            CGI ID is not valid
-                      </span>
-                    )
-                  }
+                  {!isIdValid && id && (
+                    <span style={{ color: "red", fontSize: "12px" }}>
+                      CGI ID is not valid
+                    </span>
+                  )}
                 </div>
               </div>
 
@@ -156,20 +160,19 @@ const Step1 = () => {
                   <input
                     type="tel"
                     placeholder="****"
-                    className={ !isContactNumberValid && contactNumber
-                      ? "form-control input-error"
-                      : "form-control"
+                    className={
+                      !isContactNumberValid && contactNumber
+                        ? "form-control input-error"
+                        : "form-control"
                     }
                     value={userData["contact"]}
                     onChange={(e) => handleContactChange(e)}
                   />
-                  {
-                    !isContactNumberValid && contactNumber && (
-                      <span style={{ color: "red", fontSize: "12px" }}>
-                        Contact Number is not valid
-                      </span>
-                    )
-                  }
+                  {!isContactNumberValid && contactNumber && (
+                    <span style={{ color: "red", fontSize: "12px" }}>
+                      Contact Number is not valid
+                    </span>
+                  )}
                 </div>
               </div>
               {console.log(userData)}
@@ -278,6 +281,52 @@ const Step1 = () => {
                   </p>
                 </div>
               </div>
+              
+              <div class="row" style={{marginTop:"1.5rem"}}>
+              <div className="col-12 p_color" >Roommate/Flatmate preference</div>
+                <div class="col" style={{marginTop:"0.87rem"}}>
+                  <div class="form-check">
+                    <input
+                      class="form-check-input"
+                      type="radio"
+                      name="gender"
+                      value="boys"
+                      id="boysRadio"
+                    />
+                    <label class="form-check-label" for="boysRadio">
+                      <span class="radio-custom p_color" ></span> Boys Only
+                    </label>
+                  </div>
+                </div>
+                <div class="col" style={{marginTop:"0.87rem"}}>
+                  <div class="form-check">
+                    <input
+                      class="form-check-input"
+                      type="radio"
+                      name="gender"
+                      value="girls"
+                      id="girlsRadio"
+                    />
+                    <label class="form-check-label" for="girlsRadio">
+                      <span class="radio-custom p_color"></span> Girls Only
+                    </label>
+                  </div>
+                </div>
+                <div class="col" style={{marginTop:"0.87rem"}}>
+                  <div class="form-check">
+                    <input
+                      class="form-check-input"
+                      type="radio"
+                      name="gender"
+                      value="both"
+                      id="bothRadio"
+                    />
+                    <label class="form-check-label" for="bothRadio">
+                      <span class="radio-custom p_color"></span> Both
+                    </label>
+                  </div>
+                </div>
+              </div>
 
               <div
                 className="row d-flex justify-content-end"
@@ -291,7 +340,7 @@ const Step1 = () => {
                     // }
                     onClick={(event) => {
                       event.preventDefault();
-                      if(((isContactNumberValid) && (isIdValid))) {
+                      if (isContactNumberValid && isIdValid) {
                         // setUserData({...userData, CGI : id, contact : contactNumber})
                         // setSaveButton(true);
                         next();
