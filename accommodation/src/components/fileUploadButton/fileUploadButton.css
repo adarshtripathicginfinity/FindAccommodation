@@ -17,3 +17,10 @@
     align-items: end;
   }
   
+  #changeImageButton {
+    padding: 0.375rem 1.5rem;
+    border: 1px solid #28519e;
+    border-radius: 4px;
+    background-color: #ffffff;
+    width: 100%;
+  }

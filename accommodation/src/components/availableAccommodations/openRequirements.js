@@ -98,6 +98,7 @@ const OpenRequirements = (props) => {
           className=" scrollbar col-12"
           style={{ backgroundColor: "#F5F5F5" }}
         >
+          {console.log(props)}
           <div className=" row row-cols-md-3 ">
             {props.sendingData.map((data, index) => (
               <div key={data.requirementid}>
@@ -195,7 +196,6 @@ const OpenRequirements = (props) => {
                         </p>
                       </div>
                     </div>
-
                     <div>
                       <button
                         className="border-0 py-2 px-3 w-100 interested"
@@ -241,7 +241,7 @@ const OpenRequirements = (props) => {
                           <div className="row mb-3">
                             <div className="d-flex">
                               <div className="me-1">
-                                <img src={femaleIcon} alt="" />
+                                <img src={data.profileimage} alt="" />
                               </div>
                               <div className="ms-2">
                                 <div className="">
@@ -257,7 +257,7 @@ const OpenRequirements = (props) => {
                                 </div>
                                 <div className="d-flex">
                                   <p className="mb-0  openRequirements__card-p-id">
-                                    {data.CGIID}
+                                    {data.cgiid}
                                   </p>
                                 </div>
                               </div>
@@ -273,10 +273,12 @@ const OpenRequirements = (props) => {
                                     fontWeight: "700",
                                   }}
                                 >
-                                  Email id:
+                                  Email Id:
                                 </p>
                               </div>
-                              <div>
+                              
+                            </div>
+                            <div>
                                 <p
                                   className="ms-2"
                                   style={{
@@ -284,11 +286,9 @@ const OpenRequirements = (props) => {
                                     fontWeight: "500",
                                   }}
                                 >
-                                  {" "}
-                                  harshitakhurana@expample.com
+                                {data.email}
                                 </p>
                               </div>
-                            </div>
                           </div>
 
                           <div className="row">
@@ -303,7 +303,8 @@ const OpenRequirements = (props) => {
                                   Contact No:
                                 </p>
                               </div>
-                              <div>
+                            </div>
+                            <div>
                                 <p
                                   className="ms-2"
                                   style={{
@@ -311,10 +312,9 @@ const OpenRequirements = (props) => {
                                     fontWeight: "500",
                                   }}
                                 >
-                                  9876543210
+                                  {data.contact}
                                 </p>
                               </div>
-                            </div>
                           </div>
 
                           <div className="row">
@@ -334,6 +334,7 @@ const OpenRequirements = (props) => {
                                 <textarea
                                   value=""
                                   onChange=""
+                                  placeholder="Type your message here"
                                   class="form-control"
                                   id="exampleFormControlTextarea1"
                                   rows="3"

@@ -7,11 +7,11 @@ const EditPost = () => {
   const [lookRequirement, setLookRequirement] = useState(false);
   return (
     <>
-      <div className="container " style={{ marginTop: "1.5rem" }}>
+      <div className="container " style={{ marginTop: "1.5rem"}}>
         <div className=" row">
           <p className="editpost__heading"> Volunteer Post</p>
           <p className="editpost__description ">
-            In case you already found, you can Step back from participation:
+            Your contribution is appreciated, do you want to withdraw the participation?
           </p>
           <div className=" d-flex justify-content-between">
             <div>
@@ -58,8 +58,8 @@ const EditPost = () => {
           </div>
         </div>
 
-        <div className="row" style={{ marginTop: "1.9rem" }}>
-          <p className="editpost__heading"> Volunteer Post</p>
+        <div className="row" style={{ marginTop: "1.9rem"}}>
+          <p className="editpost__heading"> Requirement Post</p>
           <p className="editpost__description ">
             In case you already found, you can Step back from participation:
           </p>

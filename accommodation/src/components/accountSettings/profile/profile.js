@@ -27,7 +27,7 @@ const Profile = () => {
                     <p> {userInfo.email}</p>
                   </p>
                   
-                    <FileUploadButton file="Volunteer" />              
+                    <FileUploadButton file="Volunteer" type="Change"/>              
                 </div>
               </div>
 

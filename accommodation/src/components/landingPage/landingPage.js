@@ -270,7 +270,7 @@ const LandingPage = () => {
                             <div>
                               <Link>
                                 {data.firstname} {data.lastname}
-                                <span>&gt;</span>
+                                <span> &gt;</span>
                               </Link>
                               <p
                                 style={{ color: "#8E8E92", fontSize: "0.8rem" }}
@@ -292,8 +292,7 @@ const LandingPage = () => {
                           </p>
                           <a className="a-link" style={{ color: "#007FD3" }}>
                             <p
-                              className="interest__a-p"
-                              style={{ marginBotton: "0" }}
+                              className="interest__a-p" 
                             >
                               View on Map
                             </p>

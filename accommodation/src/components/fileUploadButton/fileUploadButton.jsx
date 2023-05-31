@@ -47,7 +47,7 @@ function FileUploadButton(props) {
     <div>
       <button onClick={handleButtonClick} className='d-flex imgButn' style={{margin:"2%"}}>
       <img style={{marginTop:"2%", marginRight:"5%"}} src={camera} />
-        <p >Choose Image</p>
+        {props.type === "Change" ? <p>Change Image</p> : <p>Choose Image</p>}
       </button>
       <input
         type="file"

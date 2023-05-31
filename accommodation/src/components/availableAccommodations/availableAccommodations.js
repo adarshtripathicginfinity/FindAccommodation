@@ -222,7 +222,7 @@ const AvailableAccommodations = (props) => {
                         className="text-md-secondary heading-sm-p"
                         style={{ marginBottom: "0.5rem" }}
                       >
-                        Requirement Post
+                        Open Requirement
                       </p>
                     )}
                   </div>
