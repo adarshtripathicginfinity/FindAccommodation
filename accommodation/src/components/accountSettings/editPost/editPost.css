@@ -1,0 +1,15 @@
+.editpost__heading {
+  font-family: "Lato";
+  font-style: normal;
+  font-weight: 700;
+  font-size: 1.125rem;
+  line-height: 1.625rem;
+  color: #343435;
+}
+.editpost__description {
+  font-family: "Lato";
+  font-style: normal;
+  font-weight: 700;
+  font-size: 1rem;
+  line-height: 1.31rem;
+}

@@ -28,8 +28,9 @@ import Step4 from "./components/volunteerMultiStepForm/step4/step4";
 import Step5 from "./components/volunteerMultiStepForm/step5/step5";
 import Missing from "./components/missing/Missing";
 import RequireAuth from "./components/requirementAuth/requireAuth";
+import AccountSettings from "./components/accountSettings/accountSettings";
 
-import { Routes, Route } from "react-router-dom";
+import { Routes, Route, UNSAFE_RouteContext } from "react-router-dom";
 import InterestSent from "./components/interestSent/interestSent";
 import NotificationSent from "./components/notificationSent/notificationSent";
 
@@ -68,6 +69,7 @@ function App() {
           <Route path="landingpage" element={<LandingPage />} />
           <Route path="step1" element={<Step1 />} />
           <Route path="form" element={<VolunteerMultiForm />} />
+          <Route path="accountsettings" element = {<AccountSettings />} />
 
           <Route path="postrequirement" element={<Postrequirement />} />
           <Route

@@ -199,7 +199,7 @@ const Step1 = () => {
                   )}
                 </div>
               </div>
-              {console.log(userData)}
+              
               <div className="row " style={{ marginTop: "1.5rem" }}>
                 <div className="d-flex justify-content-between">
                   <div>
