@@ -1,0 +1,99 @@
+.interest__container {
+  background: #ffffff;
+  box-shadow: 0px 4px 10px rgba(46, 72, 87, 0.18);
+  border-radius: 8px;
+  padding: 0.75rem;
+  margin-bottom: 1.5rem;
+  width: 584px;
+  height: 124px;
+}
+
+.interest_container-name {
+  font-family: "Lato";
+  font-style: normal;
+  font-weight: 700;
+  font-size: 16px;
+  line-height: 19px;
+  color: #28519e;
+}
+
+.interest_heading {
+  font-family: "Lato";
+  font-style: normal;
+  font-weight: 700;
+  font-size: 22px;
+  line-height: 26px;
+  color: #343435;
+}
+
+.interest_sort-btn {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  padding: 6px 12px;
+  gap: 8px;
+  width: 113px;
+  height: 32px;
+  color: #8e8e92;
+  background: #ffffff;
+  border: 1px solid #e9eceb;
+  border-radius: 4px;
+}
+/* .interest_search-input {
+  background: #ffffff;
+  border: 1px solid #e9eceb;
+  border-radius: 4px;
+} */
+
+.interest__name {
+  font-family: "Lato";
+  font-style: normal;
+  font-weight: 700;
+  font-size: 1rem;
+  line-height: 1.25rem;
+  color: #28519e;
+  display: flex;
+  justify-content: space-between;
+}
+
+.interest__para {
+  font-family: "Lato";
+  font-style: normal;
+  font-weight: 700;
+  font-size: 14px;
+  line-height: 17px;
+  color: #343435;
+  margin-top: 0.25rem;
+  margin-bottom: 0rem;
+}
+.interest__a-p {
+  font-family: "Lato";
+  font-style: normal;
+  font-weight: 700;
+  font-size: 0.87rem;
+  line-height: 1.06rem;
+  margin-bottom: 0rem;
+  margin-left: 0.3rem;
+}
+
+.interest_time-date {
+  font-family: "Lato";
+  font-style: normal;
+  font-weight: 500;
+  font-size: 13px;
+  line-height: 16px;
+  color: #8e8e92;
+  margin-bottom: 0;
+}
+
+@media (max-width: 1240px) and (min-width: 0) {
+  .demo-div {
+    width: 100%;
+    background-color: blue;
+  }
+}
+@media (min-width: 1241px) {
+  .demo-div {
+    width: calc(100vw - 100px);
+  }
+}

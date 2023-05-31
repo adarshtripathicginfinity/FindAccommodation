@@ -4,6 +4,7 @@ import SmallScreenFilterAcco from "./smallScreenFilterAcco";
 
 const CheckboxFilterAcco = (props) => {
   const [filteroption, setFilteroption] = useState([]);
+  const [smfilteroption, smsetFilteroption] = useState([]);
   const [houseHabit1, setHouseHabit1] = useState([]);
   const [houseHabit2, setHouseHabit2] = useState([]);
   const [houseHabit3, setHouseHabit3] = useState([]);
@@ -33,16 +34,18 @@ const CheckboxFilterAcco = (props) => {
       props.sendHHData1([...houseHabit1, val]);
     }
   };
+
   const handleHouseHabit1Filter2 = (event) => {
     const val = event.target.value;
     if (houseHabit2.includes(val)) {
       setHouseHabit2(houseHabit2.filter((item) => item !== val));
       props.sendHHData2(houseHabit2.filter((item) => item !== val));
     } else {
-      setHouseHabit2([...houseHabit2, val]);
-      props.sendHHData2([...houseHabit2, val]);
+      setHouseHabit2(...houseHabit2 , val);
+      props.sendHHData2(...houseHabit2 , val);
     }
   };
+
   const handleHouseHabit1Filter3 = (event) => {
     const val = event.target.value;
     if (houseHabit3.includes(val)) {
@@ -105,6 +108,18 @@ const CheckboxFilterAcco = (props) => {
       props.Distances4([...selectedDistances4, value]);
     }
   };
+
+
+
+ const smFilter1 = (data) => {
+  smsetFilteroption(data);
+  props.sendData(smfilteroption);
+ }
+
+
+
+
+
   return (
     <>
       <div className="col-sm-8 col-4 container d-flex justify-content-end align-items-center" style={{paddingRight:'0'}}>
@@ -169,9 +184,9 @@ const CheckboxFilterAcco = (props) => {
                             <input
                               class="form-check-input"
                               type="checkbox"
-                              value="Pg"
+                              value="pg"
                               id="flexCheckChecked"
-                              checked={filteroption.includes("Pg")}
+                              checked={filteroption.includes("pg")}
                               onChange={handleFilter}
                             />
                             <label
@@ -187,9 +202,9 @@ const CheckboxFilterAcco = (props) => {
                             <input
                               class="form-check-input"
                               type="checkbox"
-                              value="Flat"
+                              value="flat"
                               id="flexCheckChecked"
-                              checked={filteroption.includes("Flat")}
+                              checked={filteroption.includes("flat")}
                               onChange={handleFilter}
                             />
                             <label
@@ -320,8 +335,8 @@ const CheckboxFilterAcco = (props) => {
                               type="checkbox"
                               
                               id="flexCheckChecked"
-                              value="Non-smoker"
-                              checked={houseHabit1.includes("Non-smoker")}
+                              value=''
+                              checked={houseHabit1.includes('')}
                               onChange={handleHouseHabit1Filter1}
                             />
                             <label
@@ -337,9 +352,9 @@ const CheckboxFilterAcco = (props) => {
                             <input
                               class="form-check-input"
                               type="checkbox"
-                              value="Non-drinker"
+                              value=''
                               id="flexCheckChecked"
-                              checked={houseHabit2.includes("Non-drinker")}
+                              checked={houseHabit2.includes('')}
                               onChange={handleHouseHabit1Filter2}
                             />
                             <label
@@ -355,9 +370,9 @@ const CheckboxFilterAcco = (props) => {
                             <input
                               class="form-check-input"
                               type="checkbox"
-                              value="Veg"
+                              value=''
                               id="flexCheckChecked"
-                              checked={houseHabit3.includes("Veg")}
+                              checked={houseHabit3.includes('')}
                               onChange={handleHouseHabit1Filter3}
                             />
                             <label
@@ -375,7 +390,12 @@ const CheckboxFilterAcco = (props) => {
               </ul>
             </div>
           </div>
-          <SmallScreenFilterAcco />
+          <SmallScreenFilterAcco 
+                smsendData={smFilter1}
+                // sendHHData1={smFilter2}
+                // sendHHData2={smFilter13}
+                // sendHHData3={smFilter4}
+          />
         </nav>
       </div>
     </>

@@ -5,7 +5,9 @@ import { Wrapper, Container } from "../utilityStyles/utilityStyles";
 import "./interestSent.css";
 import { Link } from "react-router-dom";
 import axios from "../api/axios";
-import interest from "../../images/interest.svg"
+import interest from "../../images/interest.svg";
+import search from "../../images/search.svg";
+import gps from "../../images/GPS.svg";
 
 const InterestSent = (props) => {
   const INTEREST_URL = "/interestSent";
@@ -20,8 +22,8 @@ const InterestSent = (props) => {
     await axios
       .get(INTEREST_URL, { params: { userId: userData.id } } )
       .then((response) => {
-            setInterestData(response.data);
-    });
+        setInterestData(response.data);
+      });
   }
 
   return (
@@ -29,8 +31,8 @@ const InterestSent = (props) => {
       <Navbar />
       <Wrapper>
         <Container>
-          <div className="container-fluid">
-            <div className="row" style={{marginTop: "1%"}}>
+          <div className="container-fluid" >
+            <div className="row" style={{ marginTop: "1.31rem" }}>
               <nav aria-label="breadcrumb">
                 <ol class="breadcrumb">
                   <li class="breadcrumb-item">
@@ -42,27 +44,48 @@ const InterestSent = (props) => {
                 </ol>
               </nav>
             </div>
-            <div className="row">
-              <h4>Interest Sent</h4>
-            </div>
-            <div className="row">
-              <form class="d-flex">
-                <input 
-                    class="form-control mr-sm-2" 
-                    type="search" 
-                    placeholder="Search by location" 
-                    aria-label="Search" 
-                    style={{}}
-                />   
-                <div class="dropdown">
+            <div className="row " style={{ marginBottom: "1.25rem" }}>
+              <div className="col-6">
+                <p className="interest_heading">Interest Sent</p>
+              </div>
+
+              <div class="d-flex col-6">
+                <div
+                  class="d-flex border w-sm-75 w-100 px-3"
+                  style={{
+                    backgroundColor: "#ffffff",
+                    borderRadius: "0.25rem",
+                    padding: "0",
+                    marginLeft: "15rem",
+                    width: "15.6rem",
+                    height: "2rem",
+                  }}
+                >
+                  <span className="" style={{ marginTop: "0.18rem" }}>
+                    <img src={search} alt="img" />
+                  </span>
+
+                  <input
+                    type="text"
+                    class="form-control form-input"
+                    style={{
+                      border: "none",
+                      outlineStyle: "none",
+                      padding: 0,
+                      marginLeft: "0.37rem",
+                    }}
+                    placeholder="Select locality"
+                  />
+                </div>
+
+                <div class="dropdown" style={{ marginLeft: "1rem" }}>
                   <button
-                    class="btn btn-secondary dropdown-toggle"
+                    class="btn btn-secondary btn-light btn-sm dropdown-toggle interest_sort-btn"
                     type="button"
-                    id="dropdownMenuButton1"
                     data-bs-toggle="dropdown"
                     aria-expanded="false"
                   >
-                    Dropdown button
+                    Sort By
                   </button>
                   <ul
                     class="dropdown-menu"
@@ -70,64 +93,74 @@ const InterestSent = (props) => {
                   >
                     <li>
                       <a class="dropdown-item" href="#">
-                        Newest First
+                        Newest
                       </a>
                     </li>
                     <li>
                       <a class="dropdown-item" href="#">
-                        Oldest First
+                        Oldest
                       </a>
                     </li>
                   </ul>
                 </div>
-              </form>
+              </div>
             </div>
+
             <div className="row-cols-2 row">
-              {interestData.map( (data) =>(
-                <div
-                    key={data.id}
+              {interestData.map((data) => (
+                <div key={data.id}>
+                  <div
                     className="col interest__container"
-                    style={{ marginBottom: "1rem" }}
-                >
-                <div className="row">
-                <div
-                    className="col interest__name"
-                    style={{ marginTop: "1rem" }}
-                >
-                    <div style={{ display: "flex" }}>
-                      <div style={{ marginRight: "1rem" }}>
-                        <img className="img-fluid" src={interest} />
+                    style={{ marginBottom: "1.5rem", padding: "0.75rem" }}
+                  >
+                    <div className="row" style={{ marginTop: "0" }}>
+                      <div
+                        className="col interest__name"
+                        
+                      >
+                        <div style={{ display: "flex", marginTop: "0rem" }}>
+                          <div style={{ marginRight: "1rem" }}>
+                            <img className="img-fluid" src={interest} />
+                          </div>
+                          <div>
+                            <Link className="interest_container-name">
+                              {data.firstname} {data.lastname}
+                            </Link>
+                            <p style={{ color: "#8E8E92", fontSize: "0.8rem" }}>
+                              {data.cgiid}
+                            </p>
+                          </div>
+                        </div>
+                        <div>
+                           <p className="interest_time-date">10:15 AM</p>
+                           <p className="interest_time-date" style={{marginTop:'0.3rem'}}>23-03-2023</p>
+                        </div>
                       </div>
-                      <div>
-                        <Link >
-                          {data.firstname}  {data.lastname}<span>&gt;</span>
-                        </Link>
-                        <p style={{ color: "#8E8E92", fontSize: "0.8rem" }}>
-                          {data.cgiid}
-                        </p>
+                      <div className="col-12" style={{ marginBottom: "1rem" }}>
+                        <div className="d-flex" style={{marginBottom:'0.28rem'}}>
+                          <p
+                            className="interest__para"
+                          >
+                            LandMark :
+                          </p>
+                          <p style={{marginBottom:'0' , marginLeft:'0.5rem'}}>{data.locality}</p>
+                        </div>
+                        <a className="a-link" style={{ color: "#007FD3" }}>
+                          <div className="d-flex">
+                            <img src={gps} alt="" />
+                            <p
+                              className="interest__a-p"
+                              style={{ marginBotton: "0" }}
+                            >
+                              View on Map
+                            </p>
+                          </div>
+                        </a>
                       </div>
                     </div>
                   </div>
-                  <div className="col-12" style={{ marginBottom: "1rem" }}>
-                    <p
-                      className="interest__para"
-                      style={{ marginBottom: "0.3rem" }}
-                    >
-                      LandMark : {data.locality}
-                    </p>
-                    <a className="a-link" style={{ color: "#007FD3" }}>
-                      <p
-                        className="interest__a-p"
-                        style={{ marginBotton: "0" }}
-                      >
-                        View on Map
-                      </p>
-                    </a>
-                  </div>
                 </div>
-              </div>
               ))}
-              
             </div>
           </div>
         </Container>
