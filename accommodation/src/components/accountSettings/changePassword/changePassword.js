@@ -73,14 +73,14 @@ const ChangePassword = () => {
 
               <button
                 style={{marginBottom: "5%"}}
-                className="btn btn-warning w-100 mt-3"
+                className="btn btn-warning w-1 mt-4"
                 id="submitButton"
                 disabled={
                   (!isPasswordValid && password) ||
                   (!isconfirmPasswordValid && confirmPassword)
                 }
               >
-                Submit
+                Change Password
               </button>
             </form>
           </div>

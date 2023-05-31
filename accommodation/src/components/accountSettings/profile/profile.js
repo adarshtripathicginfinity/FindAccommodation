@@ -16,11 +16,11 @@ const Profile = () => {
     <div className='container-fluid' style={{marginTop:"1.125rem",marginLeft:"1.25rem",marginRight:"4rem"}}>
          <div className="row ">
          <p className='profile__heading'>Your Profile</p>
-                  <div className=" col-md-3">
+                  <div className=" col-md-2">
                     <img src={userInfo?.profileUrl || dummyProfile} alt="profile" id="profilePic" />
                   </div>
 
-                <div className=" col-md-5" style={{}}>
+                <div className=" col-md-3" style={{}}>
                 
                   <p className="p_color" style={{ marginBottom: "0" }}>
                     <strong>{userInfo.firstName} {userInfo.lastName}  </strong>
@@ -42,7 +42,7 @@ const Profile = () => {
                     className="form-control"
                     value={userInfo.id}
                     readOnly 
-                    
+                    style={{width: "60%"}}
                   />
 
                  
@@ -62,6 +62,7 @@ const Profile = () => {
                         ? "form-control input-error"
                         : "form-control"
                     }
+                    style={{width: "60%"}}
                     value={contact["contact"]}
                     onChange={(e) => setContact({...contact,contact: e.target.value})}
                   />
@@ -71,6 +72,17 @@ const Profile = () => {
                     </span>
                   )}
                 </div>
+                </div>
+                <div className="col-6">
+                <button
+                  onClick={(event) => {
+                    event.preventDefault();
+                  }}
+                  style={{width:"30%", marginTop:"1.5rem", display:"flex",justifyContent:"center", textAlign:"center"}}
+                  className="border-0 save-btn"
+                >
+                  <p style={{marginTop:"10%"}}>Save</p>
+                </button>
               </div>
 
     </div>
