@@ -6,7 +6,7 @@ const CheckboxFilterAcco = (props) => {
   const [filteroption, setFilteroption] = useState([]);
   const [smfilteroption, smsetFilteroption] = useState([]);
   const [houseHabit1, setHouseHabit1] = useState([]);
-  const [houseHabit2, setHouseHabit2] = useState();
+  const [houseHabit2, setHouseHabit2] = useState([]);
   const [houseHabit3, setHouseHabit3] = useState([]);
   const [selectedDistances1, setSelectedDistances1] = useState("");
   const [selectedDistances2, setSelectedDistances2] = useState("");
@@ -37,12 +37,12 @@ const CheckboxFilterAcco = (props) => {
 
   const handleHouseHabit1Filter2 = (event) => {
     const val = event.target.value;
-    if (houseHabit2===val) {
-      setHouseHabit2(!houseHabit2);
-      props.sendHHData2(!houseHabit2);
+    if (houseHabit2.includes(val)) {
+      setHouseHabit2(houseHabit2.filter((item) => item !== val));
+      props.sendHHData2(houseHabit2.filter((item) => item !== val));
     } else {
-      setHouseHabit2(val);
-      props.sendHHData2(val);
+      setHouseHabit2(...houseHabit2 , val);
+      props.sendHHData2(...houseHabit2 , val);
     }
   };
 
@@ -352,9 +352,9 @@ const CheckboxFilterAcco = (props) => {
                             <input
                               class="form-check-input"
                               type="checkbox"
-                              // value={true}
+                              value=''
                               id="flexCheckChecked"
-                              checked={houseHabit2}
+                              checked={houseHabit2.includes('')}
                               onChange={handleHouseHabit1Filter2}
                             />
                             <label

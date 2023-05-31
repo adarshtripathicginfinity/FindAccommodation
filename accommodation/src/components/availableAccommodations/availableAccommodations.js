@@ -59,7 +59,7 @@ const AvailableAccommodations = (props) => {
   const [mapaddress, setMapAddress] = useState("Pinnacle Business Park");
   const [filterData, setFilterData] = useState([]);
   const [houseHabit1, setHouseHabit1] = useState([]);
-  const [houseHabit2, setHouseHabit2] = useState();
+  const [houseHabit2, setHouseHabit2] = useState([]);
   const [houseHabit3, setHouseHabit3] = useState([]);
   const [distancefilter1, setDistancefilter1] = useState([]);
   const [distancefilter2, setDistancefilter2] = useState([]);
@@ -126,7 +126,7 @@ const AvailableAccommodations = (props) => {
     (Data) =>
       (!filterData.length || filterData.includes(Data.acctypename)) &&
       (!houseHabit1.length || houseHabit1.includes(Data.issmoking)) &&
-      (!houseHabit2.length || houseHabit2 === Data.isdrinking) &&
+      (!houseHabit2.length || houseHabit2.includes(Data.isdrinking)) &&
       (!houseHabit3.length || houseHabit3.includes(Data.isnonveg)) &&
       (!distancefilter1.length ||
         (distancefilter1.length != 0 &&
@@ -146,7 +146,7 @@ const AvailableAccommodations = (props) => {
           Data.distance <= 10))
   );
 
-  console.log(data[0].isdrinking);
+  // console.log(data[0].isdrinking);
   console.log(houseHabit2);
   
 

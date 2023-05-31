@@ -1,16 +1,9 @@
-.nearby-location {
-  background-color: #e9eceb;
-  border-radius: 4px;
-  padding: 12px 8px 12px 4px;
-}
+
 .amenities {
   background-color: #d3e1fa;
   border-radius: 4px;
 }
-.habits {
-  background-color: rgba(224, 62, 45, 0.1);
-  border-radius: 4px;
-}
+
 .interested {
   background-color: #28519e;
   color: #ffffff;
