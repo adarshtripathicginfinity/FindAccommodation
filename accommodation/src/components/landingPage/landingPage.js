@@ -1,4 +1,4 @@
-import React,{useContext, useEffect, useState} from "react";
+import React, { useContext, useEffect, useState } from "react";
 import {
   MainContainer,
   TopContainer,
@@ -14,69 +14,81 @@ import {
 import { Wrapper, Container } from "../utilityStyles/utilityStyles";
 import Navbar from "../navbar/navbar";
 import "./landingPage.css";
-import Interest from "../interest/interest";
 import Notification from "../notification/notification";
+import Interest from "../../images/interest.svg"
 import { MultiStepContext } from "../stepContext/stepContext";
 import { Link, useNavigate } from "react-router-dom";
 import axios from "axios";
-
+import axios1 from "../api/axios";
 
 const LandingPage = () => {
-  const [interestData,setInterestData] = useState([]);
-  
-
+  const INTEREST_URL = "/interestSent";
+  const [interestData, setInterestData] = useState([]);
+  const [interestLength, setInterestLength] = useState([]);
+  const maxInterestToShow = 4;
 
   const navigate = useNavigate();
 
-  const {currentUser,availableAccommodations,setAvailableAccommodations}=useContext(MultiStepContext);
-  
-  const userData = localStorage.getItem("userData")
-  
-  const [data,setData] = useState(JSON.parse(userData));
-  useEffect(()=>{
-    axios.get('https://cg-accommodation.azurewebsites.net/')
-    .then(response =>{
+  const { currentUser, availableAccommodations, setAvailableAccommodations } =
+    useContext(MultiStepContext);
 
-    })
-    .catch(error =>{
-      console.log(error)
-    })
-  },[])
+  const userData = localStorage.getItem("userData");
 
+  const [data, setData] = useState(JSON.parse(userData));
+  console.log(data.id);
 
-  
+  async function handleInterest() {
+    await axios1
+      .get(INTEREST_URL, { params: { userId: data.id } })
+      .then((response) => {
+        setInterestData(response.data);
+        setInterestLength(interestData.length);
+        
+      })
+      .catch((error) => {
+        console.log(error);
+      });
+  }
 
+  async function handleLanding() {
+    await axios
+      .get("https://cg-accommodation.azurewebsites.net/")
+      .then((response) => {})
+      .catch((error) => {
+        console.log(error);
+      });
+  }
+  useEffect(() => {
+    handleLanding();
+    handleInterest();
+  }, []);
 
   const handleAvailableAccommodation = (event) => {
     event.preventDefault();
-    axios.get('https://cg-accommodation.azurewebsites.net/getAllAcc')
-    .then(response => {
-  
-      navigate('/availableaccommodationsonly')
-
-    })
-    .catch(error => {
-      // Handle error
-      console.log(error);
-    });
-  
-    
+    axios
+      .get("https://cg-accommodation.azurewebsites.net/getAllAcc")
+      .then((response) => {
+        navigate("/availableaccommodationsonly");
+      })
+      .catch((error) => {
+        // Handle error
+        console.log(error);
+      });
   };
-
 
   const handleOpenrequirements = (event) => {
     event.preventDefault();
-    
-    navigate('/availableaccommodationsreq');
+
+    navigate("/availableaccommodationsreq");
   };
-  
+
   const handleVolunteer = (event) => {
     event.preventDefault();
-    navigate('/form')
+    navigate("/form");
   };
   const handlePostReq = (event) => {
     event.preventDefault();
-    navigate('/requirementform');
+    navigate("/requirementform");
   };
 
   return (
@@ -104,7 +116,7 @@ const LandingPage = () => {
                   Let's find your <b>Accommodation</b>
                 </p>
               </div>
-              <div className="col-md-4 acc-btn" >
+              <div className="col-md-4 acc-btn">
                 <Button
                   className="btn"
                   style={{
@@ -112,9 +124,11 @@ const LandingPage = () => {
                     marginLeft: "3.3rem",
                     marginRight: "2.3rem",
                     padding: "0",
-                    margin:"0"
+                    margin: "0",
                   }}
-                  onClick={(e)=>{handleAvailableAccommodation(e)}}
+                  onClick={(e) => {
+                    handleAvailableAccommodation(e);
+                  }}
                 >
                   <p
                     className="landingPage__btn-p"
@@ -155,7 +169,9 @@ const LandingPage = () => {
                           marginBottom: "2.31rem",
                           marginTop: "1.56rem",
                         }}
-                        onClick={(e)=>{handleVolunteer(e)}}
+                        onClick={(e) => {
+                          handleVolunteer(e);
+                        }}
                         className="btn"
                       >
                         <p
@@ -167,11 +183,16 @@ const LandingPage = () => {
                       </Button>
                     </div>
                     <div className="col-sm-6 col-12 result-btn">
-                      <button style={{marginTop: "1.56rem"}} className="landingPage__result-btn">
+                      <button
+                        style={{ marginTop: "1.56rem" }}
+                        className="landingPage__result-btn"
+                      >
                         <p
                           className="landingPage__btn-p "
                           style={{ margin: "1rem 1.5rem 0.8rem" }}
-                          onClick={(e)=>{handleOpenrequirements(e)}}
+                          onClick={(e) => {
+                            handleOpenrequirements(e);
+                          }}
                         >
                           See Open Requests
                         </p>
@@ -196,7 +217,7 @@ const LandingPage = () => {
                     marginBottom: "2.5rem",
                     marginTop: "1.5rem",
                   }}
-                  onClick={(e)=>handlePostReq(e)}
+                  onClick={(e) => handlePostReq(e)}
                 >
                   <p
                     style={{ margin: "1rem 2rem" }}
@@ -213,12 +234,12 @@ const LandingPage = () => {
                   Interest Sent
                   <Link
                     to="/interestsent"
-                    style={{float: "right", fontSize:"16px"}}
+                    style={{ float: "right", fontSize: "16px" }}
                   >
                     See All &gt;
-                  </Link> 
+                  </Link>
                 </p>
-                
+
                 {/* <div className="row row-cols-sm-2 ">
                   <div className="col-sm">
                     <Interest />
@@ -231,7 +252,57 @@ const LandingPage = () => {
                   </div>
                 </div> */}
                 <div className="col">
-                  <Interest />
+                  {interestData.slice(0, maxInterestToShow).map((data) => (
+                    <div
+                      key={data.id}
+                      className="col interest__container"
+                      style={{ marginBottom: "1rem" }}
+                    >
+                      <div className="row">
+                        <div
+                          className="col interest__name"
+                          style={{ marginTop: "1rem" }}
+                        >
+                          <div style={{ display: "flex" }}>
+                            <div style={{ marginRight: "1rem" }}>
+                              <img className="img-fluid" src={Interest} />
+                            </div>
+                            <div>
+                              <Link>
+                                {data.firstname} {data.lastname}
+                                <span>&gt;</span>
+                              </Link>
+                              <p
+                                style={{ color: "#8E8E92", fontSize: "0.8rem" }}
+                              >
+                                {data.cgiid}
+                              </p>
+                            </div>
+                          </div>
+                        </div>
+                        <div
+                          className="col-12"
+                          style={{ marginBottom: "1rem" }}
+                        >
+                          <p
+                            className="interest__para"
+                            style={{ marginBottom: "0.3rem" }}
+                          >
+                            LandMark : {data.locality}
+                          </p>
+                          <a className="a-link" style={{ color: "#007FD3" }}>
+                            <p
+                              className="interest__a-p"
+                              style={{ marginBotton: "0" }}
+                            >
+                              View on Map
+                            </p>
+                          </a>
+                        </div>
+                      </div>
+                    </div>
+                  ))}{" "}
+                 
                 </div>
               </ShortlistContainer>
               <NotificationContainer className=" col-md-6">
@@ -239,18 +310,24 @@ const LandingPage = () => {
                   Notifications
                   <Link
                     to="/notificationsent"
-                    style={{float: "right", fontSize:"16px"}}
+                    style={{ float: "right", fontSize: "16px" }}
                   >
-                  See All &gt;
-                  </Link> 
+                    See All &gt;
+                  </Link>
                 </p>
-                <div style={{ boxShadow:"0px 4px 10px rgba(66,76,97,0.15)", borderRadius:"8px" ,paddingBottom:"0.0rem"}}>
-                <div className="col-12" style={{ marginBottom: "1rem" }}>
-                  <Notification />
-                </div>
-                <div className="col-12">
-                  <Notification />
-                </div>
+                <div
+                  style={{
+                    boxShadow: "0px 4px 10px rgba(66,76,97,0.15)",
+                    borderRadius: "8px",
+                    paddingBottom: "0.0rem",
+                  }}
+                >
+                  <div className="col-12" style={{ marginBottom: "1rem" }}>
+                    <Notification />
+                  </div>
+                  <div className="col-12">
+                    <Notification />
+                  </div>
                 </div>
               </NotificationContainer>
             </DynamicContainer>

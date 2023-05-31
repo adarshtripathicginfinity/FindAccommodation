@@ -62,7 +62,7 @@ const Navbar = () => {
               {data?.email}
             </strong>
           </Link>
-          <Link href="#" class="dropdown-item">
+          <Link to="/accountsettings" class="dropdown-item">
             <strong style={{ color: "#565555" }}>Account Settings</strong>
           </Link>
           {/* {console.log("inside navbar")} */}

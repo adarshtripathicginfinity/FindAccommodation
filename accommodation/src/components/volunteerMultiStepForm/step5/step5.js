@@ -14,6 +14,7 @@ const Step5 = () => {
   const navigate = useNavigate();
   const { activeBtn, setActiveBtn } = useState(true);
   function handleSubmit(){
+    console.log(userData);
     axios.post("https://cg-accommodation.azurewebsites.net/createAccommodation", { userData})
   .then((response) => {
     console.log(response.data);

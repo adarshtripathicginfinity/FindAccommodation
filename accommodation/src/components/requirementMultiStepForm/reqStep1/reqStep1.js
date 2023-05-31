@@ -2,6 +2,8 @@ import React, { useContext, useState } from "react";
 import { FormContainer, Header, Body } from "../../utilityStyles/utilityStyles";
 import { MultiStepContext } from "../../stepContext/stepContext";
 import "./reqStep1.css";
+import FileUploadButton from "../../fileUploadButton/fileUploadButton";
+import dummyProfile from "../../../images/dummyProfile.svg";
 
 const ReqStep1 = () => {
   const { reqNext, requirementData, setRequirementData } =
@@ -23,6 +25,8 @@ const ReqStep1 = () => {
     setRequirementData({ ...requirementData, locality: value });
   };
 
+  const [userInfo, setUserInfo] = useState(JSON.parse( localStorage.getItem("userData")));
+  
   const handlePhoneNumberChange = (event) => {
     const phoneNumber = event.target.value;
     if (phoneNumber.trim().length <= 10) {
@@ -81,7 +85,20 @@ const ReqStep1 = () => {
         <hr style={{ margin: "0" }} />
       </Header>
       <Body>
-        <p className="reqStep1__form-heading" style={{ marginBottom: "0" }}>
+        <div className="row">
+          <div className=" col-md-3">
+            <img src={requirementData.profileUrl || dummyProfile} alt="profile" id="profilePic" />
+          </div>
+
+          <div className=" col-md-5" style={{}}>
+          <p className="p_color" style={{ marginBottom: "0" }}>
+            <strong>{userInfo.firstName} {userInfo.lastName}  </strong>
+            <p> {userInfo.email}</p>
+          </p>
+            <FileUploadButton file="postRequirement" />              
+          </div>
+        </div>
+        <p className="reqStep1__form-heading" style={{ marginTop: "3%" }}>
           Add your preferred location
         </p>
         <form style={{ marginTop: "1.5rem" }}>
