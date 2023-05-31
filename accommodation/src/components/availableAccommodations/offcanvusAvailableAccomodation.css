@@ -1,0 +1,42 @@
+.container_fullname {
+  font-family: "Lato";
+  font-style: normal;
+  font-weight: 700;
+  font-size: 20px;
+  line-height: 24px;
+  color: #28519e;
+  margin-bottom:0 ;
+}
+
+.container_CGI{
+    font-family: 'Lato';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 14px;
+    line-height: 17px;
+    color: #8E8E92;
+    margin-bottom:0;
+    
+}
+
+.nearby-location {
+  background-color: #e9eceb;
+  border-radius: 4px;
+  padding: 1rem 1rem 1rem 1rem;
+  margin-top: 0.5rem;
+  margin-bottom: 0.5rem;
+}
+
+.allowed-habits {
+  background-color: #d3e1fa;
+  border-radius: 4px;
+  padding: 0.5rem;
+  margin-right: 0.5rem;
+}
+
+.notallowed-habits {
+  background-color: rgba(224, 62, 45, 0.1);
+  border-radius: 4px;
+  padding: 0.5rem;
+  margin-right: 0.5rem;
+}

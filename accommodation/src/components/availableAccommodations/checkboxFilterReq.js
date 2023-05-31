@@ -50,6 +50,14 @@ const CheckboxFilterReq = (props) => {
     }
   };
 
+
+  const smFilter1 = (data) => {
+    setFilteroption(data);
+    props.sendData(filteroption);
+   }
+  
+  
+
   return (
     <>
       <div className="col-sm-8 col-4 container d-flex justify-content-end align-items-center">
@@ -114,9 +122,9 @@ const CheckboxFilterReq = (props) => {
                             <input
                               class="form-check-input"
                               type="checkbox"
-                              value="Pg"
+                              value="pg"
                               id="flexCheckChecked"
-                              checked={filteroption.includes("Pg")}
+                              checked={filteroption.includes("pg")}
                               onChange={handleFilter}
                             />
                             <label
@@ -132,9 +140,9 @@ const CheckboxFilterReq = (props) => {
                             <input
                               class="form-check-input"
                               type="checkbox"
-                              value="Flat"
+                              value="flat"
                               id="flexCheckChecked"
-                              checked={filteroption.includes("Flat")}
+                              checked={filteroption.includes("flat")}
                               onChange={handleFilter}
                             />
                             <label
@@ -229,7 +237,9 @@ const CheckboxFilterReq = (props) => {
           </div>
         </nav>
       </div>
-      <SmallScreenFilterReq />
+      <SmallScreenFilterReq 
+         smsendData={smFilter1}
+      />
     </>
   );
 };
