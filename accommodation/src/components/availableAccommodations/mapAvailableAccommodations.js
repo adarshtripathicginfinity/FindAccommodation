@@ -118,18 +118,7 @@ const MapAvailableAccommodations = (props) => {
                         </p>
                       </div>
 
-                      <div className="d-flex mb-2">
-                        <img src={gps} alt="" />
-                        <p
-                          className="mb-0 ms-1"
-                          style={{
-                            fontWeight: "500",
-                            color: "#007FD3",
-                          }}
-                        >
-                          View on Map
-                        </p>
-                      </div>
+                      
                       <div className="d-flex mb-3">
                         <div
                           className="me-3 nearby-location"

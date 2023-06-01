@@ -137,7 +137,7 @@ const Step1 = () => {
                   </div>    */}
                   <p className="p_color" style={{ marginBottom: "0" }}>
                     <strong>{userInfo.firstName} {userInfo.lastName}  </strong>
-                    <p> {userInfo.email}</p>
+                    <p>{userInfo.email}</p>
                   </p>
                   {/* <p className="p_color">{currentUser.response[0].email}</p> */}
                   {/* <input type="file" /> */}
@@ -199,7 +199,7 @@ const Step1 = () => {
                   )}
                 </div>
               </div>
-              
+              {console.log(userData)}
               <div className="row " style={{ marginTop: "1.5rem" }}>
                 <div className="d-flex justify-content-between">
                   <div>

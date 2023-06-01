@@ -20,12 +20,11 @@ const Navbar = () => {
   const userData = localStorage.getItem("userData")
   
   const [data,setData] = useState(JSON.parse(userData));
+
   function handleLogIn(){
     localStorage.clear();
     setIsLogin(false);
-   
-    console.log("inside handleLogin")
-
+    // console.log("inside handleLogin")
   }
   return (
    

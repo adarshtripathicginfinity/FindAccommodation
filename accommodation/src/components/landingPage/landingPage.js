@@ -21,6 +21,7 @@ import { Link, useNavigate } from "react-router-dom";
 import axios from "axios";
 import axios1 from "../api/axios";
 
+
 const LandingPage = () => {
   const INTEREST_URL = "/interestSent";
   const [interestData, setInterestData] = useState([]);
@@ -236,7 +237,7 @@ const LandingPage = () => {
                     to="/interestsent"
                     style={{ float: "right", fontSize: "16px" }}
                   >
-                    See All &gt;
+                    See All
                   </Link>
                 </p>
 
@@ -290,13 +291,6 @@ const LandingPage = () => {
                           >
                             LandMark : {data.locality}
                           </p>
-                          <a className="a-link" style={{ color: "#007FD3" }}>
-                            <p
-                              className="interest__a-p" 
-                            >
-                              View on Map
-                            </p>
-                          </a>
                         </div>
                       </div>
                     </div>
