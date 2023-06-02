@@ -232,7 +232,7 @@ const Step1 = () => {
                 </div>
               </div>
 
-              <div className="row" style={{ marginTop: "1.9rem" }}>
+              <div className="row" style={{ marginTop: "1rem" }}>
                 <div className="d-flex justify-content-between">
                   <div>
                     <p className="p_color" style={{ marginBottom: "0" }}>
@@ -260,7 +260,7 @@ const Step1 = () => {
                 </div>
               </div>
 
-              <div className="row" style={{ marginTop: "1.9rem" }}>
+              <div className="row" style={{ marginTop: "1rem" }}>
                 <div className="d-flex justify-content-between">
                   <div>
                     <p className="p_color" style={{ marginBottom: "0" }}>

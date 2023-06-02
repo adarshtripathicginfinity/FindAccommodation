@@ -494,7 +494,7 @@ const OffcanvusAvailableAccommodation = (props) => {
                       </div>
                     </div>
                   </div>
-                  <div className="row " style={{ marginTop: "0.25rem" }}>
+                  <div className="row " style={{ marginTop: "0.25rem", position:"fixed"}}>
                     <div>
                       <button
                         type="button"
