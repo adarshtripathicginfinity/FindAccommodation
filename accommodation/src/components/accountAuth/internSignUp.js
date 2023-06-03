@@ -44,9 +44,9 @@ const InternSignUp = () => {
 
   const handleAdhaarNumberChange = (event) => {
     const { value } = event.target;
-    const formattedValue = value.replace(/\D/g, "").replace(/(.{4})/g, "$1 ");
+    let formattedValue = value.replace(/\D/g, "").replace(/(.{4})/g, "$1 ");
     if (formattedValue.trim().length <= 14) {
-      setAadharCard(formattedValue.trim());
+      setAadharCard(formattedValue.trim().replaceAll(" ","-"));
     }
     setIsAdhaarNumberValid(
       formattedValue.length === 0 || formattedValue.trim().length < 14

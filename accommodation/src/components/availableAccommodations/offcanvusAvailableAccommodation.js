@@ -1,5 +1,4 @@
-import React, { useState } from "react";
-import "./offcanvusAvailableAccomodation.css";
+import React from "react";
 import gps from "../../images/GPS.svg";
 import office from "../../images/office.svg";
 import metro from "../../images/Metrotransit.svg";
@@ -10,6 +9,7 @@ import not_allowed from "../../images/Not Allowed.svg";
 import clock from "../../images/clock.svg";
 import owner_name from "../../images/owner name.svg";
 import call from "../../images/call.svg";
+import "./availableAccommodations.css";
 
 const OffcanvusAvailableAccommodation = (props) => {
   const data = props.canvasData;
@@ -62,7 +62,7 @@ const OffcanvusAvailableAccommodation = (props) => {
         id={`exampleOffCanvas_${props.canvasData.id}`}
         aria-labelledby="offcanvasRightLabel"
       >
-        {/* {console.log(props.canvasData.id)} */}
+        {/* {console.log(props.canvasData)} */}
         {console.log(data)}
         <div class="offcanvas-header d-flex justify-content-end mb-0">
           <button
@@ -494,7 +494,7 @@ const OffcanvusAvailableAccommodation = (props) => {
                       </div>
                     </div>
                   </div>
-                  <div className="row " style={{ marginTop: "0.25rem" }}>
+                  <div className="row " style={{ marginTop: "0.25rem", position:"fixed"}}>
                     <div>
                       <button
                         type="button"

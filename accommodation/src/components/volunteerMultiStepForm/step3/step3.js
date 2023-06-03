@@ -423,7 +423,7 @@ const Step3 = () => {
           )}
 
           <p className="reqStep2__label-h" style={{ marginBottom: "1.15rem" }}>
-            House Habit Preferences
+            House Habit Preferences (allowed)
           </p>
           <div class="form-check" style={{ marginBottom: "1.18rem" }}>
             <input

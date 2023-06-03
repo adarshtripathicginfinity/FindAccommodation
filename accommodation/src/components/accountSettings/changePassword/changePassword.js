@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import { useNavigate } from "react-router";
+import "./changePassword.css"
 
 const ChangePassword = () => {
   const navigate = useNavigate();
@@ -34,15 +35,17 @@ const ChangePassword = () => {
     <>
       <div className="row">
         <div className="col-12">
-          <div className="container w-100 g-2">
+          <p id="changePasswordHeading">
+            Change Password
+          </p>
+          <div className="container w-100 g-2 changePasswordOuterDiv">
             <form onSubmit={handleNewPassword}>
               <label for="email" className="form-label">
                 Old Password
               </label>
               <input
                 type="password"
-                className="form-control"
-                placeholder="Enter New Password"
+                className="form-control input inputPassword"
                 value={password}
                 onChange={handlePasswordChange}
                 required
@@ -57,8 +60,7 @@ const ChangePassword = () => {
               </label>
               <input
                 type="password"
-                className="form-control"
-                placeholder="Enter Confirm Password"
+                className="form-control input inputPassword"
                 value={confirmPassword}
                 onChange={handleConfirmPasswordChange}
                 required
@@ -70,13 +72,15 @@ const ChangePassword = () => {
               )}
 
               <button
-                className="btn btn-warning w-100 mt-3"
+                style={{marginBottom: "5%"}}
+                className="btn btn-warning w-1 mt-4"
+                id="submitButton"
                 disabled={
                   (!isPasswordValid && password) ||
                   (!isconfirmPasswordValid && confirmPassword)
                 }
               >
-                Submit
+                Change Password
               </button>
             </form>
           </div>

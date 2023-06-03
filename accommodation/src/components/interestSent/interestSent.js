@@ -145,17 +145,6 @@ const InterestSent = (props) => {
                           </p>
                           <p style={{marginBottom:'0' , marginLeft:'0.5rem'}}>{data.locality}</p>
                         </div>
-                        <a className="a-link" style={{ color: "#007FD3" }}>
-                          <div className="d-flex">
-                            <img src={gps} alt="" />
-                            <p
-                              className="interest__a-p"
-                              style={{ marginBotton: "0" }}
-                            >
-                              View on Map
-                            </p>
-                          </div>
-                        </a>
                       </div>
                     </div>
                   </div>
