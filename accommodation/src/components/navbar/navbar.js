@@ -53,10 +53,10 @@ const Navbar = () => {
           aria-labelledby="navbarDropdown"
           sx={{ width: "2px" }}
         >
-          <Link class="dropdown-item">
+          <Link class="dropdown-item non-clickable">
             <strong>{data?.firstName} {data?.lastName}</strong>
           </Link>
-          <Link href="#" class="dropdown-item">
+          <Link href="#" class="dropdown-item non-clickable">
             <strong style={{ color: "#565555", fontWeight: "400" }}>
               {data?.email}
             </strong>

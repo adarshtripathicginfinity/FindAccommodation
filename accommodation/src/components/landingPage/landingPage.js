@@ -14,15 +14,16 @@ import {
 import { Wrapper, Container } from "../utilityStyles/utilityStyles";
 import Navbar from "../navbar/navbar";
 import "./landingPage.css";
-import Notification from "../notification/notification";
-import Interest from "../../images/interest.svg"
+import Interest from "../../images/interest.svg";
 import { MultiStepContext } from "../stepContext/stepContext";
 import { Link, useNavigate } from "react-router-dom";
 import axios from "axios";
 import axios1 from "../api/axios";
-
+import { useLocation } from "react-router-dom";
 
 const LandingPage = () => {
+  const url_locaton = useLocation();
+  console.log(url_locaton);
   const INTEREST_URL = "/interestSent";
   const [interestData, setInterestData] = useState([]);
   const [interestLength, setInterestLength] = useState([]);
@@ -42,9 +43,8 @@ const LandingPage = () => {
     await axios1
       .get(INTEREST_URL, { params: { userId: data.id } })
       .then((response) => {
-        setInterestData(response.data);
+        setInterestData(response.data.response);
         setInterestLength(interestData.length);
-        
       })
       .catch((error) => {
         console.log(error);
@@ -241,17 +241,6 @@ const LandingPage = () => {
                   </Link>
                 </p>
 
-                {/* <div className="row row-cols-sm-2 ">
-                  <div className="col-sm">
-                    <Interest />
-                  </div>
-                  <div className="col-sm">
-                    <Interest />
-                  </div>
-                  <div className="col-sm">
-                    <Interest />
-                  </div>
-                </div> */}
                 <div className="col">
                   {interestData.slice(0, maxInterestToShow).map((data) => (
                     <div
@@ -295,33 +284,18 @@ const LandingPage = () => {
                       </div>
                     </div>
                   ))}{" "}
-                 
                 </div>
               </ShortlistContainer>
               <NotificationContainer className=" col-md-6">
                 <p className="landingPage__head" style={{ color: "black" }}>
                   Notifications
                   <Link
-                    to="/notificationsent"
+                    to="/notifications"
                     style={{ float: "right", fontSize: "16px" }}
                   >
                     See All &gt;
                   </Link>
                 </p>
-                <div
-                  style={{
-                    boxShadow: "0px 4px 10px rgba(66,76,97,0.15)",
-                    borderRadius: "8px",
-                    paddingBottom: "0.0rem",
-                  }}
-                >
-                  <div className="col-12" style={{ marginBottom: "1rem" }}>
-                    <Notification />
-                  </div>
-                  <div className="col-12">
-                    <Notification />
-                  </div>
-                </div>
               </NotificationContainer>
             </DynamicContainer>
           </div>
