@@ -52,7 +52,6 @@
   font-size: 1rem;
   line-height: 1.25rem;
   color: #28519e;
-  display: flex;
   justify-content: space-between;
 }
 
@@ -97,3 +96,11 @@
     width: calc(100vw - 100px);
   }
 }
+
+/* 
+@media (max-width: 768px) { 
+  .demo_search-bar
+  {
+    margin-left: 0.37rem;
+  }
+ } */

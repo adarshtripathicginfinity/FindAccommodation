@@ -9,7 +9,7 @@ import not_allowed from "../../images/Not Allowed.svg";
 import clock from "../../images/clock.svg";
 import owner_name from "../../images/owner name.svg";
 import call from "../../images/call.svg";
-import "./availableAccommodations.css";
+import "./offcanvusAvailableAccomodation.css";
 
 const OffcanvusAvailableAccommodation = (props) => {
   const data = props.canvasData;
