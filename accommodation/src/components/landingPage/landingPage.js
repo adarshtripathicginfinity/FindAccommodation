@@ -21,6 +21,8 @@ import axios from "axios";
 import axios1 from "../api/axios";
 import ModalNortification from './modalNortification';
 import { useLocation } from "react-router-dom";
+import NoInterest from "../noInterest/noInterest";
+import NoNortification from "../noNotifications/noNortification";
 
 const LandingPage = () => {
   const url_locaton = useLocation();
@@ -277,7 +279,7 @@ const LandingPage = () => {
                   </Link>
                 </p>
 
-                <div className="col">
+                {/* <div className="col">
                   {interestData.slice(0, maxInterestToShow).map((data) => (
                     <div
                       key={data.id}
@@ -320,7 +322,8 @@ const LandingPage = () => {
                       </div>
                     </div>
                   ))}{" "}
-                </div>
+                </div> */}
+                <NoInterest />
               </ShortlistContainer>
               <NotificationContainer className=" col-md-6">
                 <p className="landingPage__head" style={{ color: "black" }}>
@@ -332,7 +335,7 @@ const LandingPage = () => {
                     See All &gt;
                   </Link>
                 </p>
-                {notificationData.slice(0, maxNotificationsToShow).map((data) => (
+                {/* {notificationData.slice(0, maxNotificationsToShow).map((data) => (
                     <div
                       key={data.id}
                       style={{ marginBottom: "1rem" }}
@@ -373,7 +376,8 @@ const LandingPage = () => {
                   </div>
                   }
                 </div>
-                ))}
+                ))} */}
+                <NoNortification />
               </NotificationContainer>
             </DynamicContainer>
           </div>
