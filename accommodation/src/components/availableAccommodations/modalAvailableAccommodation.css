@@ -26,8 +26,26 @@
   font-family: "Lato";
   font-style: normal;
   font-weight: 700;
-  font-size: 14px;
-  line-height: 17px;
+  font-size: 0.87rem;
+  line-height: 1.06rem;
   color: #343435;
   margin-bottom: 0;
+}
+
+.modal_message-textarea
+{
+  margin-left: 0.7rem;
+  display: flex;
+flex-direction: row;
+align-items: flex-start;
+padding: 0.5rem;
+gap: 0.5rem;
+width: 95%;
+height: 100%;
+border: 1px solid #8E8E92;
+border-radius: 0.25rem;
+margin-top: 0.5rem;
+margin-bottom: 1rem;
+
+
 }

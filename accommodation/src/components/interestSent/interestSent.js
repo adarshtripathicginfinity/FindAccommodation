@@ -45,11 +45,11 @@ const InterestSent = (props) => {
               </nav>
             </div>
             <div className="row " style={{ marginBottom: "1.25rem" }}>
-              <div className="col-6">
+              <div className="col-0 col-md-6 d-none d-md-flex">
                 <p className="interest_heading">Interest Sent</p>
               </div>
 
-              <div class="d-flex col-6">
+              <div class="d-flex col-12 col-md-6">
                 <div
                   class="d-flex border w-sm-75 w-100 px-3"
                   style={{
@@ -67,7 +67,7 @@ const InterestSent = (props) => {
 
                   <input
                     type="text"
-                    class="form-control form-input"
+                    class="form-control form-input .demo_search-bar"
                     style={{
                       border: "none",
                       outlineStyle: "none",
@@ -106,7 +106,7 @@ const InterestSent = (props) => {
               </div>
             </div>
 
-            <div className="row-cols-2 row">
+            <div className="row-cols-md-2 row">
               {interestData.map((data) => (
                 <div key={data.id}>
                   <div
@@ -131,7 +131,7 @@ const InterestSent = (props) => {
                             </p>
                           </div>
                         </div>
-                        <div>
+                        <div className="col-none c-md-flex">
                            <p className="interest_time-date">10:15 AM</p>
                            <p className="interest_time-date" style={{marginTop:'0.3rem'}}>23-03-2023</p>
                         </div>

@@ -154,33 +154,30 @@ const ModalAvailableAccommodation = (props) => {
                 </div>
 
                 <div className="row">
-                    <p
-                      className="modal_attribute"
-                      style={{marginTop:'1rem'}}
+                  <p className="modal_attribute" style={{ marginTop: "1rem" }}>
+                    Message:
+                  </p>
+                  <textarea
+                    value={message}
+                    onChange={(e) => {
+                      setMessage(e.target.value);
+                    }}
+                    class="form-control modal_message-textarea"
+                    id="exampleFormControlTextarea1"
+                    rows="3"
+                    placeholder="Type your message here"
+                  ></textarea>
+
+                  <div>
+                    <button
+                      className="border-0 py-2 px-3 w-100 interested"
+                      data-bs-toggle="modal"
+                      data-bs-target="#exampleModal"
+                      onClick={(e) => handleModalbtn(e)}
                     >
-                      Message:
-                    </p>
-                      <textarea
-                        value={message}
-                        onChange={(e) => {
-                          setMessage(e.target.value);
-                        }}
-                        class="form-control modal_message-textarea"
-                        id="exampleFormControlTextarea1"
-                        rows="3"
-                        placeholder="Type your message here"
-                      ></textarea>
-            
-                    <div>
-                      <button
-                        className="border-0 py-2 px-3 w-100 interested"
-                        data-bs-toggle="modal"
-                        data-bs-target="#exampleModal"
-                        onClick={(e) => handleModalbtn(e)}
-                      >
-                        Send Request
-                      </button>
-                    </div>
+                      Send Request
+                    </button>
+                  </div>
                 </div>
               </form>
             </div>
