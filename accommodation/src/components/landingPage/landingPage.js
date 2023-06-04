@@ -20,6 +20,7 @@ import { Link, useNavigate } from "react-router-dom";
 import axios from "axios";
 import axios1 from "../api/axios";
 import { useLocation } from "react-router-dom";
+import female from "../../images/female.svg"
 
 const LandingPage = () => {
   const url_locaton = useLocation();
@@ -28,6 +29,9 @@ const LandingPage = () => {
   const [interestData, setInterestData] = useState([]);
   const [interestLength, setInterestLength] = useState([]);
   const maxInterestToShow = 4;
+
+  const NOTIFICATION_URL = "/notification";
+  const [notificationData, setNotificationData] = useState([]);
 
   const navigate = useNavigate();
 
@@ -51,6 +55,14 @@ const LandingPage = () => {
       });
   }
 
+  async function handleNotifications() {
+    await axios
+      .get(NOTIFICATION_URL, { params: { userId: userData.id } })
+      .then((response) => {
+        setNotificationData(response.data.response);
+      });
+  }
+
   async function handleLanding() {
     await axios
       .get("https://cg-accommodation.azurewebsites.net/")
@@ -60,6 +72,7 @@ const LandingPage = () => {
       });
   }
   useEffect(() => {
+    handleNotifications();
     handleLanding();
     handleInterest();
   }, []);
@@ -77,6 +90,7 @@ const LandingPage = () => {
       });
   };
 
+  {console.log(notificationData);}
   const handleOpenrequirements = (event) => {
     event.preventDefault();
 
@@ -296,6 +310,28 @@ const LandingPage = () => {
                     See All &gt;
                   </Link>
                 </p>
+                {interestData.slice(0, maxInterestToShow).map((data) => (
+                    <div
+                      key={data.id}
+                      className="col interest__container"
+                      style={{ marginBottom: "1rem" }}
+                    >
+                    <div className="container-fluid notification-container" style={{padding:"0.75rem 0.75rem 1rem 1rem"}}>
+                      <div className="row">
+                        <div className="col-2">
+                          <img src={female} />
+                        </div>
+                        <div className="col">
+                          <p>
+                            <strong>Harshit Khurana</strong> has express interest on your
+                            accommodation posting
+                          </p>
+                          <a className="notification__a-p " style={{color:"#007FD3"}}>Show message</a>
+                        </div>
+                      </div>
+                    </div>
+                </div>
+                ))};
               </NotificationContainer>
             </DynamicContainer>
           </div>
