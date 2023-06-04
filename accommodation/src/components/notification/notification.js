@@ -23,23 +23,23 @@ const Notification = (props) => {
       .then((response) => {
         setAcceptedNotifications(response.data.acceptedRequest);
         setUnAcceptedNotifications(response.data.unAcceptedRequest);
-        merge();
       });
   }
   
   const currentTime = new Date();
 
-  function merge() {
+function merge() {
     const mergedNotifications = [...acceptedNotifications, ...unAcceptedNotifications];
     mergedNotifications.sort((a, b) => {
-      return b.createtime - a.createtime;
+      return b.createdate - a.createdate;
     });
     setNotificationData(mergedNotifications);
   }
 
     useEffect(() => {
         handleNotifications();
-      }, []);
+        merge();
+      }, [acceptedNotifications, unAcceptedNotifications]);
     
 
       {console.log(notificationData);}

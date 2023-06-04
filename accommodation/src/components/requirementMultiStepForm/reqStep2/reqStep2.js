@@ -48,7 +48,7 @@ const ReqStep2 = () => {
         <Body>
           {console.log(requirementData["accTypeId"])}
           <p className="reqStep2__label-h" style={{ marginBottom: "1rem" }}>
-            Accommodation Type
+            Accommodation Type <span style={{color:"#dd2727"}}><strong>*</strong></span>
           </p>
           <div
             className="container-fluid d-flex flex-row gap-4"
@@ -96,7 +96,7 @@ const ReqStep2 = () => {
           {requirementData["accTypeId"] == 1 ? (
             <div>
               <p className="reqStep2__label-h" style={{ marginBottom: "1rem" }}>
-                Sharing Type
+                Sharing Type <span style={{color:"#dd2727"}}><strong>*</strong></span>
               </p>
               <div
                 className="container-fluid d-flex flex-row gap-4"
@@ -170,7 +170,7 @@ const ReqStep2 = () => {
                     className="reqStep2__label-h"
                     style={{ marginBottom: "1rem" }}
                   >
-                    BHK TYPE
+                    BHK TYPE <span style={{color:"#dd2727"}}><strong>*</strong></span>
                   </p>
                 </div>
                 <div className="container-fluid d-flex flex-row gap-1">
@@ -237,7 +237,7 @@ const ReqStep2 = () => {
                     className="reqStep2__label-h"
                     style={{ marginBottom: "1rem" }}
                   >
-                    Furnishing Type
+                    Furnishing Type <span style={{color:"#dd2727"}}><strong>*</strong></span>
                   </p>
                 </div>
                 <div className="container-fluid d-flex flex-row gap-1">

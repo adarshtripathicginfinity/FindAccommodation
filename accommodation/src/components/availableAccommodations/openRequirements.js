@@ -98,7 +98,8 @@ const OpenRequirements = (props) => {
           className=" scrollbar col-12"
           style={{ backgroundColor: "#F5F5F5" }}
         >
-          <div className="row row-cols-md-3 ">
+          {console.log(props)}
+          <div className=" row row-cols-md-3 ">
             {props.sendingData.map((data, index) => (
               <div key={data.requirementid}>
                 <div
@@ -108,7 +109,7 @@ const OpenRequirements = (props) => {
                   <div className="p-3">
                     <div className="d-flex mb-3">
                       <div className="me-2">
-                        <img src={data.profileimage} alt="" />
+                        <img src={data.profileimage} height="40px" width="40px" style={{borderRadius:"50%"}} alt="" />
                       </div>
                       <div className="ms-1">
                         <div

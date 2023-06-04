@@ -7,7 +7,7 @@ const EditPost = () => {
   const [lookRequirement, setLookRequirement] = useState(false);
   return (
     <>
-      <div className="container " style={{ marginTop: "1.5rem"}}>
+      <div className="container " style={{ }}>
         <div className=" row">
           <p className="editpost__heading"> Volunteer Post</p>
           <p className="editpost__description ">
@@ -17,7 +17,7 @@ const EditPost = () => {
             <div>
               <p
                 className="p_color"
-                style={{ width: "fit-content", marginBottom: "0" }}
+                style={{ width: "fit-content"   }}
               >
                 Accommodations are currently available near me
               </p>
@@ -37,7 +37,7 @@ const EditPost = () => {
           </div>
         </div>
 
-        <div className="row" style={{ marginTop: "1.9rem" }}>
+        <div className="row" style={{ marginTop: "1%" }}>
           <div className="d-flex justify-content-between">
             <div>
               <p className="p_color" style={{ marginBottom: "0" }}>
@@ -56,6 +56,13 @@ const EditPost = () => {
               />
             </div>
           </div>
+          <button
+                style={{marginLeft:"2%", marginBottom: "5%", width:"20%"}}
+                className="btn btn-warning mt-4"
+                id="editDetail"
+              >
+                Edit Detail
+            </button>
         </div>
 
         <div className="row" style={{ marginTop: "1.9rem"}}>
@@ -81,6 +88,13 @@ const EditPost = () => {
               />
             </div>
           </div>
+          <button
+                style={{marginLeft:"2%" ,marginBottom: "5%", width:"20%"}}
+                className="btn btn-warning mt-4"
+                id="editDetail"
+              >
+                Edit Detail
+            </button>
         </div>
       </div>
     </>

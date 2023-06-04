@@ -13,3 +13,9 @@
   font-size: 1rem;
   line-height: 1.31rem;
 }
+
+#editDetail {
+  color: white;
+  background-color: #28519E;
+  border: none;
+}

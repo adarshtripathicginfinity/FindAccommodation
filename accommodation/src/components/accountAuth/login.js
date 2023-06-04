@@ -1,3 +1,4 @@
+
 import React, { useContext, useState,useRef ,useEffect} from "react";
 // import axios from "axios";
 import { useNavigate, Link } from "react-router-dom";
@@ -170,7 +171,7 @@ const Login = () => {
                     <form onSubmit={handleSubmit}>
                       <div>
                         <label for="email" className="form-label">
-                          Email ID
+                          Email ID <span style={{color:"#dd2727"}}><strong>*</strong></span>  
                         </label>
                         <input
                           type="email"
@@ -198,7 +199,7 @@ const Login = () => {
                           className="form-label"
                           style={{ marginTop: "1rem" }}
                         >
-                          Password
+                          Password <span style={{color:"#dd2727"}}><strong>*</strong></span>
                         </label>
 
                         <input
@@ -297,5 +298,3 @@ const Login = () => {
 };
 
 export default Login;
-
-

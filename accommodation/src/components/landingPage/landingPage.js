@@ -19,8 +19,10 @@ import { MultiStepContext } from "../stepContext/stepContext";
 import { Link, useNavigate } from "react-router-dom";
 import axios from "axios";
 import axios1 from "../api/axios";
-import ModalNortification from './modalNortification';
 import { useLocation } from "react-router-dom";
+import female from "../../images/female.svg"
+import { async } from "@firebase/util";
+import chevron from "../../images/chevron-right-solid.svg"
 
 const LandingPage = () => {
   const url_locaton = useLocation();
@@ -65,18 +67,34 @@ const LandingPage = () => {
       .then((response) => {
         setAcceptedNotifications(response.data.acceptedRequest);
         setUnAcceptedNotifications(response.data.unAcceptedRequest);
-        merge();
       });
   }
   
   const currentTime = new Date();
+  let mergedNotifications;
+  
 
-  function merge() {
-    const mergedNotifications = [...acceptedNotifications, ...unAcceptedNotifications];
+  async function merge() {
+    mergedNotifications = [...acceptedNotifications, ...unAcceptedNotifications];
     mergedNotifications.sort((a, b) => {
-      return b.createtime - a.createtime;
+      return b.createdate - a.createdate;
     });
     setNotificationData(mergedNotifications);
+
+    // const updatedNotifications = mergedNotifications.map((notification) => {
+    //   const createtime = new Date(notification.createtime);
+    //   // console.log(createtime);
+    //   const timeDifference = currentTime - notification.createtime;
+    //   console.log(timeDifference);
+    //   const minutesDifference = Math.floor(timeDifference / (1000 * 60)); // Convert milliseconds to minutes
+  
+    //   return {
+    //     ...notification,
+    //     timeDifference: minutesDifference,
+    //   };
+    // });
+
+    // setNotificationData(updatedNotifications);
   }
   
 
@@ -91,9 +109,10 @@ const LandingPage = () => {
 
   useEffect(() => {
     handleNotifications();
+    merge();
     handleLanding();
     handleInterest();
-  }, []);
+  }, [acceptedNotifications, unAcceptedNotifications]);
 
   const handleAvailableAccommodation = (event) => {
     event.preventDefault();
@@ -269,12 +288,14 @@ const LandingPage = () => {
               <ShortlistContainer className="col-md-6">
                 <p className="landingPage__head" style={{ color: "black" }}>
                   Interest Sent
+                  <span style={{ float: "right"}}>
                   <Link
                     to="/interestsent"
-                    style={{ float: "right", fontSize: "16px" }}
+                    style={{ fontSize: "16px" }}
                   >
-                    See All
+                   See All <img src={chevron} />
                   </Link>
+                  </span>
                 </p>
 
                 <div className="col">
@@ -296,7 +317,7 @@ const LandingPage = () => {
                             <div>
                               <Link>
                                 {data.firstname} {data.lastname}
-                                <span> &gt;</span>
+                               
                               </Link>
                               <p
                                 style={{ color: "#8E8E92", fontSize: "0.8rem" }}
@@ -329,7 +350,7 @@ const LandingPage = () => {
                     to="/notifications"
                     style={{ float: "right", fontSize: "16px" }}
                   >
-                    See All &gt;
+                    See All <img src={chevron} />
                   </Link>
                 </p>
                 {notificationData.slice(0, maxNotificationsToShow).map((data) => (
@@ -350,7 +371,7 @@ const LandingPage = () => {
                           </div>
                           <div>Email ID: <span style={{color: "#007FD3"}}><strong>{data.email}</strong></span></div>
                           <div>Contact: <span style={{color: "#007FD3"}}><strong>{data.contact}</strong></span></div>
-                          <div>{}</div>
+                          <div>{data.timeDifference}</div>
                         </div>
                       </div>
                     </div> 
@@ -377,7 +398,6 @@ const LandingPage = () => {
               </NotificationContainer>
             </DynamicContainer>
           </div>
-          <ModalNortification/>
         </Container>
       </Wrapper>
     </>

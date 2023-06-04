@@ -13,7 +13,7 @@ const Profile = () => {
   const [isContactNumberValid, setIsContactNumberValid] = useState(false);
   console.log(userInfo)
   return (
-    <div className='container-fluid' style={{marginTop:"1.125rem",marginLeft:"1.25rem",marginRight:"4rem"}}>
+    <div className='container-fluid' style={{marginLeft:"1.25rem",marginRight:"4rem"}}>
          <div className="row ">
          <p className='profile__heading'>Your Profile</p>
                   <div className=" col-md-2">
