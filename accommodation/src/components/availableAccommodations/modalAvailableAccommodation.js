@@ -1,13 +1,14 @@
 import React, { useState } from "react";
 import "./modalAvailableAccommodation.css";
 import greentick from "../../images/greentickfinal.svg";
-import femaleIcon from "../../images/femaleIcon.svg";
 import { Link, useNavigate } from "react-router-dom";
 import axios from "axios";
 
 const ModalAvailableAccommodation = (props) => {
   const Mdata = props.modalData;
   const navigate = useNavigate();
+
+  const [btnColor, setBtnColor] = useState(false);
 
   const userData = localStorage.getItem("userData");
   const [data, setData] = useState(JSON.parse(userData));
@@ -29,8 +30,12 @@ const ModalAvailableAccommodation = (props) => {
     event.preventDefault();
 
     axios
-      .post("https://cg-accommodation.azurewebsites.net/showInterest", {accommodationId:props.modalData.id,
-      userId:data.id,incentive:incentive , message:message})
+      .post("https://cg-accommodation.azurewebsites.net/showInterest", {
+        accommodationId: props.modalData.id,
+        userId: data.id,
+        incentive: incentive,
+        message: message,
+      })
       .then((response) => {
         console.log(response.data);
 
@@ -81,7 +86,7 @@ const ModalAvailableAccommodation = (props) => {
                     <div className="me-1">
                       <img
                         className="modal-photo"
-                        src={Mdata.profileimage}
+                        src={data.profileImage}
                         alt=""
                       />
                     </div>
@@ -94,7 +99,8 @@ const ModalAvailableAccommodation = (props) => {
                             fontWeight: "700",
                           }}
                         >
-                          {Mdata.firstname} {Mdata.lastname}
+                          {console.log(data)}
+                          {data.firstName} {data.lastName}
                         </p>
                       </div>
                       <div className="d-flex">
@@ -106,14 +112,17 @@ const ModalAvailableAccommodation = (props) => {
                           }}
                         >
                           <div className="ms-2">
-                            <img src={greentick} alt="" />
+                            <img
+                              src={data.isVerified ? greentick : ""}
+                              alt=""
+                            />
                           </div>
                           <div className="me-2">
                             <p
                               className="mb-0 ms-2 "
                               style={{ color: "#0C9A47" }}
                             >
-                              Verified
+                              {data.isVerified ? "Verified" : ""}
                             </p>
                           </div>
                         </div>
@@ -129,13 +138,20 @@ const ModalAvailableAccommodation = (props) => {
 
                 <div className="row">
                   <p className="modal_attribute">Contact Number:</p>
-                  <p className="modal_value">987654321</p>
+                  <p className="modal_value">{data.contact}</p>
                 </div>
-
-                <div className="row">
-                  <p className="modal_attribute">University/College Name:</p>
-                  <p className="modal_value">Chitkara University</p>
-                </div>
+                {data.university ? (
+                  <>
+                    <div className="row">
+                      <p className="modal_attribute">
+                        University/College Name:
+                      </p>
+                      <p className="modal_value">Chitkara University</p>
+                    </div>
+                  </>
+                ) : (
+                  ""
+                )}
 
                 <div className="row">
                   <p className="modal_attribute">Offer Incentive:</p>
@@ -169,7 +185,10 @@ const ModalAvailableAccommodation = (props) => {
                       className="border-0 py-2 px-3 w-100 interested"
                       data-bs-toggle="modal"
                       data-bs-target="#exampleModal"
-                      onClick={(e) => handleModalbtn(e)}
+                      onClick={(e) => {
+                        setBtnColor(true);
+                        handleModalbtn(e);
+                      }}
                     >
                       Send Request
                     </button>
