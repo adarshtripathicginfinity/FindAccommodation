@@ -1,4 +1,4 @@
-import React, { useContext, useState } from "react";
+import React, { useContext, useState, useRef } from "react";
 import { FormContainer, Header, Body } from "../../utilityStyles/utilityStyles";
 import { MultiStepContext } from "../../stepContext/stepContext";
 import "./reqStep1.css";
@@ -18,11 +18,13 @@ const ReqStep1 = () => {
   const [date, setDate] = useState("");
   const [issetDateValid, setIsDateValid] = useState(false);
 
+  const inputRef = useRef(null);
   const handleLocalityChange = (event) => {
     let { value } = event.target;
     setLocality(value);
     setIsLocalityValid(value.length > 3 ? true : false);
     setRequirementData({ ...requirementData, locality: value });
+    event.target.focus();
   };
 
   const [userInfo, setUserInfo] = useState(JSON.parse( localStorage.getItem("userData")));
@@ -111,12 +113,13 @@ const ReqStep1 = () => {
               Locality
             </label>
             <input
+              ref={inputRef}
               id="locality"
               className="form-control"
               type="text"
               placeholder="Locality"
               value={requirementData["locality"]}
-              onInput={(e) => handleLocalityChange(e)}
+              onChange={(e) => handleLocalityChange(e)}
             />
             {!isLocalityValid && locality && (
               <span style={{ color: "red", fontSize: "12px" }}>
@@ -130,7 +133,7 @@ const ReqStep1 = () => {
               style={{ marginBottom: "0.375rem" }}
               className="reqStep1__label-h"
             >
-              Contact No.
+              Contact No. <span style={{color:"#dd2727"}}><strong>*</strong></span>
             </label>
             <input
               id="contactInfo"
@@ -147,7 +150,7 @@ const ReqStep1 = () => {
             />
             {!isPhoneNumberValid && contact && (
               <span style={{ color: "red", fontSize: "12px" }}>
-                Contact number is not valid
+                Contact number is not valid 
               </span>
             )}
           </div>

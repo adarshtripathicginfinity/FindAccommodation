@@ -95,7 +95,7 @@ const Step5 = () => {
                   className="Step5__form-heading"
                   style={{ marginBottom: "0" }}
                 >
-                  Preferred days and time to contact you
+                  Preferred days and time to contact you <span style={{color:"#dd2727"}}><strong>*</strong></span>
                 </p>
               </div>
               <div className="" style={{ marginTop: "1rem" }}>

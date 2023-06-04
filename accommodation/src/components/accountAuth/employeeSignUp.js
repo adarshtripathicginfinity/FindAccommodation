@@ -111,7 +111,7 @@ const EmployeeSignUp = () => {
                     <form onSubmit={handleSignup}>
                       <div>
                         <label for="email" className="form-label">
-                          Email
+                          Email <span style={{color:"#dd2727"}}><strong>*</strong></span>
                         </label>
                         <input
                           type="email"
@@ -133,7 +133,7 @@ const EmployeeSignUp = () => {
                           className="form-label"
                           style={{ marginTop: "1rem" }}
                         >
-                          Password
+                          Password <span style={{color:"#dd2727"}}><strong>*</strong></span>
                         </label>
                         <input
                           type="password"
