@@ -79,9 +79,15 @@ const Login = () => {
           token:response.data.token,
           email:response.data.response[0].email,
           id:response.data.response[0].id,
-          firstName:response.data.response[0].firstname,
-          lastName:response.data.response[0].lastname,
-          lastLogin:response.data.response[0].lastlogin
+          firstName:response.data.response[0].firstName,
+          lastName:response.data.response[0].lastName,
+          lastLogin:response.data.response[0].lastLogin,
+          isVerified:response.data.response[0].isVerified,
+          university:response.data.response[0].university,
+          contact:response.data.response[0].contact,
+          profileImage:response.data.response[0].profileImage
+
+
         };
         
         console.log(response.data.response[0].id);

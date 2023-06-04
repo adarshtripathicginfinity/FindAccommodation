@@ -1,14 +1,25 @@
 .notification-container {
-  background: #ffffff;
-  border-bottom: 1px solid #e9eceb;
+    background: #ffffff;
+    border-bottom: 1px solid #e9eceb;
+    
   
-
-  
-}
-.notification__a-p {
-    font-family: "Lato";
-    font-style: normal;
-    font-weight: 700;
-    font-size: 0.87rem;
-    line-height: 1.06rem;
+    
   }
+  .notification__a-p {
+      font-family: "Lato";
+      font-style: normal;
+      font-weight: 700;
+      font-size: 0.87rem;
+      line-height: 1.06rem;
+    }
+    
+
+    .interest__container {
+      background: #ffffff;
+      box-shadow: 0px 4px 10px rgba(46, 72, 87, 0.18);
+      border-radius: 8px;
+      padding: 0.75rem;
+      margin-bottom: 1.5rem;
+      width: 584px;
+      height: 124px;
+    }    

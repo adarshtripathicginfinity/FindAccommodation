@@ -10,7 +10,7 @@ import search from "../../images/search.svg";
 import gps from "../../images/GPS.svg";
 
 const InterestSent = (props) => {
-  const INTEREST_URL = "/interestSent";
+  const INTEREST_URL = "/sentInterest";
   const userData = JSON.parse(localStorage.getItem("userData"));
   const [interestData, setInterestData] = useState([]);
 

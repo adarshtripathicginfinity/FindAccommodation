@@ -1,4 +1,4 @@
-import React from "react";
+import React ,{useState} from "react";
 import Layout from "./layout";
 import Otp from "./components/accountAuth/otp";
 import EmployeeSignUp from "./components/accountAuth/employeeSignUp";
@@ -32,7 +32,7 @@ import AccountSettings from "./components/accountSettings/accountSettings";
 
 import { Routes, Route, UNSAFE_RouteContext } from "react-router-dom";
 import InterestSent from "./components/interestSent/interestSent";
-import NotificationSent from "./components/notificationSent/notificationSent";
+import Notification from "./components/notification/notification";
 
 function App() {
   return (
@@ -44,6 +44,7 @@ function App() {
         <Route path="internsignup" element={<InternSignUp />} />
         <Route path="employeesignup" element={<EmployeeSignUp />} />
         <Route path="forgotpassword" element={<ForgotPassword />} />
+
         <Route path="forgotpassotp" element={<ForgotPassOtp />} />
         <Route path="internOtp" element={<InternOtp />} />
 
@@ -102,7 +103,7 @@ function App() {
           <Route path="step5" element={<Step5 />} />
 
           <Route path="interestsent" element={<InterestSent />} />
-          <Route path="notificationsent" element={<NotificationSent />} />
+          <Route path="notifications" element={<Notification />} />
         </Route>
         {/* catch all */}
         <Route path="*" element={<Missing />} />

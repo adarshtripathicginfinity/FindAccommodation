@@ -29,12 +29,8 @@ const ModalAvailableAccommodation = (props) => {
     event.preventDefault();
 
     axios
-      .post("https://cg-accommodation.azurewebsites.net/interest", {
-        accommodationId: props.modalData.id,
-        userId: data.id,
-        incentive: incentive,
-        message: message,
-      })
+      .post("https://cg-accommodation.azurewebsites.net/showInterest", {accommodationId:props.modalData.id,
+      userId:data.id,incentive:incentive , message:message})
       .then((response) => {
         console.log(response.data);
 
