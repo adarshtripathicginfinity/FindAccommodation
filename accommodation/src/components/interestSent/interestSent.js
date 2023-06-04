@@ -22,7 +22,7 @@ const InterestSent = (props) => {
     await axios
       .get(INTEREST_URL, { params: { userId: userData.id } } )
       .then((response) => {
-        setInterestData(response.data);
+        setInterestData(response.data.response);
       });
   }
 
@@ -32,7 +32,7 @@ const InterestSent = (props) => {
       <Wrapper>
         <Container>
           <div className="container-fluid" >
-            <div className="row" style={{ marginTop: "1.31rem" }}>
+            <div className="row d-none d-md-flex" style={{ marginTop: "1.31rem" }}>
               <nav aria-label="breadcrumb">
                 <ol class="breadcrumb">
                   <li class="breadcrumb-item">
@@ -44,8 +44,15 @@ const InterestSent = (props) => {
                 </ol>
               </nav>
             </div>
+            <div className="row d-flex d-md-none" style={{ marginTop: "1.31rem" }}>
+                    <Link to="/landingpage">
+                      <p>
+                        hello
+                      </p>
+                    </Link>
+            </div>
             <div className="row " style={{ marginBottom: "1.25rem" }}>
-              <div className="col-0 col-md-6 d-none d-md-flex">
+              <div className="col d-none d-md-flex">
                 <p className="interest_heading">Interest Sent</p>
               </div>
 
@@ -67,7 +74,7 @@ const InterestSent = (props) => {
 
                   <input
                     type="text"
-                    class="form-control form-input .demo_search-bar"
+                    class="form-control form-input .demo_search-bar interesr_search-bar"
                     style={{
                       border: "none",
                       outlineStyle: "none",
@@ -108,21 +115,21 @@ const InterestSent = (props) => {
 
             <div className="row-cols-md-2 row">
               {interestData.map((data) => (
-                <div key={data.id}>
+                <div className="col" >
                   <div
-                    className="col interest__container"
+                    className="interest__container" key={data.id}
                     style={{ marginBottom: "1.5rem", padding: "0.75rem" }}
                   >
                     <div className="row" style={{ marginTop: "0" }}>
                       <div
-                        className="col interest__name"
+                        className="col d-flex interest__name"
                         
                       >
                         <div style={{ display: "flex", marginTop: "0rem" }}>
                           <div style={{ marginRight: "1rem" }}>
                             <img className="img-fluid" src={interest} />
                           </div>
-                          <div>
+                          <div >
                             <Link className="interest_container-name">
                               {data.firstname} {data.lastname}
                             </Link>

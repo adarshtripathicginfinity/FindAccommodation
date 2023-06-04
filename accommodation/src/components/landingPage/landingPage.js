@@ -20,7 +20,7 @@ import { MultiStepContext } from "../stepContext/stepContext";
 import { Link, useNavigate } from "react-router-dom";
 import axios from "axios";
 import axios1 from "../api/axios";
-
+import ModalNortification from './modalNortification';
 
 const LandingPage = () => {
   const INTEREST_URL = "/interestSent";
@@ -42,7 +42,7 @@ const LandingPage = () => {
     await axios1
       .get(INTEREST_URL, { params: { userId: data.id } })
       .then((response) => {
-        setInterestData(response.data);
+        setInterestData(response.data.response);
         setInterestLength(interestData.length);
         
       })
@@ -325,6 +325,7 @@ const LandingPage = () => {
               </NotificationContainer>
             </DynamicContainer>
           </div>
+          <ModalNortification/>
         </Container>
       </Wrapper>
     </>

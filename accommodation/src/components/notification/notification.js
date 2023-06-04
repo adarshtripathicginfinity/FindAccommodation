@@ -1,6 +1,7 @@
 import React from "react";
 import female from "../../images/female.svg"
 import "./notification.css"
+import { Link } from "react-router-dom";
 
 const Notification = () => {
   return (
@@ -15,7 +16,8 @@ const Notification = () => {
               <strong>Harshit Khurana</strong> has express interest on your
               accommodation posting
             </p>
-            <a className="notification__a-p " style={{color:"#007FD3"}}>Show message</a>
+            <Link className="notification__a-p " style={{color:"#007FD3"}} data-bs-toggle="modal"
+                          data-bs-target= '#exampleModal'>Show message</Link>
           </div>
         </div>
       </div>
