@@ -25,12 +25,16 @@ import female from "../../images/female.svg"
 const LandingPage = () => {
   const url_locaton = useLocation();
   console.log(url_locaton);
-  const INTEREST_URL = "/interestSent";
+  const INTEREST_URL = "/sentInterest";
   const [interestData, setInterestData] = useState([]);
   const [interestLength, setInterestLength] = useState([]);
   const maxInterestToShow = 4;
+  const maxNotificationsToShow = 4;
 
   const NOTIFICATION_URL = "/notification";
+
+  const [acceptedNotifications, setAcceptedNotifications] = useState([]);
+  const [unAcceptedNotifications, setUnAcceptedNotifications] = useState([]);
   const [notificationData, setNotificationData] = useState([]);
 
   const navigate = useNavigate();
@@ -56,12 +60,25 @@ const LandingPage = () => {
   }
 
   async function handleNotifications() {
-    await axios
-      .get(NOTIFICATION_URL, { params: { userId: userData.id } })
+    await axios1
+      .get(NOTIFICATION_URL, { params: { userId: data.id } })
       .then((response) => {
-        setNotificationData(response.data.response);
+        setAcceptedNotifications(response.data.acceptedRequest);
+        setUnAcceptedNotifications(response.data.unAcceptedRequest);
+        merge();
       });
   }
+  
+  const currentTime = new Date();
+
+  function merge() {
+    const mergedNotifications = [...acceptedNotifications, ...unAcceptedNotifications];
+    mergedNotifications.sort((a, b) => {
+      return b.createtime - a.createtime;
+    });
+    setNotificationData(mergedNotifications);
+  }
+  
 
   async function handleLanding() {
     await axios
@@ -71,6 +88,7 @@ const LandingPage = () => {
         console.log(error);
       });
   }
+
   useEffect(() => {
     handleNotifications();
     handleLanding();
@@ -90,7 +108,11 @@ const LandingPage = () => {
       });
   };
 
-  {console.log(notificationData);}
+
+  {console.log(notificationData)}
+  {console.log(acceptedNotifications)}
+  {console.log(unAcceptedNotifications)}
+
   const handleOpenrequirements = (event) => {
     event.preventDefault();
 
@@ -310,28 +332,48 @@ const LandingPage = () => {
                     See All &gt;
                   </Link>
                 </p>
-                {interestData.slice(0, maxInterestToShow).map((data) => (
+                {notificationData.slice(0, maxNotificationsToShow).map((data) => (
                     <div
                       key={data.id}
-                      className="col interest__container"
                       style={{ marginBottom: "1rem" }}
                     >
-                    <div className="container-fluid notification-container" style={{padding:"0.75rem 0.75rem 1rem 1rem"}}>
+                    { data.isrequestaccepted ? 
+                    <div className="container-fluid notification_accepted_container" style={{padding:"0.75rem 0.75rem 1rem 1rem"}}>
                       <div className="row">
-                        <div className="col-2">
-                          <img src={female} />
+                        <div className="col-1">
+                          <img src={data.profileimage} width="40px" height="40px" style={{borderRadius: "50%"}}/>
                         </div>
                         <div className="col">
-                          <p>
-                            <strong>Harshit Khurana</strong> has express interest on your
-                            accommodation posting
-                          </p>
-                          <a className="notification__a-p " style={{color:"#007FD3"}}>Show message</a>
+                          <div>
+                            <strong>{data.firstname} {data.lastname}</strong> has accepted your accommodation request. You can now
+                            connect with him on his.
+                          </div>
+                          <div>Email ID: <span style={{color: "#007FD3"}}><strong>{data.email}</strong></span></div>
+                          <div>Contact: <span style={{color: "#007FD3"}}><strong>{data.contact}</strong></span></div>
+                          <div>{}</div>
                         </div>
                       </div>
-                    </div>
+                    </div> 
+                      : 
+                      <div>
+                        <div className="container-fluid notification_unaccepted_container" style={{padding:"0.75rem 0.75rem 1rem 1rem"}}>
+                        <div className="row">
+                          <div className="col-1">
+                            <img src={data.profileimage} width="40px" height="40px" style={{borderRadius: "50%"}}/>
+                          </div>
+                          <div className="col">
+                            <div>
+                              <strong>{data.firstname} {data.lastname}</strong> has express interest on your
+                              accommodation posting
+                            </div>
+                            <div><span style={{color: "#007FD3"}}><strong>Show Message</strong></span></div>
+                          </div>
+                        </div>
+                      </div>
+                  </div>
+                  }
                 </div>
-                ))};
+                ))}
               </NotificationContainer>
             </DynamicContainer>
           </div>
