@@ -19,8 +19,8 @@ import { MultiStepContext } from "../stepContext/stepContext";
 import { Link, useNavigate } from "react-router-dom";
 import axios from "axios";
 import axios1 from "../api/axios";
+import ModalNortification from './modalNortification';
 import { useLocation } from "react-router-dom";
-import female from "../../images/female.svg"
 
 const LandingPage = () => {
   const url_locaton = useLocation();
@@ -377,6 +377,7 @@ const LandingPage = () => {
               </NotificationContainer>
             </DynamicContainer>
           </div>
+          <ModalNortification/>
         </Container>
       </Wrapper>
     </>
