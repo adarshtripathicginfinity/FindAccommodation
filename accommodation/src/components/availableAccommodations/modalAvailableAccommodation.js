@@ -15,7 +15,7 @@ const ModalAvailableAccommodation = (props) => {
 
   const [contact, setContact] = useState("");
   const [message, setMessage] = useState("");
-  const [incentive, setIncentive] = useState(1000);
+  const [incentive, setIncentive] = useState();
 
   const handlemessageText = (event) => {
     const { value } = event.target;
@@ -153,10 +153,11 @@ const ModalAvailableAccommodation = (props) => {
                 )}
 
                 <div className="row">
-                  <p className="modal_attribute">Offer Incentive:</p>
+                  <p className="modal_attribute">Offer Incentive (Optional):</p>
                   <input
                     className="modal_insentive-input"
                     type="text"
+                    placeholder="500 - 1000"
                     value={incentive}
                     onChange={(e) => {
                       setIncentive(e.target.value);

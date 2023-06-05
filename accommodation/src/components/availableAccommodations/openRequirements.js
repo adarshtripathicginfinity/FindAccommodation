@@ -275,12 +275,7 @@ const OpenRequirements = (props) => {
                               </div>
                             </div>
                             <div>
-                                <input 
-                                  type="text"
-                                  
-                                  className="mb-3"
-                                  value={openRequirementUserData.contact}
-                                />
+                                <p>{openRequirementUserData.contact}</p>
                               </div>
                           </div>
 
