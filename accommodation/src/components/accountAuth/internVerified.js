@@ -27,7 +27,7 @@ const InternVerified = () => {
               </div>
               <div className="d-flex justify-content-center mt-3 text-center">
                 <p className="heading-name" style={{ color: "black" }}>
-                  Let’s Find Your Accommodation
+                  Let's Find Your Accommodation
                 </p>
               </div>
             </div>

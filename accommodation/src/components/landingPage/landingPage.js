@@ -26,7 +26,7 @@ import chevron from "../../images/chevron-right-solid.svg"
 import { staticInterest, staticNotification } from "./staticData";
 
 
-const LandingPage = () => {
+const LandingPage = (props) => {
   const url_locaton = useLocation();
   console.log(url_locaton);
   const INTEREST_URL = "/sentInterest";
@@ -43,8 +43,13 @@ const LandingPage = () => {
 
   const navigate = useNavigate();
 
-  const { currentUser, availableAccommodations, setAvailableAccommodations } =
-    useContext(MultiStepContext);
+  const {
+    currentUser,
+    availableAccommodations,
+    setAvailableAccommodations,
+    isLoggedIn,
+  } = useContext(MultiStepContext);
+  console.log("value of isLoggedIn in landing page", isLoggedIn);
 
   const userData = localStorage.getItem("userData");
 
@@ -151,7 +156,7 @@ const LandingPage = () => {
 
   return (
     <>
-      <Navbar />
+      <Navbar logOut={props.logOut} />
       <Wrapper>
         <Container className="main-wrapper">
           <div className="container-fluid ">

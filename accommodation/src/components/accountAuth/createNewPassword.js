@@ -11,9 +11,12 @@ import {
   BuildingImage,
 } from "../utilityStyles/utilityStyles";
 import { useNavigate } from "react-router";
+import axios from "../api/axios";
 
 const CreateNewPassword = () => {
+  const NEW_PASS_URL = "/changPassword";
   const navigate = useNavigate();
+  const userEmail = localStorage.getItem("email");
 
   const [password, setPassword] = useState("");
   const [isPasswordValid, setIsPasswordValid] = useState(false);
@@ -44,9 +47,18 @@ const CreateNewPassword = () => {
   };
 
   function handleNewPassword(event) {
-    event.preventDefault();
+    axios.post(NEW_PASS_URL, {
+      email: userEmail,
+      newPassword: password,
+      confirmPassword: confirmPassword,
+    }).then((response) => {
+      console.log(response.data);
+      navigate("/changedpassword");
+    }).catch((error)=>{
+      console.log(error)
+    })
 
-    navigate("/changedpassword");
+    
   }
   return (
     <Wrapper>
@@ -157,7 +169,6 @@ const CreateNewPassword = () => {
                       </div>
                       <button
                         className="btn btn-warning w-100 mt-3"
-                        
                         disabled={
                           (!isPasswordValid && password) ||
                           (!isconfirmPasswordValid && confirmPassword)

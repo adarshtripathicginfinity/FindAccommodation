@@ -1,36 +1,41 @@
-import React, { useContext ,useState} from "react";
+import React, { useContext, useState } from "react";
 import cglogowhite from "../../images/cgLogoWhite.svg";
 import profilePic from "../../images/profilePic.svg";
 import bell from "../../images/bell.svg";
 import dropdownArrow from "../../images/dropdownArrow.svg";
 import { func } from "prop-types";
-import { Link, useNavigate } from "react-router-dom";
+import { Link, useNavigate, Navigate } from "react-router-dom";
 import "./navbar.css";
 import { MultiStepContext } from "../stepContext/stepContext";
 
 const Navbar = () => {
-
   const navigate = useNavigate();
-  const [isLogin,setIsLogin] = useState(true);
-  const { currentUser } = useContext(MultiStepContext);
+  const [isLogin, setIsLogin] = useState(true);
+  const {isLoggedIn, setIsLoggedIn } = useContext(MultiStepContext);
   function handleLandingPage(event) {
     event.preventDefault();
     navigate("/landingpage");
   }
-  const userData = localStorage.getItem("userData")
-  
-  const [data,setData] = useState(JSON.parse(userData));
+  const userData = localStorage.getItem("userData");
 
-  function handleLogIn(){
+  const [data, setData] = useState(JSON.parse(userData));
+
+  function handleLogIn() {
     localStorage.clear();
-    setIsLogin(false);
+    setIsLoggedIn(false);
+    console.log("logout worked", isLoggedIn);
+    // setIsLogin(false);
+    // return <Navigate to="/" />;
     // console.log("inside handleLogin")
   }
   return (
-   
     <nav className="navbar-light" style={{ backgroundColor: "#002C3F" }}>
-      <div className="d-flex justify-content-between px-3 py-2" >
-        <div onClick={(e)=>{handleLandingPage(e)}}>
+      <div className="d-flex justify-content-between px-3 py-2">
+        <div
+          onClick={(e) => {
+            handleLandingPage(e);
+          }}
+        >
           <img
             className="d-inline-block align-text-top"
             style={{ width: "155.81px", height: "35px" }}
@@ -54,7 +59,9 @@ const Navbar = () => {
           sx={{ width: "2px" }}
         >
           <Link class="dropdown-item non-clickable">
-            <strong>{data?.firstName} {data?.lastName}</strong>
+            <strong>
+              {data?.firstName} {data?.lastName}
+            </strong>
           </Link>
           <Link href="#" class="dropdown-item non-clickable">
             <strong style={{ color: "#565555", fontWeight: "400" }}>
@@ -65,9 +72,17 @@ const Navbar = () => {
             <strong style={{ color: "#565555" }}>Account Settings</strong>
           </Link>
           {/* {console.log("inside navbar")} */}
-          <Link to={isLogin ?"/":"/landingpage"} class="dropdown-item" onClick={()=>{handleLogIn();}}>
+          <Link to="/" class="dropdown-item" onClick={()=>{handleLogIn();}}>
             <strong style={{ color: "red" }}>Logout</strong>
           </Link>
+          {/* <div
+            class="dropdown-item"
+            onClick={() => {
+              handleLogIn();
+            }}
+          >
+            <strong style={{ color: "red" }}>Logout</strong>
+          </div> */}
         </div>
       </div>
     </nav>

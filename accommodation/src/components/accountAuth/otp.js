@@ -18,6 +18,7 @@ import useAuth from "../hooks/useAuth";
 
 const Otp = () => {
   const [otp, setOtp] = useState();
+  const userEmail = localStorage.getItem("email");
 
   const [isotpValid, setIsOtpValid] = useState(false);
   const { setAuth } = useAuth();
@@ -122,7 +123,7 @@ const Otp = () => {
                     >
                       <img src={arrow} />{" "}
                     </Link>
-                    <span className="mail">email@email.com</span>
+                    <span className="mail">{userEmail}</span>
 
                     <h4 className="mt-4 enter-code">Enter Code</h4>
                     <p className="code-msg">

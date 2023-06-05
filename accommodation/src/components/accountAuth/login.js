@@ -1,7 +1,7 @@
 
 import React, { useContext, useState,useRef ,useEffect} from "react";
 // import axios from "axios";
-import { useNavigate, Link } from "react-router-dom";
+import { useNavigate, Link,  } from "react-router-dom";
 import "./login.css";
 import cgLogo from "../../images/cgLogo.png";
 import building from "../../images/cgBuilding.svg";
@@ -26,6 +26,7 @@ const LOGIN_URL = '/login';
 const Login = () => {
   const userRef = useRef();
   // const {isLoggedIn,setIsLoggedIn} = useLogin();
+  const {logIn} = useContext(MultiStepContext)
   const { setAuth } = useAuth();
   const navigate = useNavigate();
   const location = useLocation();
@@ -100,6 +101,7 @@ const Login = () => {
         setAuth({ email, password, token });
         navigate(from, { replace: true });
         // setIsLoggedIn(true)
+        logIn(true);
 
       })
       .catch((error) => {
