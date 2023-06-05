@@ -10,8 +10,10 @@ import vector from '../../images/alert.svg'
 
 const OpenRequirements = (props) => {
 
+  const userData = JSON.parse(localStorage.getItem("userData"));
  
-
+  const [openRequirementUserData, setOpenRequirementUserData] = useState(userData);
+  // setLocalData(JSON.parse(userData));
   function checkAccType(info) {
     if (info["1rk"] == true) {
       return "1 RK";
@@ -142,8 +144,7 @@ const OpenRequirements = (props) => {
                         Accommodation Type:
                       </p>
                       <p>
-                      {data.acctypename} | {checkAccType(data)}  {data.acctypename == "flat" ? `| ${checkFurnished(data)}` : checkFurnished(data) } 
-                      
+                      {data.acctypename} | {checkAccType(data)}  {data.acctypename === "flat" ? `| ${checkFurnished(data)}` : checkFurnished(data) } 
                       </p>
                     </div>
 
@@ -216,12 +217,13 @@ const OpenRequirements = (props) => {
                                       fontWeight: "700",
                                     }}
                                   >
-                                    {data.firstname} {data.lastname}
+                                    {console.log("data:",openRequirementUserData)}
+                                    {openRequirementUserData.firstName} {openRequirementUserData.lastName}
                                   </p>
                                 </div>
                                 <div className="d-flex">
                                   <p className="mb-0  openRequirements__card-p-id">
-                                    {data.cgiid}
+                                    {openRequirementUserData.cgiid}
                                   </p>
                                 </div>
                               </div>
@@ -235,6 +237,7 @@ const OpenRequirements = (props) => {
                                   style={{
                                     color: "#343435",
                                     fontWeight: "700",
+                                    marginBottom:"0"
                                   }}
                                 >
                                   Email Id:
@@ -248,9 +251,10 @@ const OpenRequirements = (props) => {
                                   style={{
                                     color: "#343435",
                                     fontWeight: "500",
+                                    
                                   }}
                                 >
-                                {data.email}
+                                {openRequirementUserData.email}
                                 </p>
                               </div>
                           </div>
@@ -262,6 +266,8 @@ const OpenRequirements = (props) => {
                                   style={{
                                     color: "#343435",
                                     fontWeight: "700",
+                                    marginBottom:"0"
+
                                   }}
                                 >
                                   Contact No:
@@ -269,15 +275,12 @@ const OpenRequirements = (props) => {
                               </div>
                             </div>
                             <div>
-                                <p
-                                  className="ms-2"
-                                  style={{
-                                    color: "#343435",
-                                    fontWeight: "500",
-                                  }}
-                                >
-                                  {data.contact}
-                                </p>
+                                <input 
+                                  type="text"
+                                  
+                                  className="mb-3"
+                                  value={openRequirementUserData.contact}
+                                />
                               </div>
                           </div>
 
@@ -288,6 +291,8 @@ const OpenRequirements = (props) => {
                                 style={{
                                   color: "#343435",
                                   fontWeight: "700",
+                                  marginBottom:"0"
+
                                 }}
                               >
                                 Message:
@@ -415,7 +420,7 @@ const OpenRequirements = (props) => {
                               Accommodation Type:
                             </p>
                             <p>
-                              {data.accommodationType} | {data.flatType}{" "}
+                              {data.acctypename} | {data.flatType}{" "}
                               {data.furnishedType
                                 ? `| ${data.furnishedType}`
                                 : ""}

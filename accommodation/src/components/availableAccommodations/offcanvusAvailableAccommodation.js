@@ -84,34 +84,19 @@ const OffcanvusAvailableAccommodation = (props) => {
                       style={{ width: "9.37rem", height: "9.37rem" }}
                       alt="img"
                     />
-                    <p className="container_fullname">
+                    <p className="container_fullname" style={{display: "flex", justifyContent: "center", alignItems: "center"}}>
                       {data.firstname} {data.lastname}
                     </p>
-                    <p className="container_CGI" tyle={{}}>
+                    <p className="container_CGI" style={{display: "flex", justifyContent: "center", alignItems: "center"}}>
                       {data.cgiid}
                     </p>
                   </div>
                   <div className="row" style={{ marginBottom: "0.5rem" }}>
-                    <div style={{ display: "flex" }}>
+                    <div style={{ display: "flex", justifyContent: "center", alignItems: "center" }}>
                       <p style={{ fontWeight: "700", marginBottom: "0" }}>
                         Landmark:{" "}
                       </p>
                       <p style={{ marginBottom: "0" }}>{data.locality}</p>
-                    </div>
-                  </div>
-                  <div className="row" style={{ marginBottom: "0.5rem" }}>
-                    <div className="d-flex">
-                      <img src={gps} alt="logo" />
-                      <p
-                        style={{
-                          marginBottom: "0",
-                          marginLeft: "0.25rem",
-                          color: "#007FD3",
-                          fontWeight: "700",
-                        }}
-                      >
-                        View on Map
-                      </p>
                     </div>
                   </div>
                   <div className="row" style={{ marginBottom: "1.5rem" }}>

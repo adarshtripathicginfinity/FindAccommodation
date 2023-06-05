@@ -109,3 +109,14 @@
   }
   
 }
+
+
+
+.scroll-bar{
+ 
+  height: 350px;
+  overflow: scroll;
+  background-color: #ffffff;
+
+
+}
