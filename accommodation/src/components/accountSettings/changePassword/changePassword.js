@@ -4,16 +4,27 @@ import "./changePassword.css"
 import axios from "../../api/axios";
 
 const ChangePassword = () => {
+
   const NEW_PASS_URL = "/accPass";
-  const userEmail = JSON.parse(localStorage.getItem("userData"));
+
+  const data = JSON.parse(localStorage.getItem("userData"));
   const navigate = useNavigate();
+
   const [password, setPassword] = useState("");
   const [isPasswordValid, setIsPasswordValid] = useState(false);
+
   const [confirmPassword, setConfirmPassword] = useState("");
   const [isconfirmPasswordValid, setIsConfirmPasswordValid] = useState(false);
-  const [oldPassword, setOldPassword] = useState();
-  const [newPassword, setNewPassword] = useState();
 
+  const [oldPassword, setOldPassword] = useState();
+ 
+
+  const handleOldPassword = (event) => {
+    const {value} = event.target;
+    setOldPassword(value);
+  }
+
+    
   const handlePasswordChange = (event) => {
     const { value } = event.target;
     setPassword(value);
@@ -24,7 +35,7 @@ const ChangePassword = () => {
         : false
     );
   };
- 
+
   const handleConfirmPasswordChange = (event) => {
     const { value } = event.target;
     setConfirmPassword(value);
@@ -32,12 +43,13 @@ const ChangePassword = () => {
       value === password && password.length >= 8 ? true : false
     );
   };
+
   function handleNewPassword(event) {
     event.preventDefault();
     axios.post(NEW_PASS_URL, {
-      email: userEmail.email,
+      email: data.email,
       oldPassword: oldPassword,
-      newPassword: newPassword,
+      newPassword: password,
       confirmPassword: confirmPassword,
     }).then((response) => {
       console.log(response.data);
@@ -47,6 +59,7 @@ const ChangePassword = () => {
     })
     navigate("/changedpassword");
   }
+
   return (
     <>
       <div className="row">
@@ -63,7 +76,7 @@ const ChangePassword = () => {
                 type="password"
                 className="form-control input inputPassword"
                 value={oldPassword}
-                onChange={handlePasswordChange}
+                onChange={(e) => handleOldPassword(e)}
                 required
               />
 
@@ -77,8 +90,8 @@ const ChangePassword = () => {
               <input
                 type="password"
                 className="form-control input inputPassword"
-                value={newPassword}
-                onChange={handleNewPasswordChange}
+                value={password}
+                onChange={handlePasswordChange}
                 required
               />
 
