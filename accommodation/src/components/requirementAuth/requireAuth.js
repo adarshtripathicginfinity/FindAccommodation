@@ -12,7 +12,7 @@ const RequireAuth = () => {
     return (
         
              
-                data?.email? <Outlet />
+                data?.email ? <Outlet />
                 : <Navigate to="" state={{ from: location }} replace />
     );
 }

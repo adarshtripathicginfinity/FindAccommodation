@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState ,useEffect,useRef} from "react";
 import { Wrapper, Container } from "../utilityStyles/utilityStyles";
 import Navbar from "../navbar/navbar";
 import Profile from "./profile/profile";
@@ -9,6 +9,11 @@ import "./accountSettings.css"
 
 
 const AccountSettings = () => {
+  const buttonRef = useRef(null);
+  useEffect(() => {
+    
+    buttonRef.current.click();
+  }, []);
   const [activeButton, setActiveButton] = useState("");
   
 
@@ -58,6 +63,8 @@ const AccountSettings = () => {
                     }`}
                     id="accountSettingsButton"
                     onClick={() => handleButtonClick("profile")}
+                    ref={buttonRef}
+                    
                   >
                     Your Profile
                   </button>

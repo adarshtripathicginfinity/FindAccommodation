@@ -16,6 +16,8 @@ import {
 
 const ForgotPassOtp = () => {
   const navigate = useNavigate();
+  const userEmail = localStorage.getItem("email");
+
   const [password,setPassword] = useState("");
   const [confirmPassword,setConfirmPassword] = useState("");
 
@@ -74,7 +76,7 @@ const ForgotPassOtp = () => {
                     <a href="/" style={{textDecoration:'none'}} >
                       <img src={arrow} />{" "}
                     </a>
-                      <span className="mail">email@email.com</span>
+                      <span className="mail">{userEmail}</span>
                     
                     <h4 className="mt-4 enter-code">Enter Code</h4>
                     <p className="code-msg">

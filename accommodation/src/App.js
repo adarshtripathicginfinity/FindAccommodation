@@ -1,4 +1,4 @@
-import React ,{useState} from "react";
+import React ,{useContext, useEffect, useState} from "react";
 import Layout from "./layout";
 import Otp from "./components/accountAuth/otp";
 import EmployeeSignUp from "./components/accountAuth/employeeSignUp";
@@ -33,41 +33,53 @@ import AccountSettings from "./components/accountSettings/accountSettings";
 import { Routes, Route, UNSAFE_RouteContext } from "react-router-dom";
 import InterestSent from "./components/interestSent/interestSent";
 import Notification from "./components/notification/notification";
-
+import { Navigate } from "react-router-dom";
+import { MultiStepContext } from "./components/stepContext/stepContext";
 function App() {
+  const {logIn,isLoggedIn,setIsLoggedIn} = useContext(MultiStepContext);
+  
+ 
+  
+
+  function logOut(){
+    console.log("logout is working");
+    setIsLoggedIn(false);
+    // <Navigate to="/" />
+  }
   return (
+    
     <Routes>
       <Route path="/" element={<Layout />}>
         {/* public routes */}
 
-        <Route path="" element={<Login />} />
-        <Route path="internsignup" element={<InternSignUp />} />
-        <Route path="employeesignup" element={<EmployeeSignUp />} />
-        <Route path="forgotpassword" element={<ForgotPassword />} />
+        <Route path="" element={ isLoggedIn ? <Navigate to="/landingpage" /> : <Login logIn={logIn}/>} />
+        <Route path="internsignup" element={ isLoggedIn ? <Navigate to="/landingpage" /> : <InternSignUp />} />
+        <Route path="employeesignup" element={ isLoggedIn ? <Navigate to="/landingpage" /> : <EmployeeSignUp />} />
+        <Route path="forgotpassword" element={ isLoggedIn ? <Navigate to="/landingpage" /> :<ForgotPassword />} />
 
-        <Route path="forgotpassotp" element={<ForgotPassOtp />} />
-        <Route path="internOtp" element={<InternOtp />} />
+        <Route path="forgotpassotp" element={isLoggedIn ? <Navigate to="/landingpage" />: <ForgotPassOtp />} />
+        <Route path="internOtp" element={isLoggedIn ? <Navigate to="/landingpage" />: <InternOtp />} />
 
         {/* otp access */}
 
-        <Route path="otp" element={<Otp />} />
+        <Route path="otp" element={isLoggedIn ? <Navigate to="/landingpage" />: <Otp />} />
 
         {/* after otp verification */}
 
-        <Route path="internverified" element={<InternVerified />} />
+        <Route path="internverified" element={isLoggedIn ? <Navigate to="/landingpage" />: <InternVerified />} />
 
-        <Route path="forgotpassword" element={<ForgotPassword />} />
-        <Route path="createnewpassword" element={<CreateNewPassword />} />
+        <Route path="forgotpassword" element={isLoggedIn ? <Navigate to="/landingpage" />: <ForgotPassword />} />
+        <Route path="createnewpassword" element={isLoggedIn ? <Navigate to="/landingpage" />: <CreateNewPassword />} />
         <Route
           path="registrationsuccessful"
-          element={<Registrationsuccessful />}
+          element={isLoggedIn ? <Navigate to="/landingpage" />: <Registrationsuccessful />}
         />
-        <Route path="changedpassword" element={<Changedpassword />} />
+        <Route path="changedpassword" element={isLoggedIn ? <Navigate to="/landingpage" /> : <Changedpassword />} />
 
         {/* we want to protect these routes */}
 
         <Route element={<RequireAuth />}>
-          <Route path="landingpage" element={<LandingPage />} />
+          <Route path="landingpage" element={<LandingPage logOut={logOut} />} />
           <Route path="step1" element={<Step1 />} />
           <Route path="form" element={<VolunteerMultiForm />} />
           <Route path="accountsettings" element = {<AccountSettings />} />

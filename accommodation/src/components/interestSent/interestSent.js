@@ -22,7 +22,7 @@ const InterestSent = (props) => {
     await axios
       .get(INTEREST_URL, { params: { userId: userData.id } } )
       .then((response) => {
-        setInterestData(response.data);
+        setInterestData(response.data.response);
       });
   }
 

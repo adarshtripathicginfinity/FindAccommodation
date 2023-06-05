@@ -21,7 +21,7 @@ const InternOtp = () => {
   function handleOtp(event) {
     event.preventDefault();
     const token = localStorage.getItem("token");
-    const email = localStorage.getItem("email");
+    const userEmail = localStorage.getItem("email");
     axios
       .post(
         "https://cg-accommodation.azurewebsites.net/registerOTP",
@@ -34,11 +34,10 @@ const InternOtp = () => {
       )
       .then((response) => {
         console.log(response.data);
-        localStorage.setItem('token',)
-        navigate("/landingpage");
+        navigate("/internverified");
       })
       .catch((error) => {
-        console.log(error.response.data);
+        console.log(error.response);
       });
     console.log(otp);
   }
@@ -89,7 +88,7 @@ const InternOtp = () => {
                     <Link to="/internsignup" style={{ textDecoration: "none" }}>
                       <img src={arrow} />{" "}
                     </Link>
-                    <span className="mail">email@email.com</span>
+                    <span className="mail">{localStorage.getItem("email")}</span>
 
                     <h4 className="mt-4 enter-code">Enter Code</h4>
                     <p className="code-msg">
