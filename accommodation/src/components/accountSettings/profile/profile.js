@@ -73,7 +73,7 @@ const Profile = () => {
                   )}
                 </div>
                 </div>
-                <div className="col-6">
+                <div className="col-6" style={{marginBottom: "1rem"}}>
                 <button
                   onClick={(event) => {
                     event.preventDefault();

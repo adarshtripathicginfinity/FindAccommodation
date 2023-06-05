@@ -119,7 +119,7 @@ const LandingPage = (props) => {
     merge();
     handleLanding();
     handleInterest();
-  }, []);
+  }, [acceptedNotifications, unAcceptedNotifications]);
 
   const handleAvailableAccommodation = (event) => {
     event.preventDefault();
@@ -305,6 +305,7 @@ const LandingPage = (props) => {
                   </span>
                 </p>
                 
+                <div className="scroll-bar">
                 { interestData.length !== 0 ? (
                 
                   interestData.slice(0, maxInterestToShow).map((data) => (
@@ -351,6 +352,7 @@ const LandingPage = (props) => {
                  ) :
                 <NoInterest />
                 }
+                </div>
               </ShortlistContainer>
               <NotificationContainer className=" col-md-6">
                 <p className="landingPage__head" style={{ color: "black" }}>
@@ -364,9 +366,11 @@ const LandingPage = (props) => {
                   </Link>
                   </span>
                 </p>
+                <div className="scroll-bar">
                 {  notificationData.length !== 0 ? (
                     notificationData.slice(0, maxNotificationsToShow).map((data) => (
                     <div
+                    
                       key={data.id}
                       style={{ marginBottom: "1rem" }}
                     >
@@ -407,6 +411,7 @@ const LandingPage = (props) => {
                 ))) :
                 <NoNortification />
                 } 
+                </div>
               </NotificationContainer>
             </DynamicContainer>
           </div>

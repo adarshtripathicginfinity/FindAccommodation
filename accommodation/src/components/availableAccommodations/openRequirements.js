@@ -178,8 +178,7 @@ const OpenRequirements = (props) => {
                         Accommodation Type:
                       </p>
                       <p>
-                      {data.acctypename} | {checkAccType(data)}  {data.acctypename == "flat" ? `| ${checkFurnished(data)}` : checkFurnished(data) } 
-                      
+                      {data.acctypename} | {checkAccType(data)}  {data.acctypename === "flat" ? `| ${checkFurnished(data)}` : checkFurnished(data) } 
                       </p>
                     </div>
 
@@ -451,7 +450,7 @@ const OpenRequirements = (props) => {
                               Accommodation Type:
                             </p>
                             <p>
-                              {data.accommodationType} | {data.flatType}{" "}
+                              {data.acctypename} | {data.flatType}{" "}
                               {data.furnishedType
                                 ? `| ${data.furnishedType}`
                                 : ""}
