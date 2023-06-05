@@ -21,7 +21,7 @@ const registrationSuccessful = () => {
             >
               <div className="row d-none d-sm-flex">
                 <div className="col-12">
-                  <img src={Cglogo} className="" />
+                  <img src={Cglogo} className="" alt="logo"/>
                 </div>
 
                 <p
@@ -33,7 +33,7 @@ const registrationSuccessful = () => {
               </div>
 
               <div className="" style={{ marginTop: "2.68rem" }}>
-                <img src={Tick} />
+                <img src={Tick} alt="logo"/>
                 <p
                   className="changedPassword__heading"
                   style={{ marginTop: "1.6rem", marginBottom: "0" }}
@@ -44,7 +44,7 @@ const registrationSuccessful = () => {
                   className=" d-flex flex-direction-row changedPassword__alertbox"
                   style={{ marginTop: "1.5rem" }}
                 >
-                  <img src={Alert} alt="" style={{ marginLeft: "0.62rem" }} />
+                  <img src={Alert} alt="logo" style={{ marginLeft: "0.62rem" }} />
                   <div className="text-align-start">
                     <p
                       className="changedPassword__alertbox-p text-align-start"

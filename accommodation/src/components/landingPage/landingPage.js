@@ -26,9 +26,8 @@ import chevron from "../../images/chevron-right-solid.svg"
 import { staticInterest, staticNotification } from "./staticData";
 
 
+
 const LandingPage = (props) => {
-  const url_locaton = useLocation();
-  console.log(url_locaton);
   const INTEREST_URL = "/sentInterest";
   const [interestData, setInterestData] = useState(staticInterest);
   const [interestLength, setInterestLength] = useState([]);
@@ -43,18 +42,11 @@ const LandingPage = (props) => {
 
   const navigate = useNavigate();
 
-  const {
-    currentUser,
-    availableAccommodations,
-    setAvailableAccommodations,
-    isLoggedIn,
-  } = useContext(MultiStepContext);
-  console.log("value of isLoggedIn in landing page", isLoggedIn);
+ 
 
   const userData = localStorage.getItem("userData");
 
   const [data, setData] = useState(JSON.parse(userData));
-  console.log(data.id);
 
   async function handleInterest() {
     await axios1
@@ -77,7 +69,6 @@ const LandingPage = (props) => {
       });
   }
   
-  const currentTime = new Date();
   let mergedNotifications;
   
 
@@ -87,21 +78,6 @@ const LandingPage = (props) => {
       return b.createdate - a.createdate;
     });
     setNotificationData(mergedNotifications);
-
-    // const updatedNotifications = mergedNotifications.map((notification) => {
-    //   const createtime = new Date(notification.createtime);
-    //   // console.log(createtime);
-    //   const timeDifference = currentTime - notification.createtime;
-    //   console.log(timeDifference);
-    //   const minutesDifference = Math.floor(timeDifference / (1000 * 60)); // Convert milliseconds to minutes
-  
-    //   return {
-    //     ...notification,
-    //     timeDifference: minutesDifference,
-    //   };
-    // });
-
-    // setNotificationData(updatedNotifications);
   }
   
 
@@ -119,7 +95,7 @@ const LandingPage = (props) => {
     merge();
     handleLanding();
     handleInterest();
-  }, []);
+  }, [acceptedNotifications, unAcceptedNotifications]);
 
   const handleAvailableAccommodation = (event) => {
     event.preventDefault();
@@ -129,15 +105,10 @@ const LandingPage = (props) => {
         navigate("/availableaccommodationsonly");
       })
       .catch((error) => {
-        // Handle error
         console.log(error);
       });
   };
 
-  {console.log(interestData);}
-  {console.log(notificationData)}
-  {console.log(acceptedNotifications)}
-  {console.log(unAcceptedNotifications)}
 
   const handleOpenrequirements = (event) => {
     event.preventDefault();
@@ -300,7 +271,7 @@ const LandingPage = (props) => {
                     to="/interestsent"
                     style={{ fontSize: "16px" }}
                   >
-                   See All <img src={chevron} />
+                   See All <img src={chevron} alt="logo"/>
                   </Link>
                   </span>
                 </p>
@@ -321,7 +292,7 @@ const LandingPage = (props) => {
                         >
                           <div style={{ display: "flex" }}>
                             <div style={{ marginRight: "1rem" }}>
-                              <img className="img-fluid" src={Interest} />
+                              <img className="img-fluid" src={Interest} alt="logo"/>
                             </div>
                             <div>
                               <Link>
@@ -364,7 +335,7 @@ const LandingPage = (props) => {
                     to="/notifications"
                     style={{fontSize: "16px" }}
                   >
-                    See All <img src={chevron} />
+                    See All <img src={chevron} alt="logo"/>
                   </Link>
                   </span>
                 </p>
@@ -378,7 +349,7 @@ const LandingPage = (props) => {
                       <div className="container-fluid notification_accepted_container" style={{padding:"0.75rem 0.75rem 1rem 1rem"}}>
                         <div className="row">
                           <div className="col-1">
-                            <img src={data.profileimage} width="40px" height="40px" style={{borderRadius: "50%"}}/>
+                            <img src={data.profileimage} width="40px" height="40px" style={{borderRadius: "50%"}} alt="img"/>
                           </div>
                           <div className="col">
                             <div>
@@ -395,7 +366,7 @@ const LandingPage = (props) => {
                         <div className="container-fluid notification_unaccepted_container" style={{padding:"0.75rem 0.75rem 1rem 1rem"}}>
                         <div className="row">
                           <div className="col-1">
-                            <img src={data.profileimage} width="40px" height="40px" style={{borderRadius: "50%"}}/>
+                            <img src={data.profileimage} width="40px" height="40px" style={{borderRadius: "50%"}} alt="img"/>
                           </div>
                           <div className="col">
                             <div>

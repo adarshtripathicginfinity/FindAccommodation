@@ -146,9 +146,6 @@ const AvailableAccommodations = (props) => {
           Data.distance <= 10))
   );
 
-  // console.log(data[0].isdrinking);
-  console.log(houseHabit2);
-  
 
 
   const reqFilteredCards = openReqData.filter(
@@ -201,7 +198,7 @@ const AvailableAccommodations = (props) => {
                     to="/landingpage"
                     style={{ textDecoration: "none", marginBottom: "0rem" }}
                   >
-                    <img src={Arraow}/>
+                    <img src={Arraow} alt="arrow"/>
                   </Link>
                 </li>
                 <li
@@ -321,7 +318,7 @@ const AvailableAccommodations = (props) => {
                     }}
                   >
                     <span className="mt-1">
-                      <img src={location}></img>
+                      <img src={location} alt="location"></img>
                     </span>
 
                     <input

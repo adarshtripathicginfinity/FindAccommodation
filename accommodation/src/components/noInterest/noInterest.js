@@ -12,7 +12,7 @@ const NoInterest = () => {
           className="text-center align-middle align-items-center "
           style={{ width: "75%" }}
         >
-          <img src={Nodata} />
+          <img src={Nodata} alt="logo"/>
           <p
             style={{
               color: "#343435",

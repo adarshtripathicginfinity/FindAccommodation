@@ -1,5 +1,4 @@
 import React from "react";
-import Nodata from "../../images/nodatalogo.svg";
 import Notification from "../../images/notification.svg";
 
 const NoNortification = () => {
@@ -13,7 +12,7 @@ const NoNortification = () => {
           className="text-center align-middle align-items-center "
           style={{ width: "75%" }}
         >
-          <img src={Notification} />
+          <img src={Notification} alt="logo"/>
           <p
             style={{
               color: "#343435",

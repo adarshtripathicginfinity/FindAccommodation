@@ -8,7 +8,7 @@ const NoDataaPage = () => {
         className="container d-flex justify-content-center align-items-center " >
         <div className=" row d-flex justify-content-center ">
           <div className="text-center align-middle align-items-center " style={{width:'75%'}}>
-            <img src={Nodata} />
+            <img src={Nodata} alt="nodata"/>
             <p
               style={{
                 color: "#343435",

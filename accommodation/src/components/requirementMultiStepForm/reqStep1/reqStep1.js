@@ -15,8 +15,6 @@ const ReqStep1 = () => {
   const [contact, setContact] = useState("");
   const [isPhoneNumberValid, setIsPhoneNumberValid] = useState(false);
 
-  const [date, setDate] = useState("");
-  const [issetDateValid, setIsDateValid] = useState(false);
 
   const inputRef = useRef(null);
   const handleLocalityChange = (event) => {
@@ -29,29 +27,8 @@ const ReqStep1 = () => {
 
   const [userInfo, setUserInfo] = useState(JSON.parse( localStorage.getItem("userData")));
   
-  const handlePhoneNumberChange = (event) => {
-    const phoneNumber = event.target.value;
-    if (phoneNumber.trim().length <= 10) {
-      setContact(phoneNumber.trim());
-    }
-    setIsPhoneNumberValid(
-      phoneNumber.length === 0 ||
-        (phoneNumber.trim().length <= 10 && /\d{10}/.test(phoneNumber))
-        ? true
-        : false
-    );
-    // setRequirementData({...requirementData, contact: phoneNumber})
-  };
 
-  const handleDateChange = (event) => {
-    // const phoneNumber = event.target.value;
-    // if (phoneNumber.trim().length <= 10) {
-    //   setContact(phoneNumber.trim());
-    // }
-    // setIsPhoneNumberValid(
-    //   phoneNumber.length === 0 || phoneNumber.trim().length < 10 ? false : true
-    // );
-  };
+
 
   return (
     <FormContainer>
