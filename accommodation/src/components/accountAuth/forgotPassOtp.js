@@ -1,6 +1,5 @@
 import React, { useState } from "react";
 import "./forgotPassOtp.css";
-import axios from "axios";
 import { Link, useNavigate } from "react-router-dom";
 import arrow from "../../images/back_arrow.png";
 import cgLogo from "../../images/cgLogo.png";
@@ -45,6 +44,7 @@ const ForgotPassOtp = () => {
                     <BuildingImage
                       className="img-fluid"
                       src={building}
+                      alt="logo"
                       style={{}}
                     />
                     <p className="find-accomo">Find Your Accommodation</p>
@@ -58,7 +58,7 @@ const ForgotPassOtp = () => {
               <RightContainer className="col-12 col-sm-6 right-container">
                 <div className="row" style={{ padding: "0 4.5rem" }}>
                   <div className="col-12 text-center mb-4 mt-5">
-                    <img className="img-fluid" src={cgLogo} />
+                    <img className="img-fluid" src={cgLogo} alt="logo"/>
                     <h4 className="otp__main-heading mt-3">
                       Let's Find Your Accommodation
                     </h4>
@@ -74,7 +74,7 @@ const ForgotPassOtp = () => {
                 >
                   <div className="col-12  " style={{ marginTop: "2.5rem" }}>
                     <a href="/" style={{textDecoration:'none'}} >
-                      <img src={arrow} />{" "}
+                      <img src={arrow} alt="logo"/>{" "}
                     </a>
                       <span className="mail">{userEmail}</span>
                     

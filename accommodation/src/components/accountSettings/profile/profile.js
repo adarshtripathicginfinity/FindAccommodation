@@ -11,7 +11,6 @@ const Profile = () => {
 
   const [contactNumber, setContactNumber] = useState();
   const [isContactNumberValid, setIsContactNumberValid] = useState(false);
-  console.log(userInfo)
   return (
     <div className='container-fluid' style={{marginLeft:"1.25rem",marginRight:"4rem"}}>
          <div className="row ">

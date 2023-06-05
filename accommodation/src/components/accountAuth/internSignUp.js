@@ -118,7 +118,7 @@ const InternSignUp = () => {
         <div className="row mb-4">
           <div>
             <div className="d-flex justify-content-center">
-              <img src={logo} className="img-fluid" alt="" />
+              <img src={logo} className="img-fluid" alt="logo" />
             </div>
             <div className="d-flex justify-content-center mt-3">
               <p className="heading-name" style={{ color: "black" }}>
@@ -206,7 +206,7 @@ const InternSignUp = () => {
               className="col-12 d-flex "
               style={{ backgroundColor: "#E3F3FC", borderRadius: "4px" }}
             >
-              <img src={vector} alt="" className="img2" />
+              <img src={vector} alt="" className="img2"/>
               <p className="mb-2 mt-2 alerttext" style={{ color: "black" }}>
                 This email account will be used to send password instructions
               </p>

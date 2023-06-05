@@ -4,9 +4,7 @@ import {
   Container,
   MainContainer,
 } from "../utilityStyles/utilityStyles";
-import Cglogo from "../../images/cgLogo.svg";
 import GreenThumb from "../../images/Green-ThumbsUp.svg";
-import Alert from "../../images/alert.svg";
 import "./postSuccessful.css";
 import { useNavigate } from "react-router-dom";
 import { MultiStepContext } from "../stepContext/stepContext";
@@ -38,7 +36,7 @@ const PostSuccessful = () => {
               style={{ width: "65%", padding: "2.5rem" }}
             >
               <div className="">
-                <img src={GreenThumb} />
+                <img src={GreenThumb} alt="logo"/>
                 <p
                   className="changedPassword__heading"
                   style={{ marginTop: "1.6rem", marginBottom: "0" }}

@@ -1,5 +1,4 @@
 import React, { useState } from "react";
-import App from "../../App";
 import VolunteerStepInfo from "../volunteerMultiStepForm/volunteerStepInfo/volunteerStepInfo";
 import RequirementStepInfo from "../requirementMultiStepForm/requirementStepInfo/reqirementStepInfo";
 
@@ -30,7 +29,6 @@ const StepContext = ({ children }) => {
   }
   
   function next() {
-    console.log("I am the next func")
     if (currentIndex < VolunteerStepInfo.length) {
       
       setCurrentIndex((currentIndex) => currentIndex + 1);
@@ -66,12 +64,10 @@ const StepContext = ({ children }) => {
   const [isLoggedIn, setIsLoggedIn] = useState(false);
   const userInfoData = localStorage.getItem("userData");
   const [data, setData] = useState(JSON.parse(userInfoData));
-  console.log(data?.email)
   function logIn (val){
-    // data?.email ?  setIsLoggedIn(true) : setIsLoggedIn(false)
-    // console.log(isLoggedIn)
+
     setIsLoggedIn(true);
-    // console.log("isLoggedIn value is changing to ", isLoggedIn);
+  
  
   }
 

@@ -59,7 +59,7 @@ const Step4 = () => {
                     type="checkbox"
                     id="wifi"
                     name="Wifi"
-                    // value="wifi"
+ 
                     className=""
                     checked = {userData["amenities.wifi"]}
                     onChange={(e)=>{setUserData({...userData, amenities :{wifi:e.target.value}})}}
@@ -77,7 +77,7 @@ const Step4 = () => {
                     type="checkbox"
                     id="food"
                     name="Food"
-                    // value="food"
+   
                     checked = {userData["amenities.food"]}
                     onChange={(e)=>{setUserData({...userData, amenities :{food:e.target.value}})}}
                   />
@@ -93,7 +93,7 @@ const Step4 = () => {
                     type="checkbox"
                     id="induction"
                     name="Induction"
-                    // value="induction"
+  
                     checked = {userData["amenities.induction"]}
                     onChange={(e)=>{setUserData({...userData, amenities :{induction:e.target.value}})}}
                   />
@@ -109,7 +109,7 @@ const Step4 = () => {
                     type="checkbox"
                     id="ac"
                     name="AC"
-                    // value="ac"
+
                     checked = {userData["amenities.ac"]}
                     onChange={(e)=>{setUserData({...userData, amenities :{ac:e.target.value}})}}
                   />
@@ -125,7 +125,7 @@ const Step4 = () => {
                     type="checkbox"
                     id="geyser"
                     name="Geyser"
-                    // value="geyser"
+   
                     checked = {userData["amenities.geyser"]}
                     onChange={(e)=>{setUserData({...userData, amenities :{geyser:e.target.value}})}}
                   />
@@ -141,7 +141,7 @@ const Step4 = () => {
                     type="checkbox"
                     id="cleanliness"
                     name="Cleanliness"
-                    // value="cleanliness"
+  
                     checked = {userData["amenities.cleanliness"]}
                     onChange={(e)=>{setUserData({...userData, amenities :{cleanliness:e.target.value}})}}
                   />
@@ -157,7 +157,7 @@ const Step4 = () => {
                     type="checkbox"
                     id="washing machine"
                     name="Washing Machine"
-                    // value="washing machine"
+  
                     checked = {userData["amenities.washingMachine"]}
                     onChange={(e)=>{setUserData({...userData, amenities :{washingMachine:e.target.value}})}}
                   />
@@ -173,7 +173,7 @@ const Step4 = () => {
                     type="checkbox"
                     id="parking-2"
                     name="Parking-2"
-                    // value="2-wheeler"
+   
                     checked = {userData["amenities.parking_2w"]}
                     onChange={(e)=>{setUserData({...userData, amenities :{parking_2w:e.target.value}})}}
                   />
@@ -189,7 +189,7 @@ const Step4 = () => {
                     type="checkbox"
                     id="parking-4"
                     name="Parking-4"
-                    // value="4-wheeler"
+
                     checked = {userData["amenities.parking_4w"]}
                     onChange={(e)=>{setUserData({...userData, amenities :{parking_4w:e.target.value}})}}
                   />
@@ -228,7 +228,7 @@ const Step4 = () => {
                 <button
                   onClick={() => {
                     next();
-                    //   setData();
+    
                   }}
                   style={{ width: "100%" }}
                   className="border-0 save-btn "
@@ -238,7 +238,6 @@ const Step4 = () => {
               </div>
             </div>
           </form>
-          {console.log(userData["amenities"])}
           </div>
         </Body>
       </FormContainer>

@@ -54,7 +54,6 @@ const Otp = () => {
         }
       )
       .then((response) => {
-        console.log(response.data);
         const res = {
           token:response.data.token,
           email:response.data.response[0].email,
@@ -71,7 +70,6 @@ const Otp = () => {
       .catch((error) => {
         console.log(error.response.data);
       });
-    console.log(otp);
   }
 
   return (
@@ -102,7 +100,7 @@ const Otp = () => {
               <RightContainer className="col-12 col-sm-6 right-container">
                 <div className="row" style={{ padding: "0 4.5rem" }}>
                   <div className="col-12 text-center mb-4 mt-5">
-                    <img className="img-fluid" src={cgLogo} />
+                    <img className="img-fluid" src={cgLogo} alt="logo"/>
                     <h4 className="otp__main-heading mt-3">
                       Let's Find Your Accommodation
                     </h4>
@@ -121,7 +119,7 @@ const Otp = () => {
                       to="/employeesignup"
                       style={{ textDecoration: "none" }}
                     >
-                      <img src={arrow} />{" "}
+                      <img src={arrow} alt="logo"/>{" "}
                     </Link>
                     <span className="mail">{userEmail}</span>
 

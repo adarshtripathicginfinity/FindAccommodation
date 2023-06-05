@@ -1,7 +1,5 @@
 import React, { useState } from "react";
-// import "./modalAvailableAccommodation.css";
 import greentick from "../../images/greentickfinal.svg";
-import femaleIcon from "../../images/femaleIcon.svg";
 import { Link, useNavigate } from "react-router-dom";
 import vector from "../../images/alert.svg";
 import axios from "axios";
@@ -103,7 +101,7 @@ const ModalNortification = (props) => {
                       <div className="d-flex verified-icon">
                         <img
                           src={greentick}
-                          
+                          alt="logo"
                         />
                         <p className="modal_verified-p"
                         
@@ -112,7 +110,7 @@ const ModalNortification = (props) => {
                       <div className="d-flex alert-message">
                       <img
                           src={vector}
-                          alt=""
+                          alt="logo"
                           style={{marginTop:'0.15rem'}}
                         />
                       <p className="alert-message-p">This person is new joinner</p>

@@ -86,7 +86,7 @@ const CreateNewPassword = () => {
             <RightContainer className="col-12 col-sm-6 right-container ">
               <div className="row" style={{ padding: "0 4.5rem" }}>
                 <div className="col-12 text-center mb-4 mt-5">
-                  <img className="img-fluid" src={cgLogo} />
+                  <img className="img-fluid" src={cgLogo} alt='logo'/>
                   <h4 className="login__main-heading mt-3">
                     Create New Password
                   </h4>
@@ -155,7 +155,7 @@ const CreateNewPassword = () => {
                       >
                         <img
                           src={vector}
-                          alt=""
+                          alt="logo"
                           className="img2"
                           style={{ margin: "0 0.5rem 0.7rem" }}
                         />

@@ -24,7 +24,6 @@ import CheckboxFilterReq from "./checkboxFilterReq";
 import NoDataaPage from "./noDataaPage";
 import { Link } from "react-router-dom";
 import axios from "axios";
-// import { functionTypeAnnotation } from "@babel/types";
 
 const OpenAccommodation = (props) => {
   const [activeBtn, setActiveBtn] = useState(false);
@@ -45,7 +44,6 @@ const OpenAccommodation = (props) => {
       .then((response) => {
         // Handle Success
         console.log(response.data.response);
-        console.log("inside handleOpenReq");
         setOpenReqData(response.data.response);
       })
       .catch((error) => {
@@ -97,16 +95,13 @@ const OpenAccommodation = (props) => {
       messgae: message,
       mapaddress: mapaddress,
     };
-    console.log(data);
   };
 
   function handleToggleAvailable() {
     setActiveBtn(true);
-    console.log(activeBtn);
   }
   function handleToggleRequire() {
     setActiveBtn(false);
-    console.log(activeBtn);
   }
 
   function sendAccomoData(data) {
@@ -274,7 +269,7 @@ const OpenAccommodation = (props) => {
                             }}
                           >
                             <span className="mt-1">
-                              <img src={location}></img>
+                              <img src={location} alt="logo"></img>
                             </span>
 
                             <input
@@ -345,7 +340,7 @@ const OpenAccommodation = (props) => {
                               <div className="p-3">
                                 <div className="d-flex mb-3">
                                   <div className="me-2">
-                                    <img src={userphoto} alt="" />
+                                    <img src={userphoto} alt="img" />
                                   </div>
                                   <div className="ms-1">
                                     <div
@@ -357,7 +352,7 @@ const OpenAccommodation = (props) => {
                                       <p className="mb-1 availableAcco__card-p-name">
                                         {data.fullName}
                                       </p>
-                                      <img src={Blueright_arrow} alt="" />
+                                      <img src={Blueright_arrow} alt="img" />
                                     </div>
                                     <p className="mb-0  availableAcco__card-p-id">
                                       {data.CGIID}
@@ -378,7 +373,7 @@ const OpenAccommodation = (props) => {
                                 </div>
 
                                 <div className="d-flex mb-2">
-                                  <img src={gps} alt="" />
+                                  <img src={gps} alt="img" />
                                   <p
                                     className="mb-0 ms-1"
                                     style={{
@@ -392,7 +387,7 @@ const OpenAccommodation = (props) => {
                                 <div className="d-flex mb-3">
                                   <div className="me-3 nearby-location">
                                     <div className="d-flex justify-content-center">
-                                      <img src={office} alt="" />
+                                      <img src={office} alt="img" />
                                     </div>
                                     <div className="d-flex justify-content-center">
                                       <p className="mb-0 text-center px-2">
@@ -402,7 +397,7 @@ const OpenAccommodation = (props) => {
                                   </div>
                                   <div className="nearby-location">
                                     <div className="d-flex justify-content-center">
-                                      <img src={metro} alt="" />
+                                      <img src={metro} alt="img" />
                                     </div>
                                     <div className="d-flex justify-content-center">
                                       <p className="mb-0 text-center">
@@ -425,7 +420,7 @@ const OpenAccommodation = (props) => {
                                       : ""}
                                   </p>
                                   <div className="d-flex">
-                                    <img src={greencheck} alt="" />
+                                    <img src={greencheck} alt="img" />
                                     <p
                                       className="availableAcco__card-p-green"
                                       style={{}}
@@ -478,7 +473,7 @@ const OpenAccommodation = (props) => {
                                       <div className="row mb-3">
                                         <div className="d-flex">
                                           <div className="me-1">
-                                            <img src={femaleIcon} alt="" />
+                                            <img src={femaleIcon} alt="logo" />
                                           </div>
                                           <div className="ms-2">
                                             <div className="">
@@ -502,7 +497,7 @@ const OpenAccommodation = (props) => {
                                                 }}
                                               >
                                                 <div className="ms-2">
-                                                  <img src={greentick} alt="" />
+                                                  <img src={greentick} alt="logo" />
                                                 </div>
                                                 <div className="me-2">
                                                   <p
@@ -681,7 +676,7 @@ const OpenAccommodation = (props) => {
                                         <div className="row mb-3">
                                           <div className="d-flex">
                                             <div className="me-2">
-                                              <img src={userphoto} alt="" />
+                                              <img src={userphoto} alt="img" />
                                             </div>
                                             <div className="ms-1">
                                               <p className="mb-0">
@@ -702,7 +697,7 @@ const OpenAccommodation = (props) => {
                                         </div>
                                         <div className="row mb-2">
                                           <div className="d-flex">
-                                            <img src={gps} alt="" />
+                                            <img src={gps} alt="logo" />
                                             <p className="ms-1 mb-0">
                                               View on Map
                                             </p>
@@ -712,7 +707,7 @@ const OpenAccommodation = (props) => {
                                           <div className="d-flex">
                                             <div className="nearby-location py-2">
                                               <div className="d-flex justify-content-center mb-1">
-                                                <img src={office} alt="" />
+                                                <img src={office} alt=" logo" />
                                               </div>
                                               <div className="d-flex justify-content-center mb-1">
                                                 <p className="text mb-0">
@@ -723,7 +718,7 @@ const OpenAccommodation = (props) => {
                                             </div>
                                             <div className="nearby-location ms-3 py-2">
                                               <div className="d-flex justify-content-center">
-                                                <img src={metro} alt="" />
+                                                <img src={metro} alt="logo" />
                                               </div>
                                               <div className="d-flex justify-content-center">
                                                 <p className="text mb-0">
@@ -738,7 +733,7 @@ const OpenAccommodation = (props) => {
                                           <div className="d-flex">
                                             <img
                                               src={greencheck}
-                                              alt=""
+                                              alt="logo"
                                               className="me-2"
                                             />
                                             <p className="mb-0">
@@ -766,7 +761,7 @@ const OpenAccommodation = (props) => {
                                             <div className="d-flex justify-content-center amenities p-2 me-3">
                                               <img
                                                 src={allowed}
-                                                alt=""
+                                                alt="logo"
                                                 className="me-2"
                                               />
                                               <p className="mb-0">WiFi</p>
@@ -774,7 +769,7 @@ const OpenAccommodation = (props) => {
                                             <div className="d-flex justify-content-center amenities p-2 me-3">
                                               <img
                                                 src={allowed}
-                                                alt=""
+                                                alt="logo"
                                                 className="me-2"
                                               />
                                               <p className="mb-0">Food</p>
@@ -782,7 +777,7 @@ const OpenAccommodation = (props) => {
                                             <div className="d-flex justify-content-center amenities p-2">
                                               <img
                                                 src={allowed}
-                                                alt=""
+                                                alt="logo"
                                                 className="me-2"
                                               />
                                               <p className="mb-0">Kitchen</p>
@@ -792,7 +787,7 @@ const OpenAccommodation = (props) => {
                                             <div className="d-flex justify-content-center amenities p-2 me-3">
                                               <img
                                                 src={allowed}
-                                                alt=""
+                                                alt="logo"
                                                 className="me-2"
                                               />
                                               <p className="mb-0">
@@ -802,7 +797,7 @@ const OpenAccommodation = (props) => {
                                             <div className="d-flex justify-content-center amenities p-2">
                                               <img
                                                 src={allowed}
-                                                alt=""
+                                                alt="logo"
                                                 className="me-2"
                                               />
                                               <p className="mb-0">Induction</p>
@@ -817,7 +812,7 @@ const OpenAccommodation = (props) => {
                                             <div className="d-flex col-4 habits p-2 me-3">
                                               <img
                                                 src={not_allowed}
-                                                alt=""
+                                                alt="logo"
                                                 className="me-2"
                                               />
                                               <p className="mb-0">Non-Veg</p>
@@ -825,7 +820,7 @@ const OpenAccommodation = (props) => {
                                             <div className="d-flex col-4 habits p-2 me-3">
                                               <img
                                                 src={not_allowed}
-                                                alt=""
+                                                alt="logo"
                                                 className="me-2"
                                               />
                                               <p
@@ -841,7 +836,7 @@ const OpenAccommodation = (props) => {
                                               <div>
                                                 <img
                                                   src={allowed}
-                                                  alt=""
+                                                  alt="logo"
                                                   className="me-2"
                                                 />
                                               </div>
@@ -859,7 +854,7 @@ const OpenAccommodation = (props) => {
                                             <div className="d-flex justify-content-center amenities p-2 me-3">
                                               <img
                                                 src={allowed}
-                                                alt=""
+                                                alt="logo"
                                                 className="me-2"
                                               />
                                               <p className="mb-0">Weekend</p>
@@ -867,7 +862,7 @@ const OpenAccommodation = (props) => {
                                             <div className="d-flex justify-content-center amenities p-2">
                                               <img
                                                 src={clock}
-                                                alt=""
+                                                alt="logo"
                                                 className="me-2"
                                               />
                                               <p className="mb-0">
@@ -886,7 +881,7 @@ const OpenAccommodation = (props) => {
                                             <div className="d-flex mb-3">
                                               <img
                                                 src={owner_name}
-                                                alt=""
+                                                alt="logo"
                                                 className="me-2"
                                               />
                                               <p className="mb-0">John Doe</p>
@@ -894,7 +889,7 @@ const OpenAccommodation = (props) => {
                                             <div className="d-flex">
                                               <img
                                                 src={call}
-                                                alt=""
+                                                alt="logo"
                                                 className="me-2"
                                               />
                                               <p className="mb-0">9876543210</p>

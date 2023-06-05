@@ -7,7 +7,6 @@ import { Link } from "react-router-dom";
 import axios from "../api/axios";
 import interest from "../../images/interest.svg";
 import search from "../../images/search.svg";
-import gps from "../../images/GPS.svg";
 
 const InterestSent = (props) => {
   const INTEREST_URL = "/sentInterest";
@@ -50,7 +49,6 @@ const InterestSent = (props) => {
     setFilteredInterestData(filteredData);
   }
 
-  // {console.log(interestData);}
 
   return (
     <>
@@ -155,7 +153,7 @@ const InterestSent = (props) => {
                       >
                         <div style={{ display: "flex", marginTop: "0rem" }}>
                           <div style={{ marginRight: "1rem" }}>
-                            <img className="img-fluid" src={interest} />
+                            <img className="img-fluid" src={interest} alt="logo"/>
                           </div>
                           <div >
                             <Link className="interest_container-name">
@@ -201,7 +199,7 @@ const InterestSent = (props) => {
                       >
                         <div style={{ display: "flex", marginTop: "0rem" }}>
                           <div style={{ marginRight: "1rem" }}>
-                            <img className="img-fluid" src={interest} />
+                            <img className="img-fluid" src={interest} alt="logo"/>
                           </div>
                           <div >
                             <Link className="interest_container-name">

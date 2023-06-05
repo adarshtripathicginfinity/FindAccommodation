@@ -62,7 +62,7 @@ const CheckboxFilterReq = (props) => {
     <>
       <div className="col-sm-8 col-4 container d-flex justify-content-end align-items-center">
         <div className=" d-none d-md-flex">
-          <img src={filterLogo} />
+          <img src={filterLogo} alt="logo"/>
           <p
             style={{
               marginBottom: "0",
@@ -86,7 +86,7 @@ const CheckboxFilterReq = (props) => {
               style={{ border: "none" }}
             >
               <div className="d-flex">
-                <img src={filterLogo} />
+                <img src={filterLogo} alt="logo"/>
                 <p
                   style={{
                     marginBottom: "0",

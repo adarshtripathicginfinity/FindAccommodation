@@ -23,7 +23,7 @@ const InternVerified = () => {
           <div className="row mb-4">
             <div>
               <div className="d-flex justify-content-center">
-                <img src={logo} alt="" />
+                <img src={logo} alt="logo" />
               </div>
               <div className="d-flex justify-content-center mt-3 text-center">
                 <p className="heading-name" style={{ color: "black" }}>
@@ -35,7 +35,7 @@ const InternVerified = () => {
 
           <div className="row">
             <div className="d-flex" style={{ justifyContent: "center", marginBottom: "3%"}}>
-              <img src={Tick} alt="" />
+              <img src={Tick} alt="logo" />
             </div>
           </div>
 

@@ -25,9 +25,9 @@ import NoNortification from "../noNotifications/noNortification";
 import chevron from "../../images/chevron-right-solid.svg";
 import { staticInterest, staticNotification } from "./staticData";
 
+
+
 const LandingPage = (props) => {
-  const url_locaton = useLocation();
-  // console.log(url_locaton);
   const INTEREST_URL = "/sentInterest";
   const [interestData, setInterestData] = useState(staticInterest);
   const [interestLength, setInterestLength] = useState([]);
@@ -43,19 +43,11 @@ const LandingPage = (props) => {
 
   const navigate = useNavigate();
 
-  const {
-    currentUser,
-    availableAccommodations,
-    setAvailableAccommodations,
-    isLoggedIn,
-  } = useContext(MultiStepContext);
-  // console.log("value of isLoggedIn in landing page", isLoggedIn);
+  
 
   const userData = localStorage.getItem("userData");
 
   const [data, setData] = useState(JSON.parse(userData));
-
-  // console.log(data.id);
 
   async function handleInterest() {
     await axios1
@@ -134,7 +126,6 @@ const LandingPage = (props) => {
         navigate("/availableaccommodationsonly");
       })
       .catch((error) => {
-        // Handle error
         console.log(error);
       });
   };
@@ -381,7 +372,7 @@ const LandingPage = (props) => {
                       <div className="container-fluid notification_accepted_container" style={{padding:"0.75rem 0.75rem 1rem 1rem"}}>
                         <div className="row">
                           <div className="col-1">
-                            <img src={data.profileimage} width="40px" height="40px" style={{borderRadius: "50%"}}/>
+                            <img src={data.profileimage} width="40px" height="40px" style={{borderRadius: "50%"}} alt="img"/>
                           </div>
                           <div className="col">
                             <div>
@@ -398,7 +389,7 @@ const LandingPage = (props) => {
                         <div className="container-fluid notification_unaccepted_container" style={{padding:"0.75rem 0.75rem 1rem 1rem"}}>
                         <div className="row">
                           <div className="col-1">
-                            <img src={data.profileimage} width="40px" height="40px" style={{borderRadius: "50%"}}/>
+                            <img src={data.profileimage} width="40px" height="40px" style={{borderRadius: "50%"}} alt="img"/>
                           </div>
                           <div className="col">
                             <div>

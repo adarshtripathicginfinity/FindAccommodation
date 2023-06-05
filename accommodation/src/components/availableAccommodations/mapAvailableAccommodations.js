@@ -1,11 +1,9 @@
 import React from "react";
 import "./availableAccommodations.css";
 import Blueright_arrow from "../../images/Blueright-arrow.svg";
-import gps from "../../images/GPS.svg";
 import office from "../../images/office.svg";
 import metro from "../../images/Metrotransit.svg";
 import greencheck from "../../images/Check-outlinegreen check.svg";
-import userphoto from "../../images/userphoto.svg";
 import NoDataaPage from "./noDataaPage";
 import OffcanvusAvailableAccommodation from "./offcanvusAvailableAccommodation";
 import ModalAvailableAccommodation from "./modalAvailableAccommodation";
@@ -88,7 +86,7 @@ const MapAvailableAccommodations = (props) => {
                     <div className="p-3">
                       <div className="d-flex mb-3">
                         <div className="me-2">
-                          <img src={data.profileimage} alt="" style={{float: "left", height: "40px", width: "40px", borderRadius: "50%"}}/>
+                          <img src={data.profileimage} alt="profile" style={{float: "left", height: "40px", width: "40px", borderRadius: "50%"}}/>
                         </div>
                         <div className="ms-1">
                           <div
@@ -100,7 +98,7 @@ const MapAvailableAccommodations = (props) => {
                             <p className="mb-1 availableAcco__card-p-name">
                               {data.firstname} {data.lastname}
                             </p>
-                            <img src={Blueright_arrow} alt="" />
+                            <img src={Blueright_arrow} alt="img" />
                           </div>
                           <p className="mb-0  availableAcco__card-p-id">
                             {data.cgiid}
@@ -125,7 +123,7 @@ const MapAvailableAccommodations = (props) => {
                           style={{ padding: "1.5rem" }}
                         >
                           <div className="d-flex justify-content-center">
-                            <img src={office} alt="" />
+                            <img src={office} alt="logo" />
                           </div>
                           <div className="d-flex justify-content-center">
                             <p className="mb-0 text-center px-2">
@@ -138,7 +136,7 @@ const MapAvailableAccommodations = (props) => {
                           style={{ padding: "1.5rem" }}
                         >
                           <div className="d-flex justify-content-center">
-                            <img src={metro} alt="" />
+                            <img src={metro} alt="logo" />
                           </div>
                           <div className="d-flex justify-content-center">
                             <p className="mb-0 text-center">
@@ -159,7 +157,7 @@ const MapAvailableAccommodations = (props) => {
                           {data.acctypename} | {checkAccType(data)}  {data.acctypename == "flat" ? `| ${checkFurnished(data)}` : checkFurnished(data) } 
                         </p>
                         <div className="d-flex">
-                          <img src={greencheck} alt="" />
+                          <img src={greencheck} alt="logo" />
                           <p className="availableAcco__card-p-green" style={{}}>
                             I am looking for a {data.isroommate ? "room mate": "flat mate"}
                           </p>
@@ -173,7 +171,6 @@ const MapAvailableAccommodations = (props) => {
                         >
                           I'm interested
                         </button>
-                        {console.log("Hello",props.AccData[index].id)}
                       </div>
                     </div>
                   </div>
