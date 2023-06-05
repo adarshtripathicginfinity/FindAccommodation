@@ -15,6 +15,8 @@ const StepContext = ({ children }) => {
   const [currentUser, setCurrentUser] = useState([]);
   const [requirementData, setRequirementData] = useState([{ accTypeId: 1 }]);
   const [availableAccommodations, setAvailableAccommodations] = useState([]);
+
+  
  
   let user = "gurnoor";
 
@@ -61,6 +63,18 @@ const StepContext = ({ children }) => {
     }
   }
 
+  const [isLoggedIn, setIsLoggedIn] = useState(false);
+  const userInfoData = localStorage.getItem("userData");
+  const [data, setData] = useState(JSON.parse(userInfoData));
+  console.log(data?.email)
+  function logIn (val){
+    // data?.email ?  setIsLoggedIn(true) : setIsLoggedIn(false)
+    // console.log(isLoggedIn)
+    setIsLoggedIn(true);
+    // console.log("isLoggedIn value is changing to ", isLoggedIn);
+ 
+  }
+
   return (
     <MultiStepContext.Provider
       value={{
@@ -87,7 +101,13 @@ const StepContext = ({ children }) => {
         availableAccommodations,
         setAvailableAccommodations,
         setGreenTickVol,
-        setGreenTickReq
+        setGreenTickReq,
+        isLoggedIn,
+        setIsLoggedIn,
+        logIn
+
+
+
       }}
     >
       {children}

@@ -41,6 +41,7 @@ const ForgotPassword = () => {
     .then((response) => {
       console.log(response.data);
       localStorage.setItem('token',response.data.token)
+      localStorage.setItem('email',response.data.response.email)
       navigate('/forgotpassotp');
     })
     .catch((error) => {
