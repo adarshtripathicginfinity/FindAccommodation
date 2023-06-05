@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 // import Data from "./dummyData";
 // import Navbar from "../navbar/navbar";
 import Blueright_arrow from "../../images/Blueright-arrow.svg";
@@ -45,8 +45,10 @@ const OpenRequirements = (props) => {
   //   console.log(data);
   // }
 
+  const userData = JSON.parse(localStorage.getItem("userData"));
  
-
+  const [openRequirementUserData, setOpenRequirementUserData] = useState(userData);
+  // setLocalData(JSON.parse(userData));
   function checkAccType(info) {
     if (info["1rk"] == true) {
       return "1 RK";
@@ -251,12 +253,13 @@ const OpenRequirements = (props) => {
                                       fontWeight: "700",
                                     }}
                                   >
-                                    {data.firstname} {data.lastname}
+                                    {console.log("data:",openRequirementUserData)}
+                                    {openRequirementUserData.firstName} {openRequirementUserData.lastName}
                                   </p>
                                 </div>
                                 <div className="d-flex">
                                   <p className="mb-0  openRequirements__card-p-id">
-                                    {data.cgiid}
+                                    {openRequirementUserData.cgiid}
                                   </p>
                                 </div>
                               </div>
@@ -270,6 +273,7 @@ const OpenRequirements = (props) => {
                                   style={{
                                     color: "#343435",
                                     fontWeight: "700",
+                                    marginBottom:"0"
                                   }}
                                 >
                                   Email Id:
@@ -283,9 +287,10 @@ const OpenRequirements = (props) => {
                                   style={{
                                     color: "#343435",
                                     fontWeight: "500",
+                                    
                                   }}
                                 >
-                                {data.email}
+                                {openRequirementUserData.email}
                                 </p>
                               </div>
                           </div>
@@ -297,6 +302,8 @@ const OpenRequirements = (props) => {
                                   style={{
                                     color: "#343435",
                                     fontWeight: "700",
+                                    marginBottom:"0"
+
                                   }}
                                 >
                                   Contact No:
@@ -304,15 +311,12 @@ const OpenRequirements = (props) => {
                               </div>
                             </div>
                             <div>
-                                <p
-                                  className="ms-2"
-                                  style={{
-                                    color: "#343435",
-                                    fontWeight: "500",
-                                  }}
-                                >
-                                  {data.contact}
-                                </p>
+                                <input 
+                                  type="text"
+                                  
+                                  className="mb-3"
+                                  value={openRequirementUserData.contact}
+                                />
                               </div>
                           </div>
 
@@ -323,6 +327,8 @@ const OpenRequirements = (props) => {
                                 style={{
                                   color: "#343435",
                                   fontWeight: "700",
+                                  marginBottom:"0"
+
                                 }}
                               >
                                 Message:

@@ -11,7 +11,7 @@ import { MultiStepContext } from "../stepContext/stepContext";
 const Navbar = () => {
   const navigate = useNavigate();
   const [isLogin, setIsLogin] = useState(true);
-  const {isLoggedIn, setIsLoggedIn } = useContext(MultiStepContext);
+  const { isLoggedIn, setIsLoggedIn } = useContext(MultiStepContext);
   function handleLandingPage(event) {
     event.preventDefault();
     navigate("/landingpage");
@@ -43,16 +43,34 @@ const Navbar = () => {
           />
         </div>
         <div
-          className=""
+          className="d-flex"
           href="#"
           id="navbarDropdown"
           role="button"
           data-bs-toggle="dropdown"
           aria-expanded="false"
         >
-          <img className="mx-2" src={profilePic} />
+          <div
+            style={{
+              height: "40px",
+              width: "40px",
+              borderRadius: "50%",
+              color: "white",
+              backgroundColor: "gray",
+            }}
+          >
+            <span className="d-flex align-items-center justify-content-center " style={{height: "40px",
+              width: "40px",
+              borderRadius: "50%",
+              color: "white",
+              }}>
+              {data.firstName[0]} {data.lastName[0]}
+            </span>
+            {/* <img className="mx-2" src={profilePic} /> */}
+          </div>
           <img src={dropdownArrow} />
         </div>
+
         <div
           className="dropdown-menu dropdown-menu-right"
           aria-labelledby="navbarDropdown"
@@ -72,7 +90,13 @@ const Navbar = () => {
             <strong style={{ color: "#565555" }}>Account Settings</strong>
           </Link>
           {/* {console.log("inside navbar")} */}
-          <Link to="/" class="dropdown-item" onClick={()=>{handleLogIn();}}>
+          <Link
+            to="/"
+            class="dropdown-item"
+            onClick={() => {
+              handleLogIn();
+            }}
+          >
             <strong style={{ color: "red" }}>Logout</strong>
           </Link>
           {/* <div

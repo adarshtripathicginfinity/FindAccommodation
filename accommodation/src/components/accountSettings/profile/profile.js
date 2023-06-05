@@ -7,7 +7,7 @@ import "./profile.css"
 const Profile = () => {
   const [userInfo, setUserInfo] = useState(JSON.parse( localStorage.getItem("userData")));
   const [contact,setContact] = useState("")
-  const [id, setId] = useState();
+  // const [id, setId] = useState();
 
   const [contactNumber, setContactNumber] = useState();
   const [isContactNumberValid, setIsContactNumberValid] = useState(false);
@@ -17,7 +17,7 @@ const Profile = () => {
          <div className="row ">
          <p className='profile__heading'>Your Profile</p>
                   <div className=" col-md-2">
-                    <img src={userInfo?.profileUrl || dummyProfile} alt="profile" id="profilePic" />
+                    <img src={userInfo?.profileImage || dummyProfile} alt="profile" id="profilePic" />
                   </div>
 
                 <div className=" col-md-3" style={{}}>

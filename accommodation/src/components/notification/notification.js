@@ -70,7 +70,8 @@ function merge() {
                 <div className="row">
                     <h4>Notifications</h4>
                 </div>
-                <div className="row-cols-2 row" style={{marginTop: "1%"}}>
+                <div className="scroll-bar" style={{height:"800px"}}>
+                <div className="row-cols-1 row" style={{marginTop: "1%"}}>
                 {notificationData.map((data) => (
                     <div
                       key={data.id}
@@ -113,6 +114,7 @@ function merge() {
                   }
                 </div>
                 ))}
+                </div>
                 </div>
             </div>
         </Container>

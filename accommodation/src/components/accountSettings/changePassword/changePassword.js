@@ -1,8 +1,11 @@
 import React, { useState } from "react";
 import { useNavigate } from "react-router";
 import "./changePassword.css"
+import axios from "../../api/axios";
 
 const ChangePassword = () => {
+  const NEW_PASS_URL = "/accPass";
+  const userEmail = localStorage.getItem("email");
   const navigate = useNavigate();
   const [password, setPassword] = useState("");
   const [isPasswordValid, setIsPasswordValid] = useState(false);
@@ -28,7 +31,16 @@ const ChangePassword = () => {
   };
   function handleNewPassword(event) {
     event.preventDefault();
-
+    axios.post(NEW_PASS_URL, {
+      email: userEmail,
+      newPassword: password,
+      confirmPassword: confirmPassword,
+    }).then((response) => {
+      console.log(response.data);
+      navigate("/changedpassword");
+    }).catch((error)=>{
+      console.log(error)
+    })
     navigate("/changedpassword");
   }
   return (
