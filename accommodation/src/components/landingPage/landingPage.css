@@ -85,6 +85,14 @@
   height: 82px;
 }
 
+.hideLink {
+  display: none;
+}
+
+.showLink {
+  float: right;
+}
+
 @media  (max-width:576px) {
   .acc-btn{
     margin-top: 1.8rem;

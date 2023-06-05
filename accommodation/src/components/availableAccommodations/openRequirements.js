@@ -379,7 +379,7 @@ const OpenRequirements = (props) => {
                           <div className="row mb-3">
                             <div className="d-flex">
                               <div className="me-2">
-                                <img src={userphoto} alt="" />
+                                <img src={userphoto} width="40px" height="40px" style={{borderRadius: "50%"}} />
                               </div>
                               <div className="ms-1">
                                 <p className="mb-1 availableAcco__card-p-name">

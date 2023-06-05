@@ -22,12 +22,15 @@ import axios1 from "../api/axios";
 import { useLocation } from "react-router-dom";
 import NoInterest from "../noInterest/noInterest";
 import NoNortification from "../noNotifications/noNortification";
+import chevron from "../../images/chevron-right-solid.svg"
+import { staticInterest, staticNotification } from "./staticData";
+
 
 const LandingPage = () => {
   const url_locaton = useLocation();
   console.log(url_locaton);
   const INTEREST_URL = "/sentInterest";
-  const [interestData, setInterestData] = useState([]);
+  const [interestData, setInterestData] = useState(staticInterest);
   const [interestLength, setInterestLength] = useState([]);
   const maxInterestToShow = 4;
   const maxNotificationsToShow = 4;
@@ -36,7 +39,7 @@ const LandingPage = () => {
 
   const [acceptedNotifications, setAcceptedNotifications] = useState([]);
   const [unAcceptedNotifications, setUnAcceptedNotifications] = useState([]);
-  const [notificationData, setNotificationData] = useState([]);
+  const [notificationData, setNotificationData] = useState(staticNotification);
 
   const navigate = useNavigate();
 
@@ -111,7 +114,7 @@ const LandingPage = () => {
     merge();
     handleLanding();
     handleInterest();
-  }, [acceptedNotifications, unAcceptedNotifications]);
+  }, []);
 
   const handleAvailableAccommodation = (event) => {
     event.preventDefault();
@@ -126,7 +129,7 @@ const LandingPage = () => {
       });
   };
 
-
+  {console.log(interestData);}
   {console.log(notificationData)}
   {console.log(acceptedNotifications)}
   {console.log(unAcceptedNotifications)}
@@ -287,7 +290,7 @@ const LandingPage = () => {
               <ShortlistContainer className="col-md-6">
                 <p className="landingPage__head" style={{ color: "black" }}>
                   Interest Sent
-                  <span style={{ float: "right"}}>
+                  <span className={interestData.length === 0 ? "d-none" : "showLink"}>
                   <Link
                     to="/interestsent"
                     style={{ fontSize: "16px" }}
@@ -296,9 +299,10 @@ const LandingPage = () => {
                   </Link>
                   </span>
                 </p>
-
-                {/* <div className="col">
-                  {interestData.slice(0, maxInterestToShow).map((data) => (
+                
+                { interestData.length !== 0 ? (
+                
+                  interestData.slice(0, maxInterestToShow).map((data) => (
                     <div
                       key={data.id}
                       className="col interest__container"
@@ -316,7 +320,6 @@ const LandingPage = () => {
                             <div>
                               <Link>
                                 {data.firstname} {data.lastname}
-                               
                               </Link>
                               <p
                                 style={{ color: "#8E8E92", fontSize: "0.8rem" }}
@@ -339,44 +342,47 @@ const LandingPage = () => {
                         </div>
                       </div>
                     </div>
-                  ))}{" "}
-                </div> */}
+                  ))
+                 ) :
                 <NoInterest />
+                }
               </ShortlistContainer>
               <NotificationContainer className=" col-md-6">
                 <p className="landingPage__head" style={{ color: "black" }}>
                   Notifications
+                  <span className={interestData.length === 0 ? "d-none" : "showLink"}>
                   <Link
                     to="/notifications"
-                    style={{ float: "right", fontSize: "16px" }}
+                    style={{fontSize: "16px" }}
                   >
                     See All <img src={chevron} />
                   </Link>
+                  </span>
                 </p>
-                {/* {notificationData.slice(0, maxNotificationsToShow).map((data) => (
+                {  notificationData.length !== 0 ? (
+                    notificationData.slice(0, maxNotificationsToShow).map((data) => (
                     <div
                       key={data.id}
                       style={{ marginBottom: "1rem" }}
                     >
                     { data.isrequestaccepted ? 
-                    <div className="container-fluid notification_accepted_container" style={{padding:"0.75rem 0.75rem 1rem 1rem"}}>
-                      <div className="row">
-                        <div className="col-1">
-                          <img src={data.profileimage} width="40px" height="40px" style={{borderRadius: "50%"}}/>
-                        </div>
-                        <div className="col">
-                          <div>
-                            <strong>{data.firstname} {data.lastname}</strong> has accepted your accommodation request. You can now
-                            connect with him on his.
+                      <div className="container-fluid notification_accepted_container" style={{padding:"0.75rem 0.75rem 1rem 1rem"}}>
+                        <div className="row">
+                          <div className="col-1">
+                            <img src={data.profileimage} width="40px" height="40px" style={{borderRadius: "50%"}}/>
                           </div>
-                          <div>Email ID: <span style={{color: "#007FD3"}}><strong>{data.email}</strong></span></div>
-                          <div>Contact: <span style={{color: "#007FD3"}}><strong>{data.contact}</strong></span></div>
-                          <div>{data.timeDifference}</div>
+                          <div className="col">
+                            <div>
+                              <strong>{data.firstname} {data.lastname}</strong> has accepted your accommodation request. You can now
+                              connect with him on his.
+                            </div>
+                            <div>Email ID: <span style={{color: "#007FD3"}}><strong>{data.email}</strong></span></div>
+                            <div>Contact: <span style={{color: "#007FD3"}}><strong>{data.contact}</strong></span></div>
+                            <div>{data.timeDifference}</div>
+                          </div>
                         </div>
-                      </div>
-                    </div> 
+                      </div> 
                       : 
-                      <div>
                         <div className="container-fluid notification_unaccepted_container" style={{padding:"0.75rem 0.75rem 1rem 1rem"}}>
                         <div className="row">
                           <div className="col-1">
@@ -391,11 +397,11 @@ const LandingPage = () => {
                           </div>
                         </div>
                       </div>
-                  </div>
                   }
                 </div>
-                ))} */}
+                ))) :
                 <NoNortification />
+                } 
               </NotificationContainer>
             </DynamicContainer>
           </div>

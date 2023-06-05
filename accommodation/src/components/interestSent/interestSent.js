@@ -14,6 +14,9 @@ const InterestSent = (props) => {
   const userData = JSON.parse(localStorage.getItem("userData"));
   const [interestData, setInterestData] = useState([]);
 
+  const [toggleSearch, setToggleSearch] = useState(false);
+  const [filteredInterestData, setFilteredInterestData] = useState([]);
+
   useEffect(() => {
     handleInterest();
   }, []);
@@ -25,6 +28,29 @@ const InterestSent = (props) => {
         setInterestData(response.data.response);
       });
   }
+
+  const sortRecentFirst = (event) => {
+    interestData.sort((a, b) => {
+      return b.createtime - a.createtime;
+    })
+  }
+
+  const sortOldestFirst = (event) => {
+    interestData.sort((a, b) => {
+      return a.createtime - b.createtime;
+    })
+  }
+
+  const handleSearchLocality = (event) => {
+    setToggleSearch(true);
+    const { value } = event.target;
+    const filteredData = interestData.filter((item) =>
+      item.locality.toLowerCase().includes(value.toLowerCase())
+    );
+    setFilteredInterestData(filteredData);
+  }
+
+  // {console.log(interestData);}
 
   return (
     <>
@@ -82,7 +108,9 @@ const InterestSent = (props) => {
                       marginLeft: "0.37rem",
                     }}
                     placeholder="Select locality"
+                    onChange={(e) => handleSearchLocality(e)}
                   />
+                  
                 </div>
 
                 <div class="dropdown" style={{ marginLeft: "1rem" }}>
@@ -99,21 +127,67 @@ const InterestSent = (props) => {
                     aria-labelledby="dropdownMenuButton1"
                   >
                     <li>
-                      <a class="dropdown-item" href="#">
-                        Newest
+                      <a class="dropdown-item" href="#" onClick={(e) => sortRecentFirst(e)}>
+                        Newest First
                       </a>
                     </li>
                     <li>
-                      <a class="dropdown-item" href="#">
-                        Oldest
+                      <a class="dropdown-item" href="#" onClick={(e) => sortOldestFirst(e)}>
+                        Oldest First
                       </a>
                     </li>
                   </ul>
                 </div>
               </div>
             </div>
-
+            { toggleSearch ? (
             <div className="row-cols-md-2 row">
+              { filteredInterestData.map((data) => (
+                <div className="col" >
+                  <div
+                    className="interest__container" key={data.id}
+                    style={{ marginBottom: "1.5rem", padding: "0.75rem" }}
+                  >
+                    <div className="row" style={{ marginTop: "0" }}>
+                      <div
+                        className="col d-flex interest__name"
+                        
+                      >
+                        <div style={{ display: "flex", marginTop: "0rem" }}>
+                          <div style={{ marginRight: "1rem" }}>
+                            <img className="img-fluid" src={interest} />
+                          </div>
+                          <div >
+                            <Link className="interest_container-name">
+                              {data.firstname} {data.lastname}
+                            </Link>
+                            <p style={{ color: "#8E8E92", fontSize: "0.8rem" }}>
+                              {data.cgiid}
+                            </p>
+                          </div>
+                        </div>
+                        <div className="col-none c-md-flex">
+                           <p className="interest_time-date">10:15 AM</p>
+                           <p className="interest_time-date" style={{marginTop:'0.3rem'}}>23-03-2023</p>
+                        </div>
+                      </div>
+                      <div className="col-12" style={{ marginBottom: "1rem" }}>
+                        <div className="d-flex" style={{marginBottom:'0.28rem'}}>
+                          <p
+                            className="interest__para"
+                          >
+                            LandMark :
+                          </p>
+                          <p style={{marginBottom:'0' , marginLeft:'0.5rem'}}>{data.locality}</p>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              ))}
+            </div>
+            ) : 
+            ( <div className="row-cols-md-2 row">
               {interestData.map((data) => (
                 <div className="col" >
                   <div
@@ -158,6 +232,7 @@ const InterestSent = (props) => {
                 </div>
               ))}
             </div>
+            )}
           </div>
         </Container>
       </Wrapper>
