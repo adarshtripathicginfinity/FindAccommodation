@@ -1,0 +1,131 @@
+.modal_image {
+  box-sizing: border-box;
+  width: 40px;
+  height: 40px;
+  border: 1px solid #e9eceb;
+  border-radius: 422px;
+}
+
+.modal_verified-p {
+  margin-bottom: 0;
+  font-family: "Lato";
+  font-style: normal;
+  font-weight: 600;
+  font-size: 12px;
+  line-height: 14px;
+  color: #0c9a47;
+}
+
+.button-accept {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  padding: 2px 16px;
+  gap: 8px;
+  width: 208px;
+  height: 36px;
+  background: #28519e;
+  color: #ffffff;
+  box-shadow: 0px 2px 10px rgba(34, 62, 73, 0.1);
+  border-radius: 4px;
+}
+
+.button-accept:hover {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  padding: 2px 16px;
+  gap: 8px;
+  width: 208px;
+  height: 36px;
+  background: #4d76c2;
+  color: #ffffff;
+  box-shadow: 0px 2px 10px rgba(34, 62, 73, 0.1);
+  border-radius: 4px;
+}
+
+.button-decline {
+  box-sizing: border-box;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  padding: 2px 16px;
+  gap: 8px;
+  width: 208px;
+  height: 36px;
+  background: #e03e2d;
+  border: 1px solid #e03e2d;
+  color: #ffffff;
+  box-shadow: 0px 2px 10px rgba(34, 62, 73, 0.1);
+  border-radius: 4px;
+}
+
+.button-decline:hover {
+  box-sizing: border-box;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  padding: 2px 16px;
+  gap: 8px;
+  width: 208px;
+  height: 36px;
+  background: #f15342;
+  border: 1px solid #e03e2d;
+  color: #ffffff;
+  box-shadow: 0px 2px 10px rgba(34, 62, 73, 0.1);
+  border-radius: 4px;
+}
+
+.alert-message {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  padding: 6.5px 8px;
+  gap: 8px;
+  width: 177px;
+  height: 22px;
+  background: #e3f3fc;
+  border-radius: 2px;
+  margin-left: 0.62rem;
+}
+
+.verified-icon {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  padding: 4px 8px;
+  gap: 8px;
+  width: 78.57px;
+  height: 22px;
+  background: rgba(12, 100, 49, 0.1);
+  border-radius: 2px;
+}
+
+.modal_name {
+  width: 125px;
+  height: 19px;
+  font-family: "Lato";
+  font-style: normal;
+  font-weight: 700;
+  font-size: 16px;
+  line-height: 19px;
+  color: #28519e;
+  margin-bottom: 0.25rem;
+}
+
+.alert-message-p {
+  width: 141px;
+  height: 9px;
+  font-family: "Lato";
+  font-style: italic;
+  font-weight: 400;
+  font-size: 12px;
+  line-height: 14px;
+  color: #000000;
+  margin-bottom: 0;
+}

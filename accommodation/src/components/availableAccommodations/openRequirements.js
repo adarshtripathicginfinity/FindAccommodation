@@ -109,7 +109,7 @@ const OpenRequirements = (props) => {
                   <div className="p-3">
                     <div className="d-flex mb-3">
                       <div className="me-2">
-                        <img src={data.profileimage} alt="" />
+                        <img src={data.profileimage} height="40px" width="40px" style={{borderRadius:"50%"}} alt="" />
                       </div>
                       <div className="ms-1">
                         <div

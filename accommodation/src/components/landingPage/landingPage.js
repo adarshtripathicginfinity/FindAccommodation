@@ -20,14 +20,23 @@ import { Link, useNavigate } from "react-router-dom";
 import axios from "axios";
 import axios1 from "../api/axios";
 import { useLocation } from "react-router-dom";
+import NoInterest from "../noInterest/noInterest";
+import NoNortification from "../noNotifications/noNortification";
 
 const LandingPage = (props) => {
   const url_locaton = useLocation();
-  // console.log(url_locaton + " ");
-  const INTEREST_URL = "/interestSent";
+  console.log(url_locaton);
+  const INTEREST_URL = "/sentInterest";
   const [interestData, setInterestData] = useState([]);
   const [interestLength, setInterestLength] = useState([]);
   const maxInterestToShow = 4;
+  const maxNotificationsToShow = 4;
+
+  const NOTIFICATION_URL = "/notification";
+
+  const [acceptedNotifications, setAcceptedNotifications] = useState([]);
+  const [unAcceptedNotifications, setUnAcceptedNotifications] = useState([]);
+  const [notificationData, setNotificationData] = useState([]);
 
   const navigate = useNavigate();
 
@@ -56,6 +65,43 @@ const LandingPage = (props) => {
       });
   }
 
+  async function handleNotifications() {
+    await axios1
+      .get(NOTIFICATION_URL, { params: { userId: data.id } })
+      .then((response) => {
+        setAcceptedNotifications(response.data.acceptedRequest);
+        setUnAcceptedNotifications(response.data.unAcceptedRequest);
+      });
+  }
+  
+  const currentTime = new Date();
+  let mergedNotifications;
+  
+
+  async function merge() {
+    mergedNotifications = [...acceptedNotifications, ...unAcceptedNotifications];
+    mergedNotifications.sort((a, b) => {
+      return b.createdate - a.createdate;
+    });
+    setNotificationData(mergedNotifications);
+
+    // const updatedNotifications = mergedNotifications.map((notification) => {
+    //   const createtime = new Date(notification.createtime);
+    //   // console.log(createtime);
+    //   const timeDifference = currentTime - notification.createtime;
+    //   console.log(timeDifference);
+    //   const minutesDifference = Math.floor(timeDifference / (1000 * 60)); // Convert milliseconds to minutes
+  
+    //   return {
+    //     ...notification,
+    //     timeDifference: minutesDifference,
+    //   };
+    // });
+
+    // setNotificationData(updatedNotifications);
+  }
+  
+
   async function handleLanding() {
     await axios
       .get("https://cg-accommodation.azurewebsites.net/")
@@ -64,10 +110,13 @@ const LandingPage = (props) => {
         console.log(error);
       });
   }
+
   useEffect(() => {
+    handleNotifications();
+    merge();
     handleLanding();
     handleInterest();
-  }, []);
+  }, [acceptedNotifications, unAcceptedNotifications]);
 
   const handleAvailableAccommodation = (event) => {
     event.preventDefault();
@@ -81,6 +130,11 @@ const LandingPage = (props) => {
         console.log(error);
       });
   };
+
+
+  {console.log(notificationData)}
+  {console.log(acceptedNotifications)}
+  {console.log(unAcceptedNotifications)}
 
   const handleOpenrequirements = (event) => {
     event.preventDefault();
@@ -238,12 +292,14 @@ const LandingPage = (props) => {
               <ShortlistContainer className="col-md-6">
                 <p className="landingPage__head" style={{ color: "black" }}>
                   Interest Sent
+                  <span style={{ float: "right"}}>
                   <Link
                     to="/interestsent"
-                    style={{ float: "right", fontSize: "16px" }}
+                    style={{ fontSize: "16px" }}
                   >
-                    See All
+                   See All <img src={chevron} />
                   </Link>
+                  </span>
                 </p>
 
                 {/* <div className="col">
@@ -265,7 +321,7 @@ const LandingPage = (props) => {
                             <div>
                               <Link>
                                 {data.firstname} {data.lastname}
-                                <span> &gt;</span>
+                               
                               </Link>
                               <p
                                 style={{ color: "#8E8E92", fontSize: "0.8rem" }}
@@ -290,7 +346,7 @@ const LandingPage = (props) => {
                     </div>
                   ))}{" "}
                 </div> */}
-                {/* <NoInterest /> */}
+                <NoInterest />
               </ShortlistContainer>
               <NotificationContainer className=" col-md-6">
                 <p className="landingPage__head" style={{ color: "black" }}>
@@ -299,9 +355,52 @@ const LandingPage = (props) => {
                     to="/notifications"
                     style={{ float: "right", fontSize: "16px" }}
                   >
-                    See All &gt;
+                    See All <img src={chevron} />
                   </Link>
                 </p>
+                {/* {notificationData.slice(0, maxNotificationsToShow).map((data) => (
+                    <div
+                      key={data.id}
+                      style={{ marginBottom: "1rem" }}
+                    >
+                    { data.isrequestaccepted ? 
+                    <div className="container-fluid notification_accepted_container" style={{padding:"0.75rem 0.75rem 1rem 1rem"}}>
+                      <div className="row">
+                        <div className="col-1">
+                          <img src={data.profileimage} width="40px" height="40px" style={{borderRadius: "50%"}}/>
+                        </div>
+                        <div className="col">
+                          <div>
+                            <strong>{data.firstname} {data.lastname}</strong> has accepted your accommodation request. You can now
+                            connect with him on his.
+                          </div>
+                          <div>Email ID: <span style={{color: "#007FD3"}}><strong>{data.email}</strong></span></div>
+                          <div>Contact: <span style={{color: "#007FD3"}}><strong>{data.contact}</strong></span></div>
+                          <div>{data.timeDifference}</div>
+                        </div>
+                      </div>
+                    </div> 
+                      : 
+                      <div>
+                        <div className="container-fluid notification_unaccepted_container" style={{padding:"0.75rem 0.75rem 1rem 1rem"}}>
+                        <div className="row">
+                          <div className="col-1">
+                            <img src={data.profileimage} width="40px" height="40px" style={{borderRadius: "50%"}}/>
+                          </div>
+                          <div className="col">
+                            <div>
+                              <strong>{data.firstname} {data.lastname}</strong> has express interest on your
+                              accommodation posting
+                            </div>
+                            <div><span style={{color: "#007FD3"}}><strong>Show Message</strong></span></div>
+                          </div>
+                        </div>
+                      </div>
+                  </div>
+                  }
+                </div>
+                ))} */}
+                <NoNortification />
               </NotificationContainer>
             </DynamicContainer>
           </div>

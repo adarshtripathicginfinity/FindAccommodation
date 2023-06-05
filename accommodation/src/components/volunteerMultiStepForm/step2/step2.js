@@ -134,7 +134,7 @@ const Step2 = () => {
                     className="form-label .Step2__label-style"
                     style={{ marginBottom: "0.375rem", color: "#343435" }}
                   >
-                    Locality
+                    Locality <span style={{color:"#dd2727"}}><strong>*</strong></span>
                   </label>
                   <input
                     type="text"

@@ -10,7 +10,7 @@ import search from "../../images/search.svg";
 import gps from "../../images/GPS.svg";
 
 const InterestSent = (props) => {
-  const INTEREST_URL = "/interestSent";
+  const INTEREST_URL = "/sentInterest";
   const userData = JSON.parse(localStorage.getItem("userData"));
   const [interestData, setInterestData] = useState([]);
 
@@ -32,7 +32,7 @@ const InterestSent = (props) => {
       <Wrapper>
         <Container>
           <div className="container-fluid" >
-            <div className="row" style={{ marginTop: "1.31rem" }}>
+            <div className="row d-none d-md-flex" style={{ marginTop: "1.31rem" }}>
               <nav aria-label="breadcrumb">
                 <ol class="breadcrumb">
                   <li class="breadcrumb-item">
@@ -44,12 +44,19 @@ const InterestSent = (props) => {
                 </ol>
               </nav>
             </div>
+            <div className="row d-flex d-md-none" style={{ marginTop: "1.31rem" }}>
+                    <Link to="/landingpage">
+                      <p>
+                        hello
+                      </p>
+                    </Link>
+            </div>
             <div className="row " style={{ marginBottom: "1.25rem" }}>
-              <div className="col-6">
+              <div className="col d-none d-md-flex">
                 <p className="interest_heading">Interest Sent</p>
               </div>
 
-              <div class="d-flex col-6">
+              <div class="d-flex col-12 col-md-6">
                 <div
                   class="d-flex border w-sm-75 w-100 px-3"
                   style={{
@@ -67,7 +74,7 @@ const InterestSent = (props) => {
 
                   <input
                     type="text"
-                    class="form-control form-input"
+                    class="form-control form-input .demo_search-bar interesr_search-bar"
                     style={{
                       border: "none",
                       outlineStyle: "none",
@@ -106,23 +113,23 @@ const InterestSent = (props) => {
               </div>
             </div>
 
-            <div className="row-cols-2 row">
+            <div className="row-cols-md-2 row">
               {interestData.map((data) => (
-                <div key={data.id}>
+                <div className="col" >
                   <div
-                    className="col interest__container"
+                    className="interest__container" key={data.id}
                     style={{ marginBottom: "1.5rem", padding: "0.75rem" }}
                   >
                     <div className="row" style={{ marginTop: "0" }}>
                       <div
-                        className="col interest__name"
+                        className="col d-flex interest__name"
                         
                       >
                         <div style={{ display: "flex", marginTop: "0rem" }}>
                           <div style={{ marginRight: "1rem" }}>
                             <img className="img-fluid" src={interest} />
                           </div>
-                          <div>
+                          <div >
                             <Link className="interest_container-name">
                               {data.firstname} {data.lastname}
                             </Link>
@@ -131,7 +138,7 @@ const InterestSent = (props) => {
                             </p>
                           </div>
                         </div>
-                        <div>
+                        <div className="col-none c-md-flex">
                            <p className="interest_time-date">10:15 AM</p>
                            <p className="interest_time-date" style={{marginTop:'0.3rem'}}>23-03-2023</p>
                         </div>

@@ -63,6 +63,28 @@
   margin-top: 5.87rem;
 }
 
+.notification_accepted_container {
+  background: #ffffff;
+  box-shadow: 0px 4px 10px rgba(46, 72, 87, 0.18);
+  font-size: 14px;
+  border-radius: 8px;
+  padding: 0.75rem;
+  margin-bottom: 1.5rem;
+  width: 584px;
+  height: 124px;
+}
+
+.notification_unaccepted_container {
+  background: #ffffff;
+  box-shadow: 0px 4px 10px rgba(46, 72, 87, 0.18);
+  font-size: 14px;
+  border-radius: 8px;
+  padding: 0.75rem;
+  margin-bottom: 1.5rem;
+  width: 584px;
+  height: 82px;
+}
+
 @media  (max-width:576px) {
   .acc-btn{
     margin-top: 1.8rem;
