@@ -93,6 +93,13 @@
   float: right;
 }
 
+.landing__scrollbar {
+  height: 20rem;
+  width: fit-content;
+  overflow: scroll;
+  background-color: #ffffff;
+}
+
 @media  (max-width:576px) {
   .acc-btn{
     margin-top: 1.8rem;

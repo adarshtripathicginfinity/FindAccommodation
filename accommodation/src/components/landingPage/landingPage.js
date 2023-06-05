@@ -305,10 +305,17 @@ const LandingPage = (props) => {
                   </span>
                 </p>
                 
+<<<<<<< HEAD
                 <div className="scroll-bar">
                 { interestData.length !== 0 ? (
                 
                   interestData.slice(0, maxInterestToShow).map((data) => (
+=======
+                { interestData.length !== 0 ? ( 
+                  <div className="container landing__scrollbar">
+                 
+                  {interestData.slice(0, maxInterestToShow).map((data) => (
+>>>>>>> test
                     <div
                       key={data.id}
                       className="col interest__container"
@@ -348,7 +355,10 @@ const LandingPage = (props) => {
                         </div>
                       </div>
                     </div>
-                  ))
+
+                    
+                  ))}
+                  </div>
                  ) :
                 <NoInterest />
                 }
@@ -366,8 +376,12 @@ const LandingPage = (props) => {
                   </Link>
                   </span>
                 </p>
+<<<<<<< HEAD
                 <div className="scroll-bar">
                 {  notificationData.length !== 0 ? (
+=======
+                {  notificationData.length !== 0 ? ( 
+>>>>>>> test
                     notificationData.slice(0, maxNotificationsToShow).map((data) => (
                     <div
                     
