@@ -62,8 +62,6 @@ const OffcanvusAvailableAccommodation = (props) => {
         id={`exampleOffCanvas_${props.canvasData.id}`}
         aria-labelledby="offcanvasRightLabel"
       >
-        {/* {console.log(props.canvasData)} */}
-        {console.log(data)}
         <div class="offcanvas-header d-flex justify-content-end mb-0">
           <button
             type="button"
@@ -84,6 +82,7 @@ const OffcanvusAvailableAccommodation = (props) => {
                     <img
                       src={userphoto}
                       style={{ width: "9.37rem", height: "9.37rem" }}
+                      alt="img"
                     />
                     <p className="container_fullname" style={{display: "flex", justifyContent: "center", alignItems: "center"}}>
                       {data.firstname} {data.lastname}
@@ -107,7 +106,7 @@ const OffcanvusAvailableAccommodation = (props) => {
                           className="d-flex justify-content-center"
                           style={{ marginBottom: "0.5rem" }}
                         >
-                          <img src={office} alt="" />
+                          <img src={office} alt="logo" />
                         </div>
                         <div
                           className="d-flex justify-content-center"
@@ -128,7 +127,7 @@ const OffcanvusAvailableAccommodation = (props) => {
                         }}
                       >
                         <div className="d-flex justify-content-center">
-                          <img src={metro} alt="" />
+                          <img src={metro} alt="logo" />
                         </div>
                         <div className="d-flex justify-content-center">
                           <p className="text" style={{ marginBottom: "0" }}>
@@ -142,7 +141,7 @@ const OffcanvusAvailableAccommodation = (props) => {
                     <div className="d-flex">
                       <img
                         src={greencheck}
-                        alt=""
+                        alt="logo"
                         style={{ marginRight: "0.5rem" }}
                       />
                       <p
@@ -189,7 +188,7 @@ const OffcanvusAvailableAccommodation = (props) => {
                       >
                         <img
                           src={props.canvasData.wifi ? allowed : not_allowed}
-                          alt=""
+                          alt="logo"
                           style={{ marginRight: "0.25rem" }}
                         />
                         <p style={{ marginBottom: "0" }}>WiFi</p>
@@ -204,7 +203,7 @@ const OffcanvusAvailableAccommodation = (props) => {
                       >
                         <img
                           src={props.canvasData.food ? allowed : not_allowed}
-                          alt=""
+                          alt="logo"
                           style={{ marginRight: "0.25rem" }}
                         />
                         <p style={{ marginBottom: "0" }}>Food</p>
@@ -219,7 +218,7 @@ const OffcanvusAvailableAccommodation = (props) => {
                       >
                         <img
                           src={props.canvasData.ac ? allowed : not_allowed}
-                          alt=""
+                          alt="logo"
                           style={{ marginRight: "0.25rem" }}
                         />
                         <p style={{ marginBottom: "0" }}>AC</p>
@@ -236,7 +235,7 @@ const OffcanvusAvailableAccommodation = (props) => {
                       >
                         <img
                           src={props.canvasData.geyser ? allowed : not_allowed}
-                          alt=""
+                          alt="logo"
                           style={{ marginRight: "0.25rem" }}
                         />
                         <p style={{ marginBottom: "0" }}>Geyser</p>
@@ -253,7 +252,7 @@ const OffcanvusAvailableAccommodation = (props) => {
                           src={
                             props.canvasData.cleanliness ? allowed : not_allowed
                           }
-                          alt=""
+                          alt="logo"
                           style={{ marginRight: "0.25rem" }}
                         />
                         <p style={{ marginBottom: "0" }}>Cleanliness</p>
@@ -270,7 +269,7 @@ const OffcanvusAvailableAccommodation = (props) => {
                           src={
                             props.canvasData.induction ? allowed : not_allowed
                           }
-                          alt=""
+                          alt="logo"
                           style={{ marginRight: "0.25rem" }}
                         />
                         <p style={{ marginBottom: "0" }}>Induction</p>
@@ -291,7 +290,7 @@ const OffcanvusAvailableAccommodation = (props) => {
                               ? allowed
                               : not_allowed
                           }
-                          alt=""
+                          alt="logo"
                           style={{ marginRight: "0.25rem" }}
                         />
                         <p style={{ marginBottom: "0" }}>Washing Machine</p>
@@ -308,7 +307,7 @@ const OffcanvusAvailableAccommodation = (props) => {
                           src={
                             props.canvasData.parking_2w ? allowed : not_allowed
                           }
-                          alt=""
+                          alt="logo"
                           style={{ marginRight: "0.25rem" }}
                         />
                         <p style={{ marginBottom: "0" }}>Parking 2W</p>
@@ -327,7 +326,7 @@ const OffcanvusAvailableAccommodation = (props) => {
                           src={
                             props.canvasData.parking_4w ? allowed : not_allowed
                           }
-                          alt=""
+                          alt="logo"
                           style={{ marginRight: "0.25rem" }}
                         />
                         <p style={{ marginBottom: "0" }}>Parking 4W</p>
@@ -364,7 +363,7 @@ const OffcanvusAvailableAccommodation = (props) => {
                           src={
                             props.canvasData.isnonveg ? allowed : not_allowed
                           }
-                          alt=""
+                          alt="logo"
                           style={{ marginRight: "0.25rem" }}
                         />
                         <p style={{ marginBottom: "0" }}>Non veg</p>
@@ -380,7 +379,7 @@ const OffcanvusAvailableAccommodation = (props) => {
                           src={
                             props.canvasData.issmoking ? allowed : not_allowed
                           }
-                          alt=""
+                          alt="logo"
                           style={{ marginRight: "0.25rem" }}
                         />
                         <p
@@ -404,7 +403,7 @@ const OffcanvusAvailableAccommodation = (props) => {
                           src={
                             props.canvasData.isdrinking ? allowed : not_allowed
                           }
-                          alt=""
+                          alt="logo"
                           style={{ marginRight: "0.25rem" }}
                         />
                         <p style={{ marginBottom: "0" }}>Drinking</p>
@@ -425,7 +424,7 @@ const OffcanvusAvailableAccommodation = (props) => {
                       >
                         <img
                           src={allowed}
-                          alt=""
+                          alt="logo"
                           style={{ marginRight: "0.25rem" }}
                         />
                         <p style={{ marginBottom: "0" }}>
@@ -438,7 +437,7 @@ const OffcanvusAvailableAccommodation = (props) => {
                       >
                         <img
                           src={clock}
-                          alt=""
+                          alt="logo"
                           style={{ marginRight: "0.25rem" }}
                         />
                         <p style={{ marginBottom: "0" }}>
@@ -460,7 +459,7 @@ const OffcanvusAvailableAccommodation = (props) => {
                       <div className="d-flex" style={{ marginBottom: "1rem" }}>
                         <img
                           src={owner_name}
-                          alt=""
+                          alt="logo"
                           style={{ marginLeft: "0.25rem" }}
                         />
                         <p style={{ marginLeft: "0.5rem", marginBottom: "0" }}>
@@ -470,7 +469,7 @@ const OffcanvusAvailableAccommodation = (props) => {
                       <div className="d-flex">
                         <img
                           src={call}
-                          alt=""
+                          alt="logo"
                           style={{ marginLeft: "0.25rem" }}
                         />
                         <p style={{ marginLeft: "0.5rem", marginBottom: "0" }}>

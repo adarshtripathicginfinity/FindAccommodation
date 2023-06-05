@@ -2,17 +2,13 @@ import React, { useContext, useState } from "react";
 import "./step5.css";
 import alert from "../../../images/alert.svg";
 import { MultiStepContext } from "../../stepContext/stepContext";
-import styled from "styled-components";
 import { FormContainer, Header, Body } from "../../utilityStyles/utilityStyles";
 import { useNavigate } from "react-router-dom";
 import axios from "axios";
 
-const MainContainer = styled.div``;
-
 const Step5 = () => {
   const { previous, submitForm ,userData,setUserData} = useContext(MultiStepContext);
   const navigate = useNavigate();
-  const { activeBtn, setActiveBtn } = useState(true);
   function handleSubmit(){
     axios.post("https://cg-accommodation.azurewebsites.net/createAccommodation", { userData})
   .then((response) => {
@@ -28,7 +24,7 @@ const Step5 = () => {
 
   }
 
-  const [name, setName] = useState();
+
   const [contactNumber, setContactNumber] = useState();
   const [isContactNumberValid, setIsContactNumberValid] = useState(false);
 
@@ -45,13 +41,10 @@ const Step5 = () => {
 
   const handleLandlordName = (event) => {
     let {value} = event.target;
-    setName(value);
     setUserData({...userData, houseOwnerName: value});
   }
 
-  function btnHandler() {
-    setActiveBtn(!activeBtn);
-  }
+ 
   return (
     <>
       <FormContainer>
@@ -102,9 +95,7 @@ const Step5 = () => {
                 <div className="d-flex justify-content-between">
                   <button 
                   type="button"
-                    // className={
-                    //   activeBtn ? "Step5__btn-style" : "Step5__btn-active"
-                    // }
+                
                     className={
                 userData["preferredDays"] === 1 ? "Step5__btn-active": "Step5__btn-style"
                 }
@@ -194,7 +185,7 @@ const Step5 = () => {
                     padding: "0.5rem 0.75rem",
                   }}
                 >
-                  <img src={alert} alt="" className="" style={{marginRight:"4px"}}/>
+                  <img src={alert} alt="logo" className="" style={{marginRight:"4px"}}/>
                   <p className="" style={{ marginBottom: "0"}}>
                     Please provide this information after your landlord's
                     consent.
@@ -258,9 +249,6 @@ const Step5 = () => {
                 <button
                   type="button"
                   onClick={() => {
-
-                    // submitForm();
-                    //   setData();
                     if(userData["preferredDays"] != null) {
                       handleSubmit();    
                     }

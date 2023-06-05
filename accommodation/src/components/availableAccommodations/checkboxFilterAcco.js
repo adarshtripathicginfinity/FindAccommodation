@@ -124,7 +124,7 @@ const CheckboxFilterAcco = (props) => {
     <>
       <div className="col-sm-8 col-4 container d-flex justify-content-end align-items-center" style={{paddingRight:'0'}}>
         <div className=" d-none d-md-flex">
-          <img src={filterLogo} />
+          <img src={filterLogo} alt="logo"/>
           <p
             style={{
               marginBottom: "0",
@@ -148,7 +148,7 @@ const CheckboxFilterAcco = (props) => {
               style={{border:'none'}}
             >
               <div className="d-flex">
-                <img src={filterLogo} />
+                <img src={filterLogo} alt="logo"/>
                 <p
                   style={{
                     marginBottom: "0",

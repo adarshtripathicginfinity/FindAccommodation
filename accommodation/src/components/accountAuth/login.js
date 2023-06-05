@@ -1,6 +1,4 @@
-
 import React, { useContext, useState,useRef ,useEffect} from "react";
-// import axios from "axios";
 import { useNavigate, Link,  } from "react-router-dom";
 import "./login.css";
 import cgLogo from "../../images/cgLogo.png";
@@ -33,14 +31,14 @@ const Login = () => {
   const from = location.state?.from?.pathname || "/landingpage";
   useEffect(()=>{
     userRef.current.focus();
-    console.log("inside useEffect")
+
 
   },[])
 
-  const [email, setEmail] = useState("gurnoor.toor@cginfinity.com");
+  const [email, setEmail] = useState();
   const [isEmailValid, setIsEmailValid] = useState(false);
 
-  const [password, setPassword] = useState("Abc@.123");
+  const [password, setPassword] = useState();
   const [isPasswordValid, setIsPasswordValid] = useState(false);
 
 
@@ -92,8 +90,6 @@ const Login = () => {
 
         };
         
-        console.log(response.data.response[0].id);
-        console.log(response.data)
         setCurrentUser(response.data);
         const token = response.data.token;
         localStorage.setItem("token", response.data.token);
@@ -107,8 +103,6 @@ const Login = () => {
       .catch((error) => {
         console.log(error.response?.data);
       });
-    console.log(email);
-    console.log(`password: ${password} (hidden visible only on backend)`);
   };
 
   return (
@@ -153,14 +147,13 @@ const Login = () => {
             >
               <div className="row" style={{ padding: "0 4.5rem" }}>
                 <div className="col-12 text-center mb-4 mt-5">
-                  <img className="img-fluid" src={cgLogo} />
+                  <img className="img-fluid" src={cgLogo} alt="logo"/>
                   <h4 className="login__main-heading mt-3">
                     Let's Find Your Accommodation
                   </h4>
                   <p style={{ color: "black" }} className=" d-sm-none d-flex">
                     This is an online platform that helps other to find
                     accommodation
-                    {console.log(localStorage.getItem("userData.email"))}
                   </p>
                 </div>
               </div>

@@ -46,7 +46,6 @@ const ReqStep2 = () => {
           <hr style={{ margin: "0" }} />
         </Header>
         <Body>
-          {console.log(requirementData["accTypeId"])}
           <p className="reqStep2__label-h" style={{ marginBottom: "1rem" }}>
             Accommodation Type <span style={{color:"#dd2727"}}><strong>*</strong></span>
           </p>
@@ -112,7 +111,6 @@ const ReqStep2 = () => {
                   onClick={(event) => {
                     event.preventDefault();
                     setSinglePg(true)
-                    console.log(singlePg)
                     setRequirementData({ ...requirementData, sharingId: 1 });
                   }}
                 >
@@ -353,7 +351,6 @@ const ReqStep2 = () => {
                 onClick={() => {
                   if((requirementData["accTypeId"] === 1 && (requirementData["sharingId"] === 1 || requirementData["sharingId"] === 2 || requirementData["sharingId"] === 3)) || (requirementData["accTypeId"] === 2 && (requirementData["flatTypeId"] === 1 || requirementData["flatTypeId"] === 2 || requirementData["flatTypeId"] === 3 || requirementData["flatTypeId"] === 4 || requirementData["flatTypeId"] === 5) && (requirementData["furnishedtypeId"] === 1 || requirementData["furnishedtypeId"] === 2 || requirementData["furnishedtypeId"] === 3)))
                     reqNext();
-                  // console.log(requirementData);
                 }}
                 style={{ width: "100%" }}
               >

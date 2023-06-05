@@ -4,7 +4,6 @@ import { FormContainer, Header, Body } from "../../utilityStyles/utilityStyles";
 import "./step2.css";
 import { MultiStepContext } from "../../stepContext/stepContext";
 import detectLocation from "../../../images/detectLocation.svg";
-import styled from "styled-components";
 import { useNavigate } from "react-router-dom";
 
 const Step2 = () => {
@@ -77,7 +76,7 @@ const Step2 = () => {
                 >
                   <img
                     src={alert}
-                    alt=""
+                    alt="logo"
                     style={{ padding: "1.125rem 0.74rem 0 0" }}
                   />
                   <p
@@ -101,6 +100,7 @@ const Step2 = () => {
                 <div className="col d-flex border " style={{ padding: "0" }}>
                   <img
                     className="icon"
+                    alt="logo"
                     style={{ margin: " 0 1rem" }}
                     src={detectLocation}
                   ></img>
@@ -147,12 +147,9 @@ const Step2 = () => {
                     value={userData["locality"] }
                     onInput={(e) => { 
                       handleLocalityInput(e);
-                      // setUserData({...userData, locality:e.target.value});
                     }}
                   />
-                  {/* <div class="invalid-feedback">
-                    Please Enter Locality
-                  </div> */}
+
                   {
                     !isLocalityValid && locality && (
                       <span style={{ color: "red", fontSize: "12px" }}>
@@ -196,7 +193,7 @@ const Step2 = () => {
                       margin: "0",
                     }}
                   >
-                    <img src={alert} alt="" className="img2" />
+                    <img src={alert} alt="logo" className="img2" />
                     <p
                       className=".Step2__blue-para-style"
                       style={{ color: "black" , marginTop:"0.5rem" }}
@@ -228,12 +225,10 @@ const Step2 = () => {
                <div className="col-6">
                 <button
                   onClick={(event) => {
-                    // handleLocalityInput(event);
                     event.preventDefault();
                     if(isLocalityValid) {
                       next();
-                    }             
-                    // next();
+                    }            
                   }}
                   style={{width:"100%"}}
                   className="border-0 save-btn "

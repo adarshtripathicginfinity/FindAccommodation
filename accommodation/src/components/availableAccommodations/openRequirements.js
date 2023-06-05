@@ -1,49 +1,14 @@
-import React, { useEffect, useState } from "react";
-// import Data from "./dummyData";
-// import Navbar from "../navbar/navbar";
+import {React , useState} from "react";
 import Blueright_arrow from "../../images/Blueright-arrow.svg";
-import gps from "../../images/GPS.svg";
-import office from "../../images/office.svg";
-import metro from "../../images/Metrotransit.svg";
 import greencheck from "../../images/Check-outlinegreen check.svg";
 import userphoto from "../../images/userphoto.svg";
-// import search from "../../images/search.svg";
-// import location from "../../images/location.svg";
-import allowed from "../../images/allowed.svg";
-import not_allowed from "../../images/Not Allowed.svg";
-import clock from "../../images/clock.svg";
-import owner_name from "../../images/owner name.svg";
-import call from "../../images/call.svg";
 import greentick from "../../images/greentickfinal.svg";
-import femaleIcon from "../../images/femaleIcon.svg";
-// import { Wrapper, Container } from "../utilityStyles/utilityStyles";
 import "./openRequirements.css";
 import Date from "../../images/date.svg";
 import Currency from "../../images/currency_rupee.svg";
 import vector from '../../images/alert.svg'
 
 const OpenRequirements = (props) => {
-  // const [message, setMessage] = useState("");
-  // const [mapaddress, setMapAddress] = useState("Pinnacle Business Park");
-
-  // const handlemessageText = (event) => {
-  //   const { value } = event.target;
-  //   setMessage(value);
-  // };
-
-  // const findAddressmap = (event) => {
-  //   const { value } = event.target;
-  //   setMapAddress(value);
-  // };
-
-  // const handleSubmit = () => {
-  //   const data = {
-  //     messgae: message,
-  //     // mapaddress: mapaddress,
-  //   };
-
-  //   console.log(data);
-  // }
 
   const userData = JSON.parse(localStorage.getItem("userData"));
  
@@ -100,7 +65,6 @@ const OpenRequirements = (props) => {
           className=" scrollbar col-12"
           style={{ backgroundColor: "#F5F5F5" }}
         >
-          {console.log(props)}
           <div className=" row row-cols-md-3 ">
             {props.sendingData.map((data, index) => (
               <div key={data.requirementid}>
@@ -111,7 +75,7 @@ const OpenRequirements = (props) => {
                   <div className="p-3">
                     <div className="d-flex mb-3">
                       <div className="me-2">
-                        <img src={data.profileimage} height="40px" width="40px" style={{borderRadius:"50%"}} alt="" />
+                        <img src={data.profileimage} height="40px" width="40px" style={{borderRadius:"50%"}} alt="img" />
                       </div>
                       <div className="ms-1">
                         <div
@@ -123,7 +87,7 @@ const OpenRequirements = (props) => {
                           <p className="mb-1 availableAcco__card-p-name">
                             {data.firstname} {data.lastname}
                           </p>
-                          <img src={Blueright_arrow} alt="" />
+                          <img src={Blueright_arrow} alt="logo" />
                         </div>
 
                         <div className="d-flex">
@@ -136,7 +100,7 @@ const OpenRequirements = (props) => {
                           >
                             <img
                               src={greentick}
-                              alt=""
+                              alt="logo"
                               style={{ margin: "0.31rem 0.31rem 0.5rem" }}
                             />
                             <p
@@ -166,7 +130,7 @@ const OpenRequirements = (props) => {
                     </div>
 
                     <div className="d-flex" style={{ marginBottom: "1rem" }}>
-                      <img src={greencheck} alt="" />
+                      <img src={greencheck} alt="logo" />
                       <p className="openRequirements__card-p-green">
                         I am looking for a room-mate
                       </p>
@@ -189,7 +153,7 @@ const OpenRequirements = (props) => {
                         Relocation Date
                       </p>
                       <div className="d-flex">
-                        <img src={Date} />
+                        <img src={Date} alt="logo"/>
                         <p
                           style={{ marginBottom: "0rem", marginLeft: "0.5rem" }}
                         >
@@ -242,7 +206,7 @@ const OpenRequirements = (props) => {
                           <div className="row mb-3">
                             <div className="d-flex">
                               <div className="me-1">
-                                <img src={data.profileimage} width="40px" height="40px" style={{borderRadius: "50%"}}/>
+                                <img src={data.profileimage} width="40px" height="40px" style={{borderRadius: "50%"}} alt="img"/>
                               </div>
                               <div className="ms-2">
                                 <div className="">
@@ -384,7 +348,7 @@ const OpenRequirements = (props) => {
                           <div className="row mb-3">
                             <div className="d-flex">
                               <div className="me-2">
-                                <img src={userphoto} width="40px" height="40px" style={{borderRadius: "50%"}} />
+                                <img src={userphoto} width="40px" height="40px" style={{borderRadius: "50%"}} alt="img"/>
                               </div>
                               <div className="ms-1">
                                 <p className="mb-1 availableAcco__card-p-name">
@@ -400,7 +364,7 @@ const OpenRequirements = (props) => {
                                   >
                                     <img
                                       src={greentick}
-                                      alt=""
+                                      alt="logo"
                                       style={{
                                         margin: "0.31rem 0.31rem 0.5rem",
                                       }}
@@ -439,7 +403,7 @@ const OpenRequirements = (props) => {
                             className="d-flex"
                             style={{ marginBottom: "1.5rem" }}
                           >
-                            <img src={greencheck} alt="" />
+                            <img src={greencheck} alt="logo" />
                             <p
                               className="openRequirements__card-p-green"
                               style={{ fontSize: "1rem", marginBottom: "0rem" }}
@@ -487,7 +451,7 @@ const OpenRequirements = (props) => {
                               Relocation Date
                             </p>
                             <div className="d-flex">
-                              <img src={Date} />
+                              <img src={Date} alt="logo"/>
                               <p
                                 style={{
                                   marginBottom: "0rem",
@@ -507,7 +471,7 @@ const OpenRequirements = (props) => {
                               Incentives
                             </p>
                             <div className="d-flex">
-                              <img src={Currency} />
+                              <img src={Currency} alt="logo"/>
                               <p
                                 style={{
                                   marginBottom: "0rem",

@@ -16,8 +16,7 @@ const ReqStep3 = () => {
     useContext(MultiStepContext);
     
   function handleReqForm(event) {
-    
-    console.log(requirementData)
+
 
     axios
       .post("https://cg-accommodation.azurewebsites.net/requirement", {
@@ -91,7 +90,7 @@ const ReqStep3 = () => {
             padding: "0",
           }}
         >
-          <img src={Alert} style={{ margin: "1.125rem  0.75rem" }} />
+          <img src={Alert} style={{ margin: "1.125rem  0.75rem" }} alt="logo"/>
           <p
             className="reqStep3__blue-p "
             style={{ margin: "0.5rem 0.75rem 0.5rem 0" }}

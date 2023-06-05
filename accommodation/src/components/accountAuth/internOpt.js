@@ -39,7 +39,6 @@ const InternOtp = () => {
       .catch((error) => {
         console.log(error.response);
       });
-    console.log(otp);
   }
 
   return (
@@ -70,7 +69,7 @@ const InternOtp = () => {
               <RightContainer className="col-12 col-sm-6 right-container">
                 <div className="row" style={{ padding: "0 4.5rem" }}>
                   <div className="col-12 text-center mb-4 mt-5">
-                    <img className="img-fluid" src={cgLogo} />
+                    <img className="img-fluid" src={cgLogo} alt="logo"/>
                     <h4 className="otp__main-heading mt-3">
                       Let's Find Your Accommodation
                     </h4>
@@ -86,7 +85,7 @@ const InternOtp = () => {
                 >
                   <div className="col-12  " style={{ marginTop: "2.5rem" }}>
                     <Link to="/internsignup" style={{ textDecoration: "none" }}>
-                      <img src={arrow} />{" "}
+                      <img src={arrow} alt="logo"/>{" "}
                     </Link>
                     <span className="mail">{localStorage.getItem("email")}</span>
 

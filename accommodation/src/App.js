@@ -42,7 +42,7 @@ function App() {
   
 
   function logOut(){
-    console.log("logout is working");
+
     setIsLoggedIn(false);
     // <Navigate to="/" />
   }

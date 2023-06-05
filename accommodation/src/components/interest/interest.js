@@ -13,7 +13,7 @@ const Interest = () => {
           <div className="col interest__name" style={{ marginTop: "1rem" }}>
             <div style={{display:"flex"}}>
               <div style={{marginRight:"1rem"}}>
-                <img className="img-fluid" src={interest} />
+                <img className="img-fluid" src={interest}  alt="logo"/>
               </div>
               <div>
                 <a>Nakul Bagchi <span>&gt;</span></a>

@@ -3,8 +3,6 @@ import Navbar from "../navbar/navbar";
 import { Wrapper, Container } from "../utilityStyles/utilityStyles";
 import { Link } from "react-router-dom";
 import axios from "../api/axios";
-import notification from "../../images/notificationIcon.svg"
-import female from "../../images/female.svg"
 
 const Notification = (props) => {
     const NOTIFICATION_URL = "/notification";
@@ -26,7 +24,6 @@ const Notification = (props) => {
       });
   }
   
-  const currentTime = new Date();
 
 function merge() {
     const mergedNotifications = [...acceptedNotifications, ...unAcceptedNotifications];
@@ -41,11 +38,6 @@ function merge() {
         merge();
       }, [acceptedNotifications, unAcceptedNotifications]);
     
-
-      {console.log(notificationData);}
-      {console.log(acceptedNotifications);}
-      {console.log(unAcceptedNotifications);}
-
     return (
         <>
         <Navbar />
@@ -81,7 +73,7 @@ function merge() {
                     <div className="container-fluid notification_accepted_container" style={{padding:"0.75rem 0.75rem 1rem 1rem"}}>
                       <div className="row">
                         <div className="col-1">
-                          <img src={data.profileimage} width="40px" height="40px" style={{borderRadius: "50%"}}/>
+                          <img src={data.profileimage} width="40px" height="40px" style={{borderRadius: "50%"}} alt="logo"/>
                         </div>
                         <div className="col">
                           <div>
@@ -99,7 +91,7 @@ function merge() {
                         <div className="container-fluid notification_unaccepted_container" style={{padding:"0.75rem 0.75rem 1rem 1rem"}}>
                         <div className="row">
                           <div className="col-1">
-                            <img src={data.profileimage} width="40px" height="40px" style={{borderRadius: "50%"}}/>
+                            <img src={data.profileimage} width="40px" height="40px" style={{borderRadius: "50%"}} alt="logo"/>
                           </div>
                           <div className="col">
                             <div>

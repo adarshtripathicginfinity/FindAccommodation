@@ -87,7 +87,7 @@ const ModalAvailableAccommodation = (props) => {
                       <img
                         className="modal-photo"
                         src={data.profileImage}
-                        alt=""
+                        alt="profile"
                       />
                     </div>
                     <div className="ms-2">
@@ -99,7 +99,6 @@ const ModalAvailableAccommodation = (props) => {
                             fontWeight: "700",
                           }}
                         >
-                          {console.log(data)}
                           {data.firstName} {data.lastName}
                         </p>
                       </div>
@@ -114,7 +113,7 @@ const ModalAvailableAccommodation = (props) => {
                           <div className="ms-2">
                             <img
                               src={data.isVerified ? greentick : ""}
-                              alt=""
+                              alt="profile"
                             />
                           </div>
                           <div className="me-2">
