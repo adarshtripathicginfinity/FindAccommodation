@@ -1,4 +1,3 @@
-
 import React, { useContext, useState,useRef ,useEffect} from "react";
 import { useNavigate, Link,  } from "react-router-dom";
 import "./login.css";
@@ -36,10 +35,10 @@ const Login = () => {
 
   },[])
 
-  const [email, setEmail] = useState("gurnoor.toor@cginfinity.com");
+  const [email, setEmail] = useState();
   const [isEmailValid, setIsEmailValid] = useState(false);
 
-  const [password, setPassword] = useState("Abc@.123");
+  const [password, setPassword] = useState();
   const [isPasswordValid, setIsPasswordValid] = useState(false);
 
 

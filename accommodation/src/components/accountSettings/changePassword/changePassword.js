@@ -5,13 +5,15 @@ import axios from "../../api/axios";
 
 const ChangePassword = () => {
   const NEW_PASS_URL = "/accPass";
-  const userEmail = localStorage.getItem("email");
+  const userEmail = JSON.parse(localStorage.getItem("userData"));
   const navigate = useNavigate();
   const [password, setPassword] = useState("");
   const [isPasswordValid, setIsPasswordValid] = useState(false);
-
   const [confirmPassword, setConfirmPassword] = useState("");
   const [isconfirmPasswordValid, setIsConfirmPasswordValid] = useState(false);
+  const [oldPassword, setOldPassword] = useState();
+  const [newPassword, setNewPassword] = useState();
+
   const handlePasswordChange = (event) => {
     const { value } = event.target;
     setPassword(value);
@@ -22,6 +24,7 @@ const ChangePassword = () => {
         : false
     );
   };
+ 
   const handleConfirmPasswordChange = (event) => {
     const { value } = event.target;
     setConfirmPassword(value);
@@ -32,8 +35,9 @@ const ChangePassword = () => {
   function handleNewPassword(event) {
     event.preventDefault();
     axios.post(NEW_PASS_URL, {
-      email: userEmail,
-      newPassword: password,
+      email: userEmail.email,
+      oldPassword: oldPassword,
+      newPassword: newPassword,
       confirmPassword: confirmPassword,
     }).then((response) => {
       console.log(response.data);
@@ -58,7 +62,7 @@ const ChangePassword = () => {
               <input
                 type="password"
                 className="form-control input inputPassword"
-                value={password}
+                value={oldPassword}
                 onChange={handlePasswordChange}
                 required
               />
@@ -69,6 +73,21 @@ const ChangePassword = () => {
                 style={{ marginTop: "1rem" }}
               >
                 New Password
+              </label>
+              <input
+                type="password"
+                className="form-control input inputPassword"
+                value={newPassword}
+                onChange={handleNewPasswordChange}
+                required
+              />
+
+              <label
+                for="password"
+                className="form-label"
+                style={{ marginTop: "1rem" }}
+              >
+                Confirm Password
               </label>
               <input
                 type="password"
