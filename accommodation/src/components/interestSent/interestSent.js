@@ -140,7 +140,7 @@ const InterestSent = (props) => {
             </div>
             { toggleSearch ? (
             <div className="scroll-bar" style={{height:"800px"}}>
-            <div className="row-cols-1 row" style={{marginTop: "1%"}}>
+            <div className="row-cols-2 row" style={{marginTop: "1%"}}>
               { filteredInterestData.map((data) => (
                 <div className="col" >
                   <div
@@ -188,7 +188,7 @@ const InterestSent = (props) => {
             </div>
             ) : 
             ( <div className="scroll-bar" style={{height:"800px"}}>
-              <div className="row-cols-1 row" style={{marginTop: "1%"}}>
+              <div className="row-cols-2 row" style={{marginTop: "1%"}}>
               {interestData.map((data) => (
                 <div className="col" >
                   <div
