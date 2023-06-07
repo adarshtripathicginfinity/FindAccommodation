@@ -135,10 +135,10 @@ const CheckboxFilterAcco = (props) => {
             Filter:
           </p>
         </div>
-        <nav class="navbar navbar-expand-lg navbar-light ">
-          <div class="container d-flex">
+        <nav className="navbar navbar-expand-lg navbar-light ">
+          <div className="container d-flex">
             <button
-              class="navbar-toggler"
+              className="navbar-toggler"
               type="button"
               data-bs-toggle="offcanvas"
               data-bs-target="#offcanvasRight1"
@@ -161,28 +161,28 @@ const CheckboxFilterAcco = (props) => {
                 </p>
               </div>
             </button>
-            <div class="collapse navbar-collapse" id="navbarTogglerDemo01">
-              <ul class="navbar-nav">
-                <li class="nav-item">
+            <div className="collapse navbar-collapse" id="navbarTogglerDemo01">
+              <ul className="navbar-nav">
+                <li className="nav-item">
                   <div class="btn-group">
                     <button
                       style={{
                         backgroundColor: "#ffffff",
                         border: "1px solid #E9ECEB",
                       }}
-                      class="btn btn-secondary btn-light btn-sm dropdown-toggle"
+                      className="btn btn-secondary btn-light btn-sm dropdown-toggle"
                       type="button"
                       data-bs-toggle="dropdown"
                       aria-expanded="false"
                     >
                       Select Accommodation Type
                     </button>
-                    <ul class="dropdown-menu">
+                    <ul className="dropdown-menu">
                       <div className="ps-2">
                         <li>
-                          <div class="form-check mt-1 mb-3">
+                          <div className="form-check mt-1 mb-3">
                             <input
-                              class="form-check-input"
+                              className="form-check-input"
                               type="checkbox"
                               value="pg"
                               id="flexCheckChecked"
@@ -190,7 +190,7 @@ const CheckboxFilterAcco = (props) => {
                               onChange={handleFilter}
                             />
                             <label
-                              class="form-check-label"
+                              className="form-check-label"
                               for="flexCheckChecked"
                             >
                               PG
@@ -198,9 +198,9 @@ const CheckboxFilterAcco = (props) => {
                           </div>
                         </li>
                         <li>
-                          <div class="form-check mt-1">
+                          <div className="form-check mt-1">
                             <input
-                              class="form-check-input"
+                              className="form-check-input"
                               type="checkbox"
                               value="flat"
                               id="flexCheckChecked"
@@ -208,7 +208,7 @@ const CheckboxFilterAcco = (props) => {
                               onChange={handleFilter}
                             />
                             <label
-                              class="form-check-label"
+                              className="form-check-label"
                               for="flexCheckChecked"
                             >
                               Flat
@@ -220,10 +220,10 @@ const CheckboxFilterAcco = (props) => {
                   </div>
                 </li>
 
-                <li class="nav-item mx-3">
-                  <div class="btn-group">
+                <li className="nav-item mx-3">
+                  <div className="btn-group">
                     <button
-                      class="btn btn-secondary btn-light btn-sm dropdown-toggle"
+                      className="btn btn-secondary btn-light btn-sm dropdown-toggle"
                       type="button"
                       data-bs-toggle="dropdown"
                       aria-expanded="false"
@@ -234,12 +234,12 @@ const CheckboxFilterAcco = (props) => {
                     >
                       Select Distance
                     </button>
-                    <ul class="dropdown-menu">
+                    <ul className="dropdown-menu">
                       <div className="ps-2">
                         <li className="">
-                          <div class="form-check mb-3">
+                          <div className="form-check mb-3">
                             <input
-                              class="form-check-input"
+                              className="form-check-input"
                               type="checkbox"
                               value="0-2"
                               checked={selectedDistances1.includes("0-2")}
@@ -247,7 +247,7 @@ const CheckboxFilterAcco = (props) => {
                               id="flexCheckChecked"
                             />
                             <label
-                              class="form-check-label"
+                              className="form-check-label"
                               for="flexCheckChecked"
                             >
                               0km to 2km
@@ -255,9 +255,9 @@ const CheckboxFilterAcco = (props) => {
                           </div>
                         </li>
                         <li>
-                          <div class="form-check mt-1 mb-3">
+                          <div className="form-check mt-1 mb-3">
                             <input
-                              class="form-check-input"
+                              className="form-check-input"
                               type="checkbox"
                               value="2-5"
                               checked={selectedDistances2.includes("2-5")}
@@ -265,7 +265,7 @@ const CheckboxFilterAcco = (props) => {
                               id="flexCheckChecked"
                             />
                             <label
-                              class="form-check-label"
+                              classNmae="form-check-label"
                               for="flexCheckChecked"
                             >
                               2km to 5km
@@ -273,9 +273,9 @@ const CheckboxFilterAcco = (props) => {
                           </div>
                         </li>
                         <li>
-                          <div class="form-check mt-1 mb-3">
+                          <div className="form-check mt-1 mb-3">
                             <input
-                              class="form-check-input"
+                              className="form-check-input"
                               type="checkbox"
                               value="5-8"
                               checked={selectedDistances3.includes("5-8")}
@@ -283,7 +283,7 @@ const CheckboxFilterAcco = (props) => {
                               id="flexCheckChecked"
                             />
                             <label
-                              class="form-check-label"
+                              className="form-check-label"
                               for="flexCheckChecked"
                             >
                               5km to 8km
@@ -291,9 +291,9 @@ const CheckboxFilterAcco = (props) => {
                           </div>
                         </li>
                         <li>
-                          <div class="form-check mt-1">
+                          <div className="form-check mt-1">
                             <input
-                              class="form-check-input"
+                              className="form-check-input"
                               type="checkbox"
                               value="8-10"
                               checked={selectedDistances4.includes("8-10")}
@@ -301,7 +301,7 @@ const CheckboxFilterAcco = (props) => {
                               id="flexCheckChecked"
                             />
                             <label
-                              class="form-check-label"
+                              className="form-check-label"
                               for="flexCheckChecked"
                             >
                               8km to 10km
@@ -313,9 +313,9 @@ const CheckboxFilterAcco = (props) => {
                   </div>
                 </li>
                 <li className="nav-item">
-                  <div class="btn-group">
+                  <div className="btn-group">
                     <button
-                      class="btn btn-secondary btn-light btn-sm dropdown-toggle"
+                      className="btn btn-secondary btn-light btn-sm dropdown-toggle"
                       type="button"
                       data-bs-toggle="dropdown"
                       aria-expanded="false"
@@ -326,12 +326,12 @@ const CheckboxFilterAcco = (props) => {
                     >
                       House Habits
                     </button>
-                    <ul class="dropdown-menu">
+                    <ul className="dropdown-menu">
                       <div className="ps-2">
                         <li>
-                          <div class="form-check mt-1 mb-3">
+                          <div className="form-check mt-1 mb-3">
                             <input
-                              class="form-check-input"
+                              className="form-check-input"
                               type="checkbox"
                               
                               id="flexCheckChecked"
@@ -340,7 +340,7 @@ const CheckboxFilterAcco = (props) => {
                               onChange={handleHouseHabit1Filter1}
                             />
                             <label
-                              class="form-check-label"
+                              className="form-check-label"
                               for="flexCheckChecked"
                             >
                               Non Smoker
@@ -348,9 +348,9 @@ const CheckboxFilterAcco = (props) => {
                           </div>
                         </li>
                         <li>
-                          <div class="form-check mt-1 mb-3">
+                          <div className="form-check mt-1 mb-3">
                             <input
-                              class="form-check-input"
+                              className="form-check-input"
                               type="checkbox"
                               value=''
                               id="flexCheckChecked"
@@ -358,7 +358,7 @@ const CheckboxFilterAcco = (props) => {
                               onChange={handleHouseHabit1Filter2}
                             />
                             <label
-                              class="form-check-label"
+                              className="form-check-label"
                               for="flexCheckChecked"
                             >
                               Non Drinker
@@ -366,9 +366,9 @@ const CheckboxFilterAcco = (props) => {
                           </div>
                         </li>
                         <li>
-                          <div class="form-check mt-1">
+                          <div className="form-check mt-1">
                             <input
-                              class="form-check-input"
+                              className="form-check-input"
                               type="checkbox"
                               value=''
                               id="flexCheckChecked"
@@ -376,7 +376,7 @@ const CheckboxFilterAcco = (props) => {
                               onChange={handleHouseHabit1Filter3}
                             />
                             <label
-                              class="form-check-label"
+                              className="form-check-label"
                               for="flexCheckChecked"
                             >
                               Vegetarian

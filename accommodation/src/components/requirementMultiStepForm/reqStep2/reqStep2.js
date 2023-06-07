@@ -277,9 +277,9 @@ const ReqStep2 = () => {
           <p className="reqStep2__label-h" style={{ marginBottom: "1.15rem" }}>
             House Habit Preferences
           </p>
-          <div class="form-check" style={{ marginBottom: "1.18rem" }}>
+          <div className="form-check" style={{ marginBottom: "1.18rem" }}>
             <input
-              class="form-check-input"
+              className="form-check-input"
               type="checkbox"
               value=""
               id="flexCheckDefault"
@@ -291,13 +291,13 @@ const ReqStep2 = () => {
                 });
               }}
             />
-            <label class="form-check-label" for="flexCheckDefault">
+            <label className="form-check-label" for="flexCheckDefault">
               Non Veg
             </label>
           </div>
-          <div class="form-check" style={{ marginBottom: "1.18rem" }}>
+          <div className="form-check" style={{ marginBottom: "1.18rem" }}>
             <input
-              class="form-check-input"
+              className="form-check-input"
               type="checkbox"
               value=""
               id="flexCheckDefault"
@@ -309,13 +309,13 @@ const ReqStep2 = () => {
                 });
               }}
             />
-            <label class="form-check-label" for="flexCheckDefault">
+            <label className="form-check-label" for="flexCheckDefault">
               Smoking
             </label>
           </div>
-          <div class="form-check">
+          <div className="form-check">
             <input
-              class="form-check-input"
+              className="form-check-input"
               type="checkbox"
               value=""
               id="flexCheckDefault"
@@ -327,7 +327,7 @@ const ReqStep2 = () => {
                 });
               }}
             />
-            <label class="form-check-label" for="flexCheckDefault">
+            <label className="form-check-label" for="flexCheckDefault">
               Drinking
             </label>
           </div>

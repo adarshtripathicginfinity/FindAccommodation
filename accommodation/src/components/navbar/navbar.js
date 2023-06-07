@@ -70,23 +70,23 @@ const Navbar = () => {
           aria-labelledby="navbarDropdown"
           sx={{ width: "2px" }}
         >
-          <Link class="dropdown-item non-clickable">
+          <Link className="dropdown-item non-clickable">
             <strong>
               {data?.firstName} {data?.lastName}
             </strong>
           </Link>
-          <Link href="#" class="dropdown-item non-clickable">
+          <Link href="#" className="dropdown-item non-clickable">
             <strong style={{ color: "#565555", fontWeight: "400" }}>
               {data?.email}
             </strong>
           </Link>
-          <Link to="/accountsettings" class="dropdown-item">
+          <Link to="/accountsettings" className="dropdown-item">
             <strong style={{ color: "#565555" }}>Account Settings</strong>
           </Link>
           {/* {console.log("inside navbar")} */}
           <Link
             to="/"
-            class="dropdown-item"
+            className="dropdown-item"
             onClick={() => {
               handleLogIn();
             }}

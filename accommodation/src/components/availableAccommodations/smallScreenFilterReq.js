@@ -63,21 +63,21 @@ const SmallScreenFilterReq = (props) => {
   return (
     <>
       <div
-        class="offcanvas offcanvas-end"
+        className="offcanvas offcanvas-end"
         tabindex="-1"
         id="offcanvasRight1"
         aria-labelledby="offcanvasRightLabel"
       >
-        <div class="offcanvas-header">
+        <div className="offcanvas-header">
           <h5 id="offcanvasRightLabel">Filters</h5>
           <button
             type="button"
-            class="btn-close text-reset"
+            className="btn-close text-reset"
             data-bs-dismiss="offcanvas"
             aria-label="Close"
           ></button>
         </div>
-        <div class="offcanvas-body">
+        <div className="offcanvas-body">
           <form>
             <div className="container">
               <p
@@ -89,31 +89,31 @@ const SmallScreenFilterReq = (props) => {
               >
                 Select Accommodation Type
               </p>
-              <div class="form-check">
+              <div className="form-check">
                 <input
-                  class="form-check-input border border-primary"
+                  className="form-check-input border border-primary"
                   type="checkbox"
                   value="pg"
                   id="flexCheckChecked"
                   checked={filteroption.includes("pg")}
                   onChange={handleFilter}
                 />
-                <label class="form-check-label" for="flexCheckDefault">
+                <label className="form-check-label" for="flexCheckDefault">
                   PG
                 </label>
               </div>
 
 
-              <div class="form-check">
+              <div className="form-check">
                 <input
-                  class="form-check-input border border-primary" 
+                  className="form-check-input border border-primary" 
                         type="checkbox" 
                         id="flexCheckChecked" 
                         value="flat"
                         checked={filteroption.includes("flat")}  
                         onChange={handleFilter}
                 />
-                <label class="form-check-label" for="flexCheckChecked">
+                <label className="form-check-label" for="flexCheckChecked">
                   FLAT
                 </label>
               </div>
@@ -127,33 +127,33 @@ const SmallScreenFilterReq = (props) => {
               >
                 Select House Habits
               </p>
-              <div class="form-check">
+              <div className="form-check">
                 <input
-                  class="form-check-input border border-primary"
+                  className="form-check-input border border-primary"
                   type="checkbox"
                   value=""
                 />
-                <label class="form-check-label" for="flexCheckDefault">
+                <label className="form-check-label" for="flexCheckDefault">
                   Non Veg
                 </label>
               </div>
-              <div class="form-check">
+              <div className="form-check">
                 <input
-                  class="form-check-input  border border-primary"
+                  className="form-check-input  border border-primary"
                   type="checkbox"
                   value=""
                 />
-                <label class="form-check-label" for="flexCheckChecked">
+                <label className="form-check-label" for="flexCheckChecked">
                   Smoking
                 </label>
               </div>
-              <div class="form-check">
+              <div className="form-check">
                 <input
-                  class="form-check-input  border border-primary"
+                  className="form-check-input  border border-primary"
                   type="checkbox"
                   value=""
                 />
-                <label class="form-check-label" for="flexCheckChecked">
+                <label className="form-check-label" for="flexCheckChecked">
                   Drinking
                 </label>
               </div>
