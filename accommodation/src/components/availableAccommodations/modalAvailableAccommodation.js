@@ -49,17 +49,17 @@ const ModalAvailableAccommodation = (props) => {
   return (
     <>
       <div
-        class="modal fade"
+        className="modal fade"
         id={`exampleModal_${props.modalData.id}`}
         tabindex="-1"
         aria-labelledby="exampleModalLabel"
         aria-hidden="true"
       >
-        <div class="modal-dialog  modal-dialog-centered">
-          <div class="modal-content">
-            <div class="modal-header">
+        <div className="modal-dialog  modal-dialog-centered">
+          <div className="modal-content">
+            <div className="modal-header">
               <h5
-                class="modal-title"
+                className="modal-title"
                 style={{
                   color: "#343435",
                   fontWeight: "700",
@@ -69,13 +69,13 @@ const ModalAvailableAccommodation = (props) => {
               </h5>
               <button
                 type="button"
-                class="btn-close"
+                className="btn-close"
                 data-bs-dismiss="modal"
                 aria-label="Close"
               ></button>
             </div>
 
-            <div class="modal-body">
+            <div className="modal-body">
               <form
                 onSubmit={() => {
                   handleSubmit();
@@ -174,7 +174,7 @@ const ModalAvailableAccommodation = (props) => {
                     onChange={(e) => {
                       setMessage(e.target.value);
                     }}
-                    class="form-control modal_message-textarea"
+                    className="form-control modal_message-textarea"
                     id="exampleFormControlTextarea1"
                     rows="3"
                     placeholder="Type your message here"

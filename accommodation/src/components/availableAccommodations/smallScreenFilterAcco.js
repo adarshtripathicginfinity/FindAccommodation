@@ -91,8 +91,8 @@ const SmallScreenFilterAcco = (props) => {
               >
                 Select Accommodation Type
               </p>
-              <div class="form-check">
-                <input class="form-check-input border border-primary" 
+              <div className="form-check">
+                <input className="form-check-input border border-primary" 
                 type="checkbox" 
                 value="pg" 
                 id="flexCheckChecked" 
@@ -107,21 +107,21 @@ const SmallScreenFilterAcco = (props) => {
                 // onChange={handleFilter}
                 
                 />
-                <label class="form-check-label" for="flexCheckDefault">
+                <label className="form-check-label" for="flexCheckDefault">
                   PG
                 </label>
               </div>
 
               
-              <div class="form-check">
-                <input class="form-check-input border border-primary" 
+              <div className="form-check">
+                <input className="form-check-input border border-primary" 
                         type="checkbox" 
                         id="flexCheckChecked" 
                         value="flat"
                         checked={filteroption.includes("flat")}  
                         onChange={handleFilter}
                 />
-                <label class="form-check-label" for="flexCheckChecked">
+                <label className="form-check-label" for="flexCheckChecked">
                   FLAT
                 </label>
               </div>
@@ -137,7 +137,7 @@ const SmallScreenFilterAcco = (props) => {
               </p>
               <input
                 type="range"
-                class="form-range"
+                className="form-range"
                 min="0"
                 max="10"
                 id="customRange3"
@@ -157,33 +157,33 @@ const SmallScreenFilterAcco = (props) => {
               >
                 Select House Habits
               </p>
-              <div class="form-check">
+              <div className="form-check">
                 <input
-                  class="form-check-input border border-primary"
+                  className="form-check-input border border-primary"
                   type="checkbox"
                   value="Non-smoker"
                   checked={houseHabit1.includes("Non-smoker")}
                   onChange={()=>{handleHouseHabit1Filter1()}}
                 />
-                <label class="form-check-label" for="flexCheckDefault">
+                <label className="form-check-label" for="flexCheckDefault">
                 Smoking
                 </label>
               </div>
-              <div class="form-check">
-                <input class="form-check-input  border border-primary" type="checkbox"  value="Non-drinker"
+              <div className="form-check">
+                <input className="form-check-input  border border-primary" type="checkbox"  value="Non-drinker"
                               checked={houseHabit1.includes("Non-drinker")}
                               onChange={()=>{handleHouseHabit1Filter2()}}
                               />
-                <label class="form-check-label" for="flexCheckChecked">
+                <label className="form-check-label" for="flexCheckChecked">
                   Drinker
                 </label>
               </div>
-              <div class="form-check">
-                <input class="form-check-input  border border-primary" type="checkbox"  value="Veg"
+              <div className="form-check">
+                <input className="form-check-input  border border-primary" type="checkbox"  value="Veg"
                               checked={houseHabit1.includes("Veg")}
                               onChange={()=>{handleHouseHabit1Filter3()}}
                               />
-                <label class="form-check-label" for="flexCheckChecked">
+                <label className="form-check-label" for="flexCheckChecked">
                   Vegetarian
                 </label>
               </div>

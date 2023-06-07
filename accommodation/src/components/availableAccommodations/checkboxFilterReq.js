@@ -73,10 +73,10 @@ const CheckboxFilterReq = (props) => {
             Filter:
           </p>
         </div>
-        <nav class="navbar navbar-expand-lg navbar-light ">
-          <div class="container-fluid d-flex gap-2">
+        <nav className="navbar navbar-expand-lg navbar-light ">
+          <div className="container-fluid d-flex gap-2">
             <button
-              class="navbar-toggler"
+              className="navbar-toggler"
               type="button"
               data-bs-toggle="offcanvas"
               data-bs-target="#offcanvasRight1"
@@ -99,28 +99,28 @@ const CheckboxFilterReq = (props) => {
                 </p>
               </div>
             </button>
-            <div class="collapse navbar-collapse" id="navbarTogglerDemo01">
-              <ul class="navbar-nav">
-                <li class="nav-item">
-                  <div class="btn-group">
+            <div className="collapse navbar-collapse" id="navbarTogglerDemo01">
+              <ul className="navbar-nav">
+                <li className="nav-item">
+                  <div className="btn-group">
                     <button
                       style={{
                         backgroundColor: "#ffffff",
                         border: "1px solid #E9ECEB",
                       }}
-                      class="btn btn-secondary btn-light btn-sm dropdown-toggle"
+                      className="btn btn-secondary btn-light btn-sm dropdown-toggle"
                       type="button"
                       data-bs-toggle="dropdown"
                       aria-expanded="false"
                     >
                       Select Accommodation Type
                     </button>
-                    <ul class="dropdown-menu">
+                    <ul className="dropdown-menu">
                       <div className="ps-2">
                         <li>
-                          <div class="form-check mt-1 mb-3">
+                          <div className="form-check mt-1 mb-3">
                             <input
-                              class="form-check-input"
+                              className="form-check-input"
                               type="checkbox"
                               value="pg"
                               id="flexCheckChecked"
@@ -128,7 +128,7 @@ const CheckboxFilterReq = (props) => {
                               onChange={handleFilter}
                             />
                             <label
-                              class="form-check-label"
+                              className="form-check-label"
                               for="flexCheckChecked"
                             >
                               PG
@@ -136,9 +136,9 @@ const CheckboxFilterReq = (props) => {
                           </div>
                         </li>
                         <li>
-                          <div class="form-check mt-1">
+                          <div className="form-check mt-1">
                             <input
-                              class="form-check-input"
+                              className="form-check-input"
                               type="checkbox"
                               value="flat"
                               id="flexCheckChecked"
@@ -146,7 +146,7 @@ const CheckboxFilterReq = (props) => {
                               onChange={handleFilter}
                             />
                             <label
-                              class="form-check-label"
+                              className="form-check-label"
                               for="flexCheckChecked"
                             >
                               Flat
@@ -159,9 +159,9 @@ const CheckboxFilterReq = (props) => {
                 </li>
 
                 <li className="nav-item" style={{ marginLeft: "0.56rem" }}>
-                  <div class="btn-group">
+                  <div className="btn-group">
                     <button
-                      class="btn btn-secondary btn-light btn-sm dropdown-toggle"
+                      className="btn btn-secondary btn-light btn-sm dropdown-toggle"
                       type="button"
                       data-bs-toggle="dropdown"
                       aria-expanded="false"
@@ -172,12 +172,12 @@ const CheckboxFilterReq = (props) => {
                     >
                       House Habits
                     </button>
-                    <ul class="dropdown-menu">
+                    <ul className="dropdown-menu">
                       <div className="ps-2">
                         <li>
-                          <div class="form-check mt-1 mb-3">
+                          <div className="form-check mt-1 mb-3">
                             <input
-                              class="form-check-input"
+                              className="form-check-input"
                               type="checkbox"
                               value="Non-smoker"
                               id="flexCheckChecked"
@@ -185,7 +185,7 @@ const CheckboxFilterReq = (props) => {
                               onChange={handleHouseHabit1Filter1}
                             />
                             <label
-                              class="form-check-label"
+                              className="form-check-label"
                               for="flexCheckChecked"
                             >
                               Non Smoker
@@ -193,9 +193,9 @@ const CheckboxFilterReq = (props) => {
                           </div>
                         </li>
                         <li>
-                          <div class="form-check mt-1 mb-3">
+                          <div className="form-check mt-1 mb-3">
                             <input
-                              class="form-check-input"
+                              className="form-check-input"
                               type="checkbox"
                               value="Non-drinker"
                               id="flexCheckChecked"
@@ -203,7 +203,7 @@ const CheckboxFilterReq = (props) => {
                               onChange={handleHouseHabit1Filter2}
                             />
                             <label
-                              class="form-check-label"
+                              className="form-check-label"
                               for="flexCheckChecked"
                             >
                               Non Drinker
@@ -211,9 +211,9 @@ const CheckboxFilterReq = (props) => {
                           </div>
                         </li>
                         <li>
-                          <div class="form-check mt-1">
+                          <div className="form-check mt-1">
                             <input
-                              class="form-check-input"
+                              className="form-check-input"
                               type="checkbox"
                               value="Veg"
                               id="flexCheckChecked"
@@ -221,7 +221,7 @@ const CheckboxFilterReq = (props) => {
                               onChange={handleHouseHabit1Filter3}
                             />
                             <label
-                              class="form-check-label"
+                              className="form-check-label"
                               for="flexCheckChecked"
                             >
                               Vegetarian

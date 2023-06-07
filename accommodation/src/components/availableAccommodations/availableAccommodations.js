@@ -184,8 +184,8 @@ const AvailableAccommodations = (props) => {
             
 
             <nav aria-label="breadcrumb" style={{marginTop:'1.1rem'}}>
-              <ol class="breadcrumb">
-                <li class="breadcrumb-item d-none d-md-flex">
+              <ol className="breadcrumb">
+                <li className="breadcrumb-item d-none d-md-flex">
                   <Link
                     to="/landingpage"
                     style={{ textDecoration: "none", marginBottom: "0rem" }}
@@ -193,7 +193,7 @@ const AvailableAccommodations = (props) => {
                     Home
                   </Link>
                 </li>
-                <li class="breadcrumb-item d-flex d-md-none">
+                <li className="breadcrumb-item d-flex d-md-none">
                   <Link
                     to="/landingpage"
                     style={{ textDecoration: "none", marginBottom: "0rem" }}
@@ -202,7 +202,7 @@ const AvailableAccommodations = (props) => {
                   </Link>
                 </li>
                 <li
-                  class="breadcrumb-item active"
+                  className="breadcrumb-item active"
                   aria-current="page"
                   style={{ width: "84%" }}
                 >
@@ -310,7 +310,7 @@ const AvailableAccommodations = (props) => {
               {activeBtn === true ? (
                 <div className="col-8 col-sm-4">
                   <div
-                    class="d-flex border w-sm-100 w-100 px-3"
+                    className="d-flex border w-sm-100 w-100 px-3"
                     style={{
                       backgroundColor: "#ffffff",
                       borderRadius: "0.25rem",
@@ -323,12 +323,12 @@ const AvailableAccommodations = (props) => {
 
                     <input
                       type="text"
-                      class="form-control form-input no-border"
+                      className="form-control form-input no-border"
                       value={mapaddress}
                       onChange={findAddressmap}
                       style={{ border: "none", outlineStyle: "none" }}
                     />
-                    <span class="left-pan mt-1 d-none d-md-flex">
+                    <span className="left-pan mt-1 d-none d-md-flex">
                       <img src={search} alt="img" />
                     </span>
                   </div>
@@ -336,7 +336,7 @@ const AvailableAccommodations = (props) => {
               ) : (
                 <div className="col-8 col-sm-4">
                   <div
-                    class="d-flex border w-sm-100 w-100 px-3"
+                    className="d-flex border w-sm-100 w-100 px-3"
                     style={{
                       backgroundColor: "#ffffff",
                       borderRadius: "0.25rem",
@@ -349,7 +349,7 @@ const AvailableAccommodations = (props) => {
 
                     <input
                       type="text"
-                      class="form-control form-input no-border"
+                      className="form-control form-input no-border"
                       onChange={findAddressmap}
                       style={{ border: "none", outlineStyle: "none" }}
                       placeholder="Select locality"

@@ -153,47 +153,47 @@ const ReqStep1 = () => {
             />
           </div>
 
-          <div class="row" style={{ marginTop: "1.5rem" }}>
+          <div className="row" style={{ marginTop: "1.5rem" }}>
             <div className="col-12 p_color">Roommate/Flatmate preference</div>
-            <div class="col" style={{ marginTop: "0.87rem" }}>
-              <div class="form-check">
+            <div className="col" style={{ marginTop: "0.87rem" }}>
+              <div className="form-check">
                 <input
-                  class="form-check-input"
+                  className="form-check-input"
                   type="radio"
                   name="gender"
                   value="boys"
                   id="boysRadio"
                 />
-                <label class="form-check-label" for="boysRadio">
-                  <span class="radio-custom p_color"></span> Boys Only
+                <label className="form-check-label" for="boysRadio">
+                  <span className="radio-custom p_color"></span> Boys Only
                 </label>
               </div>
             </div>
-            <div class="col" style={{ marginTop: "0.87rem" }}>
-              <div class="form-check">
+            <div className="col" style={{ marginTop: "0.87rem" }}>
+              <div className="form-check">
                 <input
-                  class="form-check-input"
+                  className="form-check-input"
                   type="radio"
                   name="gender"
                   value="girls"
                   id="girlsRadio"
                 />
-                <label class="form-check-label" for="girlsRadio">
-                  <span class="radio-custom p_color"></span> Girls Only
+                <label className="form-check-label" for="girlsRadio">
+                  <span className="radio-custom p_color"></span> Girls Only
                 </label>
               </div>
             </div>
-            <div class="col" style={{ marginTop: "0.87rem" }}>
-              <div class="form-check">
+            <div className="col" style={{ marginTop: "0.87rem" }}>
+              <div className="form-check">
                 <input
-                  class="form-check-input"
+                  className="form-check-input"
                   type="radio"
                   name="gender"
                   value="both"
                   id="bothRadio"
                 />
-                <label class="form-check-label" for="bothRadio">
-                  <span class="radio-custom p_color"></span> Both
+                <label className="form-check-label" for="bothRadio">
+                  <span className="radio-custom p_color"></span> Both
                 </label>
               </div>
             </div>

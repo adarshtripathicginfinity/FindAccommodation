@@ -23,9 +23,9 @@ const EditPost = () => {
               </p>
             </div>
 
-            <div class="form-check form-switch">
+            <div className="form-check form-switch">
               <input
-                class="form-check-input"
+                className="form-check-input"
                 type="checkbox"
                 id="flexSwitchCheckDefault"
                 checked={lookAcc}
@@ -44,9 +44,9 @@ const EditPost = () => {
                 I am looking for a roommate
               </p>
             </div>
-            <div class="form-check form-switch">
+            <div className="form-check form-switch">
               <input
-                class="form-check-input"
+                className="form-check-input"
                 type="checkbox"
                 id="flexSwitchCheckDefault"
                 checked={lookRoommate}
@@ -76,9 +76,9 @@ const EditPost = () => {
                 I am looking for a roommate
               </p>
             </div>
-            <div class="form-check form-switch">
+            <div className="form-check form-switch">
               <input
-                class="form-check-input"
+                className="form-check-input"
                 type="checkbox"
                 id="flexSwitchCheckDefault"
                 checked={lookRequirement}

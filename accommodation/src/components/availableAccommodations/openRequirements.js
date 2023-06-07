@@ -175,17 +175,17 @@ const OpenRequirements = (props) => {
 
                 {/* Modal */}
                 <div
-                  class="modal fade"
+                  className="modal fade"
                   id="exampleModal"
                   tabindex="-1"
                   aria-labelledby="exampleModalLabel"
                   aria-hidden="true"
                 >
-                  <div class="modal-dialog  modal-dialog-centered">
-                    <div class="modal-content">
-                      <div class="modal-header">
+                  <div className="modal-dialog  modal-dialog-centered">
+                    <div className="modal-content">
+                      <div className="modal-header">
                         <h5
-                          class="modal-title"
+                          className="modal-title"
                           style={{
                             color: "#343435",
                             fontWeight: "700",
@@ -195,13 +195,13 @@ const OpenRequirements = (props) => {
                         </h5>
                         <button
                           type="button"
-                          class="btn-close"
+                          className="btn-close"
                           data-bs-dismiss="modal"
                           aria-label="Close"
                         ></button>
                       </div>
 
-                      <div class="modal-body">
+                      <div className="modal-body">
                         <form>
                           <div className="row mb-3">
                             <div className="d-flex">
@@ -299,7 +299,7 @@ const OpenRequirements = (props) => {
                                   value=""
                                   onChange=""
                                   placeholder="Type your message here"
-                                  class="form-control"
+                                  className="form-control"
                                   id="exampleFormControlTextarea1"
                                   rows="3"
                                 ></textarea>
@@ -328,7 +328,7 @@ const OpenRequirements = (props) => {
                   id="offcanvasRight"
                   aria-labelledby="offcanvasRightLabel"
                 >
-                  <div class="offcanvas-header d-flex justify-content-end mb-0">
+                  <div className="offcanvas-header d-flex justify-content-end mb-0">
                     <button
                       type="button"
                       className="btn-close"
@@ -336,7 +336,7 @@ const OpenRequirements = (props) => {
                       aria-label="Close"
                     ></button>
                   </div>
-                  <div class="offcanvas-body mt-0">
+                  <div className="offcanvas-body mt-0">
                     <div className="row">
                       <div className="col 12">
                         <div>

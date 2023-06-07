@@ -62,7 +62,7 @@ const OffcanvusAvailableAccommodation = (props) => {
         id={`exampleOffCanvas_${props.canvasData.id}`}
         aria-labelledby="offcanvasRightLabel"
       >
-        <div class="offcanvas-header d-flex justify-content-end mb-0">
+        <div className="offcanvas-header d-flex justify-content-end mb-0">
           <button
             type="button"
             className="btn-close"
@@ -70,7 +70,7 @@ const OffcanvusAvailableAccommodation = (props) => {
             aria-label="Close"
           ></button>
         </div>
-        <div class="offcanvas-body" style={{ padding: "0" }}>
+        <div className="offcanvas-body" style={{ padding: "0" }}>
           <div className="container-fluid">
             <div className="row">
               <div className="col 12">
