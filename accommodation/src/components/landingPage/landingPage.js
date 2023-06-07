@@ -371,7 +371,7 @@ const LandingPage = (props) => {
                     { data.isrequestaccepted ? 
                       <div className="container-fluid notification_accepted_container" style={{padding:"0.75rem 0.75rem 1rem 1rem"}}>
                         <div className="row">
-                          <div className="col-1">
+                          <div className="col-1" style={{marginRight:'1rem'}}>
                             <img src={data.profileimage} width="40px" height="40px" style={{borderRadius: "50%"}} alt="img"/>
                           </div>
                           <div className="col">
@@ -388,7 +388,7 @@ const LandingPage = (props) => {
                       : 
                         <div className="container-fluid notification_unaccepted_container" style={{padding:"0.75rem 0.75rem 1rem 1rem"}}>
                         <div className="row">
-                          <div className="col-1">
+                          <div className="col-1" style={{marginRight:'1rem'}}>
                             <img src={data.profileimage} width="40px" height="40px" style={{borderRadius: "50%"}} alt="img"/>
                           </div>
                           <div className="col">

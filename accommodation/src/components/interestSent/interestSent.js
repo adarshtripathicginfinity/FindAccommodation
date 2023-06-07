@@ -105,7 +105,7 @@ const InterestSent = (props) => {
                       padding: 0,
                       marginLeft: "0.37rem",
                     }}
-                    placeholder="Search for Locality"
+                    placeholder="Search by Locality"
                     onChange={(e) => handleSearchLocality(e)}
                   />
                   
