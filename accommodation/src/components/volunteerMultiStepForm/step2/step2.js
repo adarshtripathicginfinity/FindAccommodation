@@ -212,7 +212,6 @@ const Step2 = () => {
                   <button
                   className="prev-btn"
                     type="button"
-                    class="prev-btn"
                     onClick={()=>{
                       previous();
                     }}

@@ -274,12 +274,12 @@ const OpenAccommodation = (props) => {
 
                             <input
                               type="text"
-                              class="form-control form-input no-border"
+                              className="form-control form-input no-border"
                               value={activeBtn === true ? mapaddress : ""}
                               onChange={findAddressmap}
                               style={{ border: "none", outlineStyle: "none" }}
                             />
-                            <span class="left-pan mt-1">
+                            <span className="left-pan mt-1">
                               <img src={search} alt="img" />
                             </span>
                           </div>
@@ -442,17 +442,17 @@ const OpenAccommodation = (props) => {
                             </div>
 
                             <div
-                              class="modal fade"
+                              className="modal fade"
                               id="exampleModal"
                               tabindex="-1"
                               aria-labelledby="exampleModalLabel"
                               aria-hidden="true"
                             >
-                              <div class="modal-dialog">
-                                <div class="modal-content">
-                                  <div class="modal-header">
+                              <div className="modal-dialog">
+                                <div className="modal-content">
+                                  <div className="modal-header">
                                     <h5
-                                      class="modal-title"
+                                      className="modal-title"
                                       style={{
                                         color: "#343435",
                                         fontWeight: "700",
@@ -462,13 +462,13 @@ const OpenAccommodation = (props) => {
                                     </h5>
                                     <button
                                       type="button"
-                                      class="btn-close"
+                                      className="btn-close"
                                       data-bs-dismiss="modal"
                                       aria-label="Close"
                                     ></button>
                                   </div>
 
-                                  <div class="modal-body">
+                                  <div className="modal-body">
                                     <form onSubmit={handleSubmit}>
                                       <div className="row mb-3">
                                         <div className="d-flex">

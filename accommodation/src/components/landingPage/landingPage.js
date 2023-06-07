@@ -299,7 +299,7 @@ const LandingPage = (props) => {
 
                 <div className="scroll-bar">
                   {interestData.length !== 0 ? (
-                    interestData.slice(0, maxInterestToShow).map((data) => (
+                    interestData.slice(0, maxInterestToShow).map((data,index) => (
                       <div
                         key={data.id}
                         className="col interest__container"

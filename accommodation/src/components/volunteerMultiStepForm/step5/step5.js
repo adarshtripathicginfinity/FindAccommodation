@@ -237,7 +237,6 @@ const Step5 = () => {
                 <button
                   className="prev-btn"
                   type="button"
-                  class="prev-btn"
                   onClick={()=>{previous()}}
                   style={{ width: "100%" }}
                 >

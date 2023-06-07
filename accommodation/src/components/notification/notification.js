@@ -46,14 +46,14 @@ function merge() {
             <div className="container-fluid">
                 <div className="row" style={{marginTop: "1%"}}>
                     <nav aria-label="breadcrumb">
-                        <ol class="breadcrumb">
-                            <li class="breadcrumb-item">
+                        <ol className="breadcrumb">
+                            <li className="breadcrumb-item">
                                 <Link 
                                     to="/landingpage">
                                     Home
                                 </Link>
                             </li>
-                            <li class="breadcrumb-item active" aria-current="page">
+                            <li className="breadcrumb-item active" aria-current="page">
                                 Notifications
                             </li>
                         </ol>
