@@ -93,7 +93,7 @@ const Step1 = () => {
             <form onSubmit={e => { e.preventDefault(); }}>
                 <div className="row ">
                   <div className=" col-md-3">
-                    <img src={userData.profileUrl || dummyProfile} alt="profile" id="profilePic" />
+                    <img src={userData.profileImage || dummyProfile} alt="profile" id="profilePic" />
                   </div>
 
                 <div className=" col-md-5" style={{}}>

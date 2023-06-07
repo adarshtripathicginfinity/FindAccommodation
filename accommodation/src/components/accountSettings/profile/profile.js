@@ -1,22 +1,28 @@
-import React , { useState } from 'react'
+import React , { useState, useContext } from 'react'
 import FileUploadButton from '../../fileUploadButton/fileUploadButton';
 import dummyProfile from "../../../images/dummyProfile.svg";
+import { MultiStepContext } from "../../stepContext/stepContext";
 import "./profile.css"
 
 
 const Profile = () => {
+
+  const {userData,setUserData}=useContext(MultiStepContext);
+  
   const [userInfo, setUserInfo] = useState(JSON.parse( localStorage.getItem("userData")));
+
   const [contact,setContact] = useState("")
   // const [id, setId] = useState();
 
   const [contactNumber, setContactNumber] = useState();
   const [isContactNumberValid, setIsContactNumberValid] = useState(false);
+
   return (
     <div className='container-fluid' style={{marginLeft:"1.25rem",marginRight:"4rem"}}>
          <div className="row ">
          <p className='profile__heading'>Your Profile</p>
                   <div className=" col-md-2">
-                    <img src={userInfo?.profileImage || dummyProfile} alt="profile" id="profilePic" />
+                    <img src={userData?.profileImage || dummyProfile} alt="profile" id="profilePic" />
                   </div>
 
                 <div className=" col-md-3" style={{}}>
@@ -26,7 +32,7 @@ const Profile = () => {
                     <p> {userInfo.email}</p>
                   </p>
                   
-                    <FileUploadButton file="Volunteer" type="Change"/>              
+                    <FileUploadButton file="Volunteer" type="Change" />              
                 </div>
               </div>
 
