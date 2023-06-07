@@ -1,9 +1,10 @@
-import React, { useContext, useRef } from 'react';
+import React, { Profiler, useContext, useRef } from 'react';
 import { useState } from 'react';
 import camera from "../../images/camera.svg";
 import { storage } from "../../config/firebase";
 import {ref,uploadBytes,getDownloadURL} from "firebase/storage";
 import { MultiStepContext } from "../stepContext/stepContext";
+
 
 function FileUploadButton(props) {
 
@@ -19,7 +20,6 @@ function FileUploadButton(props) {
 
   const handleFileChange = (event) => {
     const file = event.target.files[0];
-    // Do something with the selected file
   };
 
   const handleImageUpload = (data) => {
@@ -31,7 +31,7 @@ function FileUploadButton(props) {
     uploadBytes(imageRef, data.target.files[0]).then((snapshot) => {
       getDownloadURL(snapshot.ref).then((url) => {
 
-        props.file === "Volunteer" ? setUserData({...userData, profileUrl:url}) : setRequirementData({...requirementData, profileUrl:url});
+        props.file === "Volunteer" ? setUserData({...userData, profileImage:url}) : setRequirementData({...requirementData, profileUrl:url});
       });
     });
   };

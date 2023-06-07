@@ -105,7 +105,7 @@ const InterestSent = (props) => {
                       padding: 0,
                       marginLeft: "0.37rem",
                     }}
-                    placeholder="Select locality"
+                    placeholder="Search for Locality"
                     onChange={(e) => handleSearchLocality(e)}
                   />
                   
@@ -140,7 +140,7 @@ const InterestSent = (props) => {
             </div>
             { toggleSearch ? (
             <div className="scroll-bar" style={{height:"800px"}}>
-            <div className="row-cols-2 row" style={{marginTop: "1%"}}>
+            <div className="row-cols-1 row" style={{margin:"1rem 18rem"}}>
               { filteredInterestData.map((data) => (
                 <div className="col" >
                   <div
@@ -188,7 +188,7 @@ const InterestSent = (props) => {
             </div>
             ) : 
             ( <div className="scroll-bar" style={{height:"800px"}}>
-              <div className="row-cols-2 row" style={{marginTop: "1%"}}>
+              <div className="row-cols-1 row" style={{margin:"1rem 18rem"}}>
               {interestData.map((data) => (
                 <div className="col" >
                   <div
