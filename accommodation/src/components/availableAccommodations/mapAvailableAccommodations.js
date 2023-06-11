@@ -9,8 +9,6 @@ import OffcanvusAvailableAccommodation from "./offcanvusAvailableAccommodation";
 import ModalAvailableAccommodation from "./modalAvailableAccommodation";
 
 const MapAvailableAccommodations = (props) => {
-  
-
   function checkAccType(info) {
     if (info["1rk"] == true) {
       return "1 RK";
@@ -86,7 +84,16 @@ const MapAvailableAccommodations = (props) => {
                     <div className="p-3">
                       <div className="d-flex mb-3">
                         <div className="me-2">
-                          <img src={data.profileimage} alt="profile" style={{float: "left", height: "40px", width: "40px", borderRadius: "50%"}}/>
+                          <img
+                            src={data.profileimage}
+                            alt="profile"
+                            style={{
+                              float: "left",
+                              height: "40px",
+                              width: "40px",
+                              borderRadius: "50%",
+                            }}
+                          />
                         </div>
                         <div className="ms-1">
                           <div
@@ -116,7 +123,6 @@ const MapAvailableAccommodations = (props) => {
                         </p>
                       </div>
 
-                      
                       <div className="d-flex mb-3">
                         <div
                           className="me-3 nearby-location"
@@ -153,13 +159,16 @@ const MapAvailableAccommodations = (props) => {
                           Accommodation Type:
                         </p>
                         <p>
-                         
-                          {data.acctypename} | {checkAccType(data)}  {data.acctypename == "flat" ? `| ${checkFurnished(data)}` : checkFurnished(data) } 
+                          {data.acctypename} | {checkAccType(data)}{" "}
+                          {data.acctypename == "flat"
+                            ? `| ${checkFurnished(data)}`
+                            : checkFurnished(data)}
                         </p>
                         <div className="d-flex">
                           <img src={greencheck} alt="logo" />
                           <p className="availableAcco__card-p-green" style={{}}>
-                            I am looking for a {data.isroommate ? "room mate": "flat mate"}
+                            I am looking for a{" "}
+                            {data.isroommate ? "room mate" : "flat mate"}
                           </p>
                         </div>
                       </div>
@@ -167,15 +176,22 @@ const MapAvailableAccommodations = (props) => {
                         <button
                           className="border-0 py-2 px-3 w-100 interested"
                           data-bs-toggle="modal"
-                          data-bs-target= {`#exampleModal_${data.id}`}
+                          data-bs-target={`#exampleModal_${data.id}`}
                         >
                           I'm interested
                         </button>
                       </div>
+                      <div>
+                        <p style={{color:'blue'}}>Report this user</p>
+                      </div>
                     </div>
                   </div>
-                  <ModalAvailableAccommodation modalData= {props.AccData[index]}   />
-                  <OffcanvusAvailableAccommodation canvasData = {props.AccData[index]} />
+                  <ModalAvailableAccommodation
+                    modalData={props.AccData[index]}
+                  />
+                  <OffcanvusAvailableAccommodation
+                    canvasData={props.AccData[index]}
+                  />
                 </div>
               ))}
             </div>
