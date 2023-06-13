@@ -15,7 +15,7 @@ import FileUploadButton from "../../fileUploadButton/fileUploadButton";
 
 const Step1 = () => {
   useEffect(() => {
-    setIsIdValid(userData["CGI"]);
+    setIsIdValid(userData["cgiId"]);
     setIsContactNumberValid(userData["contact"]);
   }, []);
   const { currentIndex, setCurrentIndex, next, userData, setUserData } =
@@ -35,7 +35,7 @@ const Step1 = () => {
     value = value.toUpperCase();
     setId(value);
     setIsIdValid(/^(CGI|INT)([1-9]\d{0,3})$/.test(value) ? true : false);
-    setUserData({ ...userData, CGI: value });
+    setUserData({ ...userData, cgiId: value });
   
   };
 
@@ -118,7 +118,7 @@ const Step1 = () => {
                         ? "form-control input-error"
                         : "form-control"
                     }
-                    value={userData["CGI"]}
+                    value={userData["cgiId"]}
                     onChange={(e) => handleIdChange(e)}
                   />
 

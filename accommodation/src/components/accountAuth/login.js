@@ -58,7 +58,7 @@ const Login = () => {
     setPassword(value);
     setIsPasswordValid(
       /^(?=.*\d)(?=.*[a-z])(?=.*[A-Z])(?=.*[@#$%^&+=]).{8,}$/.test(value) ||
-        !value.length >= 8
+        value.length >= 8
         ? true
         : false
     );

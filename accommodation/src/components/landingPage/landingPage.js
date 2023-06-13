@@ -74,8 +74,8 @@ const LandingPage = (props) => {
 
   function merge() {
     let mergedNotificationsData = [
-      ...acceptedNotifications,
-      ...unAcceptedNotifications,
+     acceptedNotifications,
+      unAcceptedNotifications,
     ];
     mergedNotificationsData.sort((a, b) => {
       return b.createdate - a.createdate;
@@ -288,7 +288,7 @@ const LandingPage = (props) => {
                   Interest Sent
                   <span
                     className={
-                      interestData.length === 0 ? "d-none" : "showLink"
+                      interestData?.length === 0 ? "d-none" : "showLink"
                     }
                   >
                     <Link to="/interestsent" style={{ fontSize: "16px" }}>
@@ -298,8 +298,8 @@ const LandingPage = (props) => {
                 </p>
 
                 <div className="scroll-bar">
-                  {interestData.length !== 0 ? (
-                    interestData.slice(0, maxInterestToShow).map((data,index) => (
+                  {interestData?.length !== 0 ? (
+                    interestData?.map((data,index) => (
                       <div
                         key={data.id}
                         className="col interest__container"
@@ -353,7 +353,7 @@ const LandingPage = (props) => {
                   Notifications
                   <span
                     className={
-                      notificationData.length === 0 ? "d-none" : "showLink"
+                      notificationData?.length === 0 ? "d-none" : "showLink"
                     }
                   >
                     <Link to="/notifications" style={{ fontSize: "16px" }}>
@@ -362,13 +362,13 @@ const LandingPage = (props) => {
                   </span>
                 </p>
                 <div className="scroll-bar">
-                  { !loading ? notificationData.map((data) => (
+                  { notificationData?.length !== 0 && !loading ? notificationData?.map((data) => (
                     <div
                     
-                      key={data.id}
+                      key={data?.id}
                       style={{ marginBottom: "1rem" }}
                     >
-                    { data.isrequestaccepted ? 
+                    { data?.isrequestaccepted ? 
                       <div className="container-fluid notification_accepted_container" style={{padding:"0.75rem 0.75rem 1rem 1rem"}}>
                         <div className="row">
                           <div className="col-1" style={{marginRight:'1rem'}}>
@@ -389,11 +389,11 @@ const LandingPage = (props) => {
                         <div className="container-fluid notification_unaccepted_container" style={{padding:"0.75rem 0.75rem 1rem 1rem"}}>
                         <div className="row">
                           <div className="col-1" style={{marginRight:'1rem'}}>
-                            <img src={data.profileimage} width="40px" height="40px" style={{borderRadius: "50%"}} alt="img"/>
+                            {/* <img src={data.profileimage} width="40px" height="40px" style={{borderRadius: "50%"}} alt="img"/> */}
                           </div>
                           <div className="col">
                             <div>
-                              <strong>{data.firstname} {data.lastname}</strong> has express interest on your
+                              <strong>{data?.firstname} {data?.lastname}</strong> has express interest on your
                               accommodation posting
                             </div>
                             <div><span style={{color: "#007FD3"}}><strong>Show Message</strong></span></div>

@@ -10,7 +10,7 @@ const Step5 = () => {
   const { previous, submitForm ,userData,setUserData} = useContext(MultiStepContext);
   const navigate = useNavigate();
   function handleSubmit(){
-    axios.post("https://cg-accommodation.azurewebsites.net/createAccommodation", { userData})
+    axios.post("https://cg-accommodation.azurewebsites.net/createAccommodation",  userData)
   .then((response) => {
     console.log(response.data);
     navigate("/postSuccess");
